@@ -1,0 +1,29 @@
+commit 5d700a29e3bfcd70ee1fe81f8aaa18bbfc39270e
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Tue Mar 8 16:35:37 2016 -0600
+
+    Updated .travis.yml and makefile. touched UML.pdf
+
+commit c5b616b55b84bb57428f8b56691ee418e5e8dd16
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Tue Mar 8 15:58:38 2016 -0600
+
+    Basic db setup complete. Added shell files for the rest of the project phase.
+
+commit bd8a5cfa4a28dfe4ea7d5a5427446e1ccbe60d33
+Author: crakkerjak <timaeus@utexas.edu>
+Date:   Tue Mar 8 15:17:29 2016 -0600
+
+    Transferring API Description file from Apiary.io
+
+commit adecaa8a971ee1c2635310bd6540eca5c2278b35
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Mon Mar 7 19:49:54 2016 -0600
+
+    Prep work for database.
+
+commit 6592060148a2246619a7866261ef14bf60565302
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Mon Mar 7 14:51:52 2016 -0600
+
+    Added Bootstrap, shell index.html, and requirements.txt (for Rackspace, later)
