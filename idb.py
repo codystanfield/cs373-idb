@@ -1,38 +1,50 @@
-
-# To use SQLAlchemy in a declarative way with your application, you just have to
-# put the following code into your application module. Flask will automatically
-# remove database sessions at the end of the request or when the application
-# shuts down:
-# http://flask.pocoo.org/docs/0.10/patterns/sqlalchemy/
-# from database import db_session
-#
-# @app.teardown_appcontext
-# def shutdown_session(exception=None):
-#     db_session.remove()
-
-# all the imports
+# imports
 import psycopg2
 from flask import Flask, request, session, g, redirect, url_for, \
-     abort, render_template, flash
+          abort, render_template, flash
+from flask.ext.sqlalchemy import SQLAlchemy
+from database import SQLALCHEMY_DATABASE_URI
+from database import db_session
 
-# configuration
-DATABASE = '/tmp/flaskr.db'
-DEBUG = True
-SECRET_KEY = 'development key'
-USERNAME = 'admin'
-PASSWORD = 'default'
 
 # create our little application :)
 app = Flask(__name__)
 app.config.from_object(__name__)
-# or load environment variables from file:
-# app.config.from_envvar('FLASKR_SETTINGS', silent=True)
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 
 
 def connect_db():
-    return psycopg2.connect(app.config['DATABASE'])
+  return SQLAlchemy(app)
 
-def connect_db():
+
+# remove database sessions at the end of the request or when the application
+# shuts down:
+# http://flask.pocoo.org/docs/0.10/patterns/sqlalchemy/
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+  db_session.remove()
+
+# http://flask.pocoo.org/docs/0.10/tutorial/dbcon/
+@app.before_request
+def before_request():
+  g.db = connect_db()
+
+
+@app.teardown_request
+def teardown_request(exception):
+  db = getattr(g, 'db', None)
+  if db is not None:
+    db.close()
+
+
+# example route and function from here:
+# http://flask.pocoo.org/docs/0.10/tutorial/views/
+@app.route('/')
+def show_entries():
+  cur = g.db.execute('select title, text from entries order by id desc')
+  entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
+  return render_template('show_entries.html', entries=entries)
+
 
 if __name__ == '__main__':
-    app.run()
+  app.run()
