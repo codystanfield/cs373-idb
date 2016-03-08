@@ -1,7 +1,7 @@
 # imports
 import psycopg2
 from flask import Flask, request, session, g, redirect, url_for, \
-          abort, render_template, flash
+                  abort, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 from database import SQLALCHEMY_DATABASE_URI
 from database import db_session
