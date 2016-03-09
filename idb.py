@@ -12,9 +12,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 
-
-def connect_db():
-  return SQLAlchemy(app)
+db = SQLAlchemy(app)
 
 
 # remove database sessions at the end of the request or when the application
