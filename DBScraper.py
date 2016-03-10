@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
-import json, requests
+import json, pickle, requests, time
 
 
-class Cocktail(object):    
+class Cocktail(object):
     def __init__(self, name):
         self.name = name
         
-    
     def __str__(self):
         result = 'Name: {0}, '.format(self.name)
         result += 'Glass: {0}, '.format(self.glass)
@@ -69,15 +68,17 @@ def get_all_cocktails(cocktail_list):
             cocktails.append(c)
             numCocktails += 1
             print(numCocktails)
+            time.sleep(5)   # Throttle the downloads
             
-            # TODO: should really throttle this
-        
         return cocktails
     
     
 def main():
     cocktail_list = get_list_of_cocktails()
     cocktails = get_all_cocktails(cocktail_list)
+    
+    with open('cocktails.pkl', 'wb') as output:
+        pickle.dump(cocktails, output, pickle.HIGHEST_PROTOCOL)
         
         
 if __name__ == '__main__':
