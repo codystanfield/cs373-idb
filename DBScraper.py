@@ -52,7 +52,7 @@ def get_all_cocktails(cocktail_list):
             ingredients = []
             for i in range(1, 15):
                 ingredient = dictionary['strIngredient{0}'.format(i)]
-                if ingredient == '':
+                if ingredient == '' or ingredient is None:
                     break
                 ingredients.append((ingredient, dictionary['strMeasure{0}'.format(i)]))
             c.ingredients = ingredients
