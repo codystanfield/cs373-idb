@@ -35,6 +35,14 @@ def moscow_mule():
   # entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
   return render_template('moscow_mule.html')#, entries=entries)
 
+@app.route('/white_russian')
+def white_russian():
+  return render_template('white_russian.html')#, entries=entries)
+
+@app.route('/mojito')
+def mojito():
+  return render_template('mojito.html')#, entries=entries)
+
 # example route and function from here:
 # http://flask.pocoo.org/docs/0.10/tutorial/views/
 @app.route('/')
