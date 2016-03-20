@@ -24,80 +24,71 @@ class TestIdb (TestCase) :
         glass   = "Glass"
         recipe  = "Vodka Sprite Recipe"
         cocktail = Cocktail(name, glass, recipe)
-        self.assertEqual(name,  cocktail.name)
-        self.assertEqual(glass,  cocktail.glass)
-        self.assertEqual(recipe,  cocktail.recipe)
-        self.assertEqual(None,  cocktail.image)
+        self.assertEqual(name, cocktail.name)
+        self.assertEqual(glass, cocktail.glass)
+        self.assertEqual(recipe, cocktail.recipe)
+        self.assertEqual(None, cocktail.image)
 
     def test_cocktail_init_2 (self) :
-        name    = "Vodka Sprite"
-        glass   = "Glass"
-        recipe  = "Vodka Sprite Recipe"
-        cocktail = Cocktail(self, name, glass, recipe)
-        self.assertEqual(name,  cocktail.name)
-        self.assertEqual(glass,  cocktail.glass)
-        self.assertEqual(recipe,  cocktail.recipe)
-        self.assertEqual(None,  cocktail.image)
+        name    = "Moscow Mule"
+        glass   = "Cup"
+        recipe  = "Moscow Mule Recipe"
+        cocktail = Cocktail(name, glass, recipe)
+        self.assertEqual(name, cocktail.name)
+        self.assertEqual(glass, cocktail.glass)
+        self.assertEqual(recipe, cocktail.recipe)
+        self.assertEqual(None, cocktail.image)
 
     def test_cocktail_init_3 (self) :
-        name    = "Vodka Sprite"
-        glass   = "Glass"
-        recipe  = "Vodka Sprite Recipe"
-        cocktail = Cocktail(self, name, glass, recipe)
-        self.assertEqual(name,  cocktail.name)
-        self.assertEqual(glass,  cocktail.glass)
-        self.assertEqual(recipe,  cocktail.recipe)
-        self.assertEqual(None,  cocktail.image)
+        name    = "Bloody Mary"
+        glass   = "Flute"
+        recipe  = "Bloody Mary Recipe"
+        cocktail = Cocktail(name, glass, recipe)
+        self.assertEqual(name, cocktail.name)
+        self.assertEqual(glass, cocktail.glass)
+        self.assertEqual(recipe, cocktail.recipe)
+        self.assertEqual(None, cocktail.image)
 
     # ----------
     # cocktail__repr__
     # ----------
 
     def test_cocktail_repr_1(self) :
-        name    = "Vodka Sprite"
-        glass   = "Glass"
-        recipe  = "Vodka Sprite Recipe"
-        cocktail = Cocktail(self, name, glass, recipe)
-        drink = cocktail.__repr__(self)
-        self.assertEqual("<Cocktail Vodka Sprite>", drink)
+        cocktail = Cocktail("Vodka Sprite", "Glass", "Vodka Sprite Recipe")
+        drink = cocktail.__repr__()
+        self.assertEqual("<Cocktail 'Vodka Sprite'>", drink)
 
     def test_cocktail_repr_2 (self) :
-        name    = "Vodka Sprite"
-        glass   = "Glass"
-        recipe  = "Vodka Sprite Recipe"
-        cocktail = Cocktail(self, name, glass, recipe)
-        drink = cocktail.__repr__(self)
-        self.assertEqual("<Cocktail Vodka Sprite>", drink)
+        cocktail = Cocktail("Moscow Mule", "Cup", "Moscow Mule Recipe")
+        drink = cocktail.__repr__()
+        self.assertEqual("<Cocktail 'Moscow Mule'>", drink)
 
     def test_cocktail_repr_3 (self) :
-        name    = "Vodka Sprite"
-        glass   = "Glass"
-        recipe  = "Vodka Sprite Recipe"
-        cocktail = Cocktail(self, name, glass, recipe)
-        drink = cocktail.__repr__(self)
-        self.assertEqual("<Cocktail Vodka Sprite>", drink)
+        cocktail = Cocktail("Bloody Mary", "Flute", "Bloody Mary Recipe")
+        drink = cocktail.__repr__()
+        self.assertEqual("<Cocktail 'Bloody Mary'>", drink)
 
     # ----------
     # ingredient__init__
     # ----------
 
     def test_ingredient_init_1(self) :
-        name    = "Vodka Sprite"
-        ingredient = Ingredient(self, name)
+        name    = "Rum"
+        ingredient = Ingredient(name)
         self.assertEqual(name,  ingredient.name)
         self.assertEqual(None,  ingredient.amount)
         self.assertEqual(None,  ingredient.image)
 
     def test_ingredient_init_2 (self) :
-        name    = "Vodka Sprite"
-        ingredient = Ingredient(self, name)
+        name    = "Lime"
+        ingredient = Ingredient(name)
         self.assertEqual(name,  ingredient.name)
         self.assertEqual(None,  ingredient.amount)
         self.assertEqual(None,  ingredient.image)
 
     def test_ingredient_init_3 (self) :
-        name    = "Vodka Sprite"
-        ingredient = Ingredient(self, name)
+        name    = "Ice"
+        ingredient = Ingredient(name)
         self.assertEqual(name,  ingredient.name)
         self.assertEqual(None,  ingredient.amount)
         self.assertEqual(None,  ingredient.image)
@@ -107,22 +98,22 @@ class TestIdb (TestCase) :
     # ----------
 
     def test_ingredient_repr_1(self) :
-        name    = "Vodka Sprite"
-        ingredient = Ingredient(self, name)
-        ingredientName = ingredient.__repr__(self)
-        self.assertEqual("<Ingredient Vodka Sprite>", ingredientName)
+        name    = "Rum"
+        ingredient = Ingredient(name)
+        ingredientName = ingredient.__repr__()
+        self.assertEqual("<Ingredient 'Rum'>", ingredientName)
 
     def test_ingredient_repr_2 (self) :
-        name    = "Vodka Sprite"
-        ingredient = Ingredient(self, name)
-        ingredientName = ingredient.__repr__(self)
-        self.assertEqual("<Ingredient Vodka Sprite>", ingredientName)
+        name    = "Lime"
+        ingredient = Ingredient(name)
+        ingredientName = ingredient.__repr__()
+        self.assertEqual("<Ingredient 'Lime'>", ingredientName)
 
     def test_ingredient_repr_3 (self) :
-        name    = "Vodka Sprite"
-        ingredient = Ingredient(self, name)
-        ingredientName = ingredient.__repr__(self)
-        self.assertEqual("<Ingredient Vodka Sprite>", ingredientName)
+        name    = "Ice"
+        ingredient = Ingredient(name)
+        ingredientName = ingredient.__repr__()
+        self.assertEqual("<Ingredient 'Ice'>", ingredientName)
 
 # ----
 # main
