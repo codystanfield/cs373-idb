@@ -16,6 +16,7 @@ class Cocktail(object):
 
 
 # TODO: figure out how to align well automatically
+# TODO: also need to keep this updated
 def print_usage():
     print('usage:\n'
           '--init\t\tget the initial data from The Cocktail Database\n'
@@ -50,7 +51,7 @@ def get_list_of_cocktails():
     
     
 def get_all_cocktails(cocktail_list):
-        print('Getting the data for {0} cocktails'.format(len(cocktail_list)))
+        print('Getting data for {0} cocktails'.format(len(cocktail_list)))
         numCocktails = 0
         
         # Running list of cocktails parsed
@@ -83,9 +84,6 @@ def get_all_cocktails(cocktail_list):
             c.glass = dictionary['strGlass']
             c.recipe = dictionary['strInstructions']
             
-            # Get the image
-            get_cocktail_image(c.name)
-            
             # Add the cocktail to the list
             cocktails.append(c)
             numCocktails += 1
@@ -93,15 +91,45 @@ def get_all_cocktails(cocktail_list):
             time.sleep(5)   # Throttle the downloads
             
         return cocktails
-        
 
-def get_cocktail_image(name):
+
+# ------------------------------------------------------------------------------
+# IMAGES
+# ------------------------------------------------------------------------------
+
+
+def run_cocktail_images():
+    print('Getting images for cocktails')
+    with open('cocktails.pkl', 'rb') as f:
+        cocktails = pickle.load(f)
+        for c in cocktails:
+            get_image(c.name, 'cocktails', 'cocktail')
+            print(c.name)
+            time.sleep(5)
+
+
+def run_ingredient_images():
+    # Get the images for the ingredients
+    print('Getting images for ingredients')
+    with open('cocktails.pkl', 'rb') as f:
+        cocktails = pickle.load(f)
+        ingredients_found = set()
+        for c in cocktails:
+            for i, _ in c.ingredients:  # _ for the amount of the ingredient
+                if i not in ingredients_found:
+                    get_image(i, 'ingredients')
+                    ingredients_found.add(i)
+                    print(i)
+                    time.sleep(5)
+
+
+def get_image(name, directory, append=''):
     # Replace characters to make a searchable string
     name = name.replace(' ', '+')
     name = name.replace('/', '\\')  # TODO: Probably not the best idea, works for now
     
     # Get the html from Google images
-    url = 'https://www.google.com/search?safe=on&tbm=isch&q={0}+cocktail'.format(name)
+    url = 'https://www.google.com/search?safe=on&tbm=isch&q={0}+{1}'.format(name, append)
     res = requests.get(url)
     
     # Get the first image
@@ -111,7 +139,7 @@ def get_cocktail_image(name):
     
     # Just save as jpg, because meh
     # Also leaving the plusses in (also because meh)
-    with open('./static/images/{0}.jpg'.format(name), 'wb') as f:
+    with open('./static/images/{0}/{1}.jpg'.format(directory, name), 'wb') as f:
         shutil.copyfileobj(res.raw, f)
     
 
@@ -127,10 +155,23 @@ def main():
     # If no options passed in, run the entire program
     if len(sys.argv) == 1:
         run_init()
+        run_cocktail_images()
+        run_ingredient_images()
 
-    # If getting the initial data
-    elif sys.argv[1] == '--init':
+    # Get the initial data
+    elif sys.argv[1] == '--init' or sys.argv[1] == '-i':
         run_init()
+        
+    # Get images for cocktails and ingredients
+    elif sys.argv[1] == '--images':
+        run_cocktail_images()
+        run_ingredient_images()
+    
+    elif sys.argv[1] == '--cocktailimages' or sys.argv[1] == '-c':
+        run_cocktail_images()
+    
+    elif sys.argv[1] == '--ingredientimages' or sys.argv[1] == '-n':
+        run_ingredient_images()
     
     # Print usage
     elif sys.argv[1] == '-h' or sys.argv[1] == '--help':
