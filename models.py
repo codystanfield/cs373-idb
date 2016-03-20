@@ -31,7 +31,7 @@ class Cocktail(Base):
     image = Column(String(128))
 
     def __init__(self, name, glass, recipe, image=None):
-    """Inits Cocktail with name, glass, recipe, and image."""
+        """Inits Cocktail with name, glass, recipe, and image."""
         self.name = name
         self.glass = glass
         self.recipe = recipe
@@ -57,7 +57,7 @@ class Ingredient(Base):
     """
     __tablename__ = 'ingredients'
     id_ = Column(Integer, primary_key=True)
-    cocktail_id = Column(Integer, ForeignKey('cocktail.id_'))
+    cocktail_id = Column(Integer, ForeignKey('cocktails.id_'))
     name = Column(String(50))
     amount = Column(String(50))
     image = Column(String(128))
