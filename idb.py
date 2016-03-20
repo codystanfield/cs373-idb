@@ -29,6 +29,12 @@ def cocktail():
   # entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
   return render_template('cocktail.html')#, entries=entries)
 
+@app.route('/moscow_mule')
+def moscow_mule():
+  # cur = g.db.execute('select title, text from entries order by id desc')
+  # entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
+  return render_template('moscow_mule.html')#, entries=entries)
+
 # example route and function from here:
 # http://flask.pocoo.org/docs/0.10/tutorial/views/
 @app.route('/')
