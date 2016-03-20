@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import json, pickle, requests, signal, sys, time
+import bs4, json, pickle, requests, shutil, signal, sys, time
 
 
 class Cocktail(object):
@@ -79,12 +79,12 @@ def get_all_cocktails(cocktail_list):
                 ingredients.append((ingredient, dictionary['strMeasure{0}'.format(i)]))
             c.ingredients = ingredients
             
-            # Extract the image
-            # TODO
-            
             # Extract the type of glass and recipe
             c.glass = dictionary['strGlass']
             c.recipe = dictionary['strInstructions']
+            
+            # Get the image
+            get_cocktail_image(c.name)
             
             # Add the cocktail to the list
             cocktails.append(c)
@@ -93,6 +93,26 @@ def get_all_cocktails(cocktail_list):
             time.sleep(5)   # Throttle the downloads
             
         return cocktails
+        
+
+def get_cocktail_image(name):
+    # Replace characters to make a searchable string
+    name = name.replace(' ', '+')
+    name = name.replace('/', '\\')  # TODO: Probably not the best idea, works for now
+    
+    # Get the html from Google images
+    url = 'https://www.google.com/search?safe=on&tbm=isch&q={0}+cocktail'.format(name)
+    res = requests.get(url)
+    
+    # Get the first image
+    soup = bs4.BeautifulSoup(res.text, 'html.parser')
+    img_url = soup.find('img')['src']
+    res = requests.get(img_url, stream=True)
+    
+    # Just save as jpg, because meh
+    # Also leaving the plusses in (also because meh)
+    with open('./static/images/{0}.jpg'.format(name), 'wb') as f:
+        shutil.copyfileobj(res.raw, f)
     
 
 # ------------------------------------------------------------------------------
