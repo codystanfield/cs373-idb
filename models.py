@@ -2,7 +2,7 @@
 # http://flask.pocoo.org/docs/0.10/patterns/sqlalchemy/
 from sqlalchemy import Column, String, Integer
 from database import Base
-from flask_sqlalchemy import sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
