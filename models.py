@@ -32,9 +32,9 @@ class Ingredient(Base):
     image = Column(String(128))
 
     def __init__(self, name, amount=None, image=None):
-        this.name = name
-        this.amount = amount
-        this.image = image
+        self.name = name
+        self.amount = amount
+        self.image = image
 
     def __repr__(self):
         return '<Ingredient %r>' % (self.name)
