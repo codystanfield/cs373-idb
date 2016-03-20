@@ -7,6 +7,9 @@ python:
 
 sudo: false
 
+notifications:
+  slack: cs373-idb:qbdxxyoOlhhavbkqCTQLOly5
+
 install:
     - pip install --upgrade pip
     - pip --version
