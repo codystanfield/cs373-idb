@@ -1,6 +1,64 @@
 <!-- Page Content -->
     <div class="container">
 
+      <div class="alert alert-info">
+        <p>Sort Type: {{ sortType }}</p>
+        <p>Sort Reverse: {{ sortReverse }}</p>
+      </div>
+
+      <div ng-repeat="drink in drinks | orderBy:sortType:sortReverse">
+            <h1>{{ drink.name }}</h1>
+            <ul>
+            <div ng-repeat="ingredient in drink.ingredients | orderBy">
+              <li>{{ ingredient }}</li>     
+            </div>
+          </ul>
+        </div>
+
+        <table class="table table-bordered table-striped">
+
+         <thead>
+           <tr>
+             <th>
+              <a href="#" ng-click="sortType = 'name'">
+                 Name
+                 <span ng-show="sortType == 'name'" class="caret"></span>
+               </a>
+             </th>
+             <th>
+              Glass
+             </th>
+             <th>
+              Image
+             </th>
+             <th>
+              Ingredients
+             </th>
+             <th>
+              Recipe
+             </th>
+           </tr>
+         </thead>
+
+<!--          Name, glass, image, ingredients, recipe -->        
+        <tbody>
+          <tr ng-repeat="drink in drinks | orderBy:sortType:sortReverse">
+            <td>{{ drink.name }}</td>
+            <td>{{ drink.glass }}</td>
+            <td><img ng-src="{{ drink.image }}" height=100></td>
+            <td>
+              <div ng-repeat="ingredient in drink.ingredients | orderBy">
+                {{ ingredient }}   
+              </div>
+            </td>
+            <td>{{ drink.recipe | limitTo: letterLimit }}...</td>
+          </tr>
+        </tbody>
+
+         
+
+       </table>
+
         <div class="row">
 
             <!-- <div class="col-md-3">
@@ -13,9 +71,9 @@
             </div>
 
  -->
- <div ng-repeat="drink in drinks">
+<!--  <div ng-repeat="drink in drinks">
     <h1>{{ drink.name }}</h1>
- </div>
+ </div> -->
             <div class="col-md-9">
 
                 <div class="row carousel-holder">
@@ -53,7 +111,7 @@
 
                     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="drink in drinks">
                         <div class="thumbnail">
-                            <img ng-src="{{drink.img}}" alt="">
+                            <img ng-src="{{drink.image}}" alt="">
                             <div class="caption">
                                 <h4><a href="moscow_mule">{{ drink.name }}</a>
                                 </h4>
