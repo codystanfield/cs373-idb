@@ -1,8 +1,8 @@
 angular.module('mixopediaApp', [
     'ngRoute',
     'ngSanitize',
-    'mixopediaApp.home'
-    // 'hardcarryApp.championTable',
+    'mixopediaApp.home',
+    'mixopediaApp.cocktails'
     // 'hardcarryApp.summonerTable',
     // 'hardcarryApp.featuredGameTable',
     // 'hardcarryApp.champion',
@@ -15,6 +15,7 @@ angular.module('mixopediaApp', [
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+    $locationProvider.html5Mode(true);
     $routeProvider
         .when('/', {
             templateUrl: '/static/partials/home.html',
@@ -22,65 +23,12 @@ angular.module('mixopediaApp', [
             controllerAs: 'home',
             activeTab: ''
         })
-        // .when('/champions', {
-        //     templateUrl: '/static/partials/championTable.html',
-        //     controller: 'championTableCtrl',
-        //     controllerAs: 'championTable',
-        //     activeTab: "Champions"
-        // })
-        // .when('/summoners', {
-        //     templateUrl: '/static/partials/summonerTable.html',
-        //     controller: 'summonerTableCtrl',
-        //     controllerAs: 'summonerTable',
-        //     activeTab: 'Summoners'
-        // })
-        // .when('/featuredGames', {
-        //     templateUrl: '/static/partials/featuredGameTable.html',
-        //     controller: 'featuredGameTableCtrl',
-        //     controllerAs: 'featuredGameTable',
-        //     activeTab: 'Featured Games'
-        // })
-        // .when('/about', {
-        //     templateUrl: '/static/partials/about.html',
-        //     controller: 'aboutCtrl',
-        //     controllerAs: 'about',
-        //     activeTab: 'About'
-        // })
-        // .when('/nobelPrizes', {
-        //     templateUrl: '/static/partials/nobelPrizes.html',
-        //     controller: 'nobelPrizesCtrl',
-        //     controllerAs: 'nobelPrizes',
-        //     activeTab: 'Nobel Prizes Map'
-        // })
-        // .when('/champions/:id', {
-        //     templateUrl: '/static/partials/champion.html',
-        //     controller: "championCtrl",
-        //     controllerAs: 'champion',
-        //     activeTab: "Champions"
-        // })
-        // .when('/summoners/:id', {
-        //     templateUrl: '/static/partials/summoner.html',
-        //     controller: "summonerCtrl",
-        //     controllerAs: 'summoner',
-        //     activeTab: 'Summoners'
-        // })
-        // .when('/featuredGames/:id', {
-        //     templateUrl: '/static/partials/featuredGame.html',
-        //     controller: "featuredGameCtrl",
-        //     controllerAs: 'featuredGame',
-        //     activeTab: 'Featured Games'
-        // })
-        // .when('/search/:query', {
-        //     templateUrl: '/static/partials/search.html',
-        //     controller: 'searchCtrl',
-        //     controllerAs: 'search',
-        //     activeTab: 'Search'
-        // })
-        // .when('/api/:api*', {
-        // })
-        // .when('/tests/runTests', {
-        //     templateUrl: '/tests/runTests'
-        // })
+        .when('/cocktails', {
+            templateUrl: '/static/partials/cocktails.html',
+            controller: 'cocktailsCtrl',
+            controllerAs: 'cocktails',
+            activeTab: 'Cocktails'
+        })
         .otherwise({redirectTo: '/'});
         
     //$locationProvider.html5Mode(true);
@@ -96,9 +44,9 @@ angular.module('mixopediaApp', [
     //     }
     //     return ans;
     // };
-    $scope.submitQuery = function(){
-        $location.path("/search/" + $scope.query); // path not hash
-    };
+    // $scope.submitQuery = function(){
+    //     $location.path("/search/" + $scope.query); // path not hash
+    // };
 
 }]);
 

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
+  <base href="/">
 
   <title>Mixopedia</title>
 
@@ -16,7 +17,7 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/static/css/custom.css" type="text/css">
   <link rel="stylesheet" href="/static/css/home.css" type="text/css">
-  <link rel="stylesheet" href="/static/css/pillars.css" type="text/css">
+  <link rel="stylesheet" href="/static/css/cocktails.css" type="text/css">
 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -46,13 +47,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#about">About</a>
+              <a href="#">About</a>
+            </li>
+            <li ng-class="{active: $route.current.activeTab == 'Cocktails'}">
+              <a href="/cocktails">Cocktails</a>
             </li>
             <li>
-              <a href="#services">Services</a>
+              <a href="#">Services</a>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <a href="#">Contact</a>
             </li>
           </ul>
         </div>
@@ -102,21 +106,6 @@
   <script src="/static/bower_components/angularUtils-pagination/dirPagination.js"></script>
   <script src="/static/js/app.js"></script>
   <script src="/static/js/home.js"></script>
-  <!-- // <script src="/static/js/championTable.js"></script> -->
-  <!-- // <script src="/static/js/summonerTable.js"></script> -->
-  <!-- // <script src= "/static/js/featuredGameTable.js"></script> -->
-  <!-- // <script src="/static/js/champion.js"></script> -->
-  <!-- // <script src="/static/js/summoner.js"></script> -->
-  <!-- // <script src="/static/js/featuredGame.js"></script> -->
-  <!-- // <script src="/static/js/about.js"></script> -->
-  <!-- // <script src="/static/js/nobelPrizes.js"></script> -->
-  <!-- // <script src="/static/js/search.js"></script> -->
-  <!-- // <script src="/static/js/skel.min.js"></script> -->
-  <!-- // <script src="/static/js/jquery.scrollex.min.js"></script> -->
-  <!-- // <script src="/static/js/util.js"></script> -->
-
-  <!-- <script src="js/jquery.js"></script> -->
-   <!-- <script src="/static/js/bootstrap.min.js"></script>
-  // <script src="/static/js/custom.js"></script> -->
+  <script src="/static/js/cocktails.js"></script>
 </body>
 </html>

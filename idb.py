@@ -22,13 +22,22 @@ db = SQLAlchemy(app)
 def shutdown_session(exception=None):
   db_session.remove()
 
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html')
 
-# example route and function from here:
-# http://flask.pocoo.org/docs/0.10/tutorial/views/
-@app.route('/', defaults={'path': ''}, methods=['GET'])
-@app.route('/<path:path>')
-def catch_all(path):
-  return render_template('index.html')#, entries=entries)
+# @app.route('/', methods=['GET', 'POST'])
+# def index():
+#   return render_template('index.html')
+
+# @app.route('/partials/<path:path>')
+# def serve_partial():
+#   return render_template('/partials/{}'.format(path))
+
+# @app.route('/', defaults={'path': ''}, methods=['GET'])
+# @app.route('/<path:path>')
+# def catch_all(path):
+#   return render_template('index.html')
 
 
 if __name__ == '__main__':
