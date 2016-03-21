@@ -29,6 +29,11 @@ class Cocktail(Base):
 
     def __init__(self, name, glass, recipe, image=None):
         """Inits Cocktail with name, glass, recipe, and image."""
+        assert isinstance(name, str) && len(name) > 0
+        assert isinstance(glass, str) && len(glass) > 0
+        assert isinstance(recipe, str) && len(recipe) > 0
+        if image is not None:
+            assert isinstance(image, str) && len(image) > 0
         self.name = name
         self.glass = glass
         self.recipe = recipe
@@ -59,6 +64,9 @@ class Ingredient(Base):
 
     def __init__(self, name, image=None):
         """Inits Ingredient with name, amount, and image."""
+        assert isinstance(name, str) && len(name) > 0
+        if image is not None:
+            assert isinstance(image, str) && len(image) > 0
         self.name = name
         self.image = image
 
@@ -91,6 +99,9 @@ class Amount(Base):
     def __init__(self, cocktail, ingredient, amount):
         """Inits Amount by adding this object to the one-to-many relationships
         in cocktails and ingredients and saving amount."""
+        assert isinstance(cocktail, Cocktail)
+        assert isinstance(ingredient, Ingredient)
+        assert isinstance(amount, str)
         cocktail.ingredients.append(self)
         ingredient.cocktails.append(self)
         self.amount = amount
