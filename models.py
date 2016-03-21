@@ -29,11 +29,11 @@ class Cocktail(Base):
 
     def __init__(self, name, glass, recipe, image=None):
         """Inits Cocktail with name, glass, recipe, and image."""
-        assert isinstance(name, str) && len(name) > 0
-        assert isinstance(glass, str) && len(glass) > 0
-        assert isinstance(recipe, str) && len(recipe) > 0
+        assert (isinstance(name, str) and len(name) > 0)
+        assert isinstance(glass, str) and len(glass) > 0
+        assert isinstance(recipe, str) and len(recipe) > 0
         if image is not None:
-            assert isinstance(image, str) && len(image) > 0
+            assert isinstance(image, str) and len(image) > 0
         self.name = name
         self.glass = glass
         self.recipe = recipe
@@ -64,9 +64,9 @@ class Ingredient(Base):
 
     def __init__(self, name, image=None):
         """Inits Ingredient with name, amount, and image."""
-        assert isinstance(name, str) && len(name) > 0
+        assert isinstance(name, str) and len(name) > 0
         if image is not None:
-            assert isinstance(image, str) && len(image) > 0
+            assert isinstance(image, str) and len(image) > 0
         self.name = name
         self.image = image
 
