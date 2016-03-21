@@ -26,6 +26,10 @@ def shutdown_session(exception=None):
 def index():
     return render_template('index.html')
 
+@app.route("/cocktails")
+def render_cocktails():
+  return render_template('index.html')
+
 # @app.route('/', methods=['GET', 'POST'])
 # def index():
 #   return render_template('index.html')

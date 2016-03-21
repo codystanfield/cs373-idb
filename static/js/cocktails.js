@@ -1,6 +1,9 @@
 angular.module('mixopediaApp.cocktails', ['ngRoute'])
 
-.controller('cocktailsCtrl', [function(){
+.controller('cocktailsCtrl', [function($scope){
     //$location.path('cocktails.html')
-    this.greeting = "hey";
+    $scope.drinks = [
+      {name: 'drink1'},
+      {name: 'drink2'}
+    ];
 }]);
