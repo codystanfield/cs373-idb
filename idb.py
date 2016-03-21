@@ -25,10 +25,9 @@ def shutdown_session(exception=None):
 
 # example route and function from here:
 # http://flask.pocoo.org/docs/0.10/tutorial/views/
-@app.route('/')
-def show_entries():
-  # cur = g.db.execute('select title, text from entries order by id desc')
-  # entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
+@app.route('/', defaults={'path': ''}, methods=['GET'])
+@app.route('/<path:path>')
+def catch_all(path):
   return render_template('index.html')#, entries=entries)
 
 
