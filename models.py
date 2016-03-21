@@ -2,7 +2,7 @@
 # http://flask.pocoo.org/docs/0.10/patterns/sqlalchemy/
 from database import Base
 from sqlalchemy import Column, String, Integer, ForeignKey
-from idb.py import db
+from idb import db
 
 
 class Cocktail(Base):
@@ -23,7 +23,7 @@ class Cocktail(Base):
     id_ = Column(Integer, primary_key=True)
     name = Column(String(50), primary_key=True)
     glass = Column(String(50))
-    ingredients = db.relationship('amounts', backref='data', lazy='dynamic')
+    ingredients = db.relationship('Amount', backref='c_data', lazy='dynamic')
     recipe = Column(String(1024))
     image = Column(String(128))
 
@@ -54,7 +54,7 @@ class Ingredient(Base):
     __tablename__ = 'ingredients'
     id_ = Column(Integer, primary_key=True)
     name = Column(String(50))
-    cocktails = db.relationship('amounts', backref='data', lazy='dynamic')
+    cocktails = db.relationship('Amount', backref='i_data', lazy='dynamic')
     image = Column(String(128))
 
     def __init__(self, name, image=None):
