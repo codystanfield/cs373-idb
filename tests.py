@@ -7,7 +7,7 @@
 from io       import StringIO
 from unittest import main, TestCase
 
-from models import Cocktail, Ingredient
+from models import Cocktail, Ingredient, Amount
 
 # -----------
 # TestNetflix
@@ -49,6 +49,17 @@ class TestIdb (TestCase) :
         self.assertEqual(recipe, cocktail.recipe)
         self.assertEqual(None, cocktail.image)
 
+    def test_cocktail_init_4 (self) :
+        name   = "Aqua"
+        glass  = "Bottle"
+        recipe = "Aqua Recipe"
+        image  = "static/images/cocktails/Aqua.jpg"
+        cocktail = Cocktail(name, glass, recipe, image)
+        self.assertEqual(name, cocktail.name)
+        self.assertEqual(glass, cocktail.glass)
+        self.assertEqual(recipe, cocktail.recipe)
+        self.assertEqual(image, cocktail.image)
+
     # ----------
     # cocktail__repr__
     # ----------
@@ -67,6 +78,11 @@ class TestIdb (TestCase) :
         cocktail = Cocktail("Bloody Mary", "Flute", "Bloody Mary Recipe")
         drink = cocktail.__repr__()
         self.assertEqual("<Cocktail 'Bloody Mary'>", drink)
+
+    def test_cocktail_repr_4 (self) :
+        cocktail = Cocktail("Aqua", "Bottle", "Aqua Recipe", "static/images/cocktails/Aqua.jpg")
+        drink = cocktail.__repr__()
+        self.assertEqual("<Cocktail '%s'>" % cocktail.name, drink)
 
     # ----------
     # ingredient__init__
@@ -111,6 +127,75 @@ class TestIdb (TestCase) :
         ingredient = Ingredient(name)
         ingredientName = ingredient.__repr__()
         self.assertEqual("<Ingredient 'Ice'>", ingredientName)
+
+# ----------
+# amount__init__
+# ----------
+
+    def test_amount_init_1(self) :
+        cocktail = Cocktail("Moscow Mule", "Cup", "Moscow Mule Recipe")
+        ingredient = Ingredient("Rum")
+        amount      = "2 oz."
+        value = Amount(cocktail, ingredient, amount)
+        self.assertEqual(cocktail,  value.c_data)
+        self.assertEqual(ingredient,  value.i_data)
+        self.assertEqual(amount,  value.amount)
+
+    def test_amount_init_2 (self) :
+        cocktail = Cocktail("Vodka Sprite", "glass", "Vodka Sprite Recipe")
+        ingredient = Ingredient("Lime")
+        amount      = "1"
+        value = Amount(cocktail, ingredient, amount)
+        self.assertEqual(cocktail,  value.c_data)
+        self.assertEqual(ingredient,  value.i_data)
+        self.assertEqual(amount,  value.amount)
+
+    def test_amount_init_3 (self) :
+        cocktail = Cocktail("Jack and Coke", "cup", "Jack and Coke Recipe")
+        ingredient = Ingredient("Coke")
+        amount      = "3 oz."
+        value = Amount(cocktail, ingredient, amount)
+        self.assertEqual(cocktail,  value.c_data)
+        self.assertEqual(ingredient,  value.i_data)
+        self.assertEqual(amount,  value.amount)
+
+    # ----------
+    # amount__repr__
+    # ----------
+
+    def test_amount_repr_1(self) :
+        cocktail = Cocktail("Moscow Mule", "Cup", "Moscow Mule Recipe")
+        ingredient = Ingredient("Rum")
+        amount = Amount(cocktail, ingredient, "2 oz.")
+        # amountName = amount.__repr__()
+        print(cocktail)
+        print(ingredient)
+        print(amount.c_data)
+        amountName = amount.__repr__()
+        self.assertEqual(
+            "<Amount [<Cocktail 'Moscow Mule'>-|---|-<Ingredient 'Rum'>]>",
+            amountName
+        )
+
+    def test_amount_repr_2 (self) :
+        cocktail = Cocktail("Vodka Sprite", "glass", "Vodka Sprite Recipe")
+        ingredient = Ingredient("Lime")
+        amount = Amount(cocktail, ingredient, "1")
+        amountName = amount.__repr__()
+        self.assertEqual(
+            "<Amount [<Cocktail 'Vodka Sprite'>-|---|-<Ingredient 'Lime'>]>",
+            amountName
+        )
+
+    def test_amount_repr_3 (self) :
+        cocktail = Cocktail("Jack and Coke", "cup", "Jack and Coke Recipe")
+        ingredient = Ingredient("Coke")
+        amount = Amount(cocktail, ingredient, "3 oz.")
+        amountName = amount.__repr__()
+        self.assertEqual(
+            "<Amount [<Cocktail 'Jack and Coke'>-|---|-<Ingredient 'Coke'>]>",
+            amountName
+        )
 
 # ----
 # main
