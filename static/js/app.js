@@ -21,6 +21,12 @@ angular.module('mixopediaApp', [
             controllerAs: 'cocktails',
             activeTab: 'Cocktails'
         })
+        .when('/cocktails/:cocktailID', {
+            templateUrl: '/static/partials/cocktail.html',
+            controller: "cocktailCtrl",
+            controllerAs: 'cocktail',
+            activeTab: ""
+        })
         .otherwise({redirectTo: '/'});
         
     //$locationProvider.html5Mode(true);
