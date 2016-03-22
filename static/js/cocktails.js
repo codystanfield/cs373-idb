@@ -23,5 +23,9 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
     //console.log('/cocktail/' + cur_id.cocktail );
   };
 
+}])
+.controller('cocktailCtrl', ['$scope', '$routeParams', function($scope, $routeParams){
+  console.log("in cocktail.js");
+  $scope.whichCocktail = $routeParams.cocktailID;
 }]);
 
