@@ -30,6 +30,10 @@ def index():
 def render_cocktails():
   return render_template('index.html')
 
+# @app.route("/cocktails/<id>")
+# def render_cocktail():
+#   return render_template('index.html')
+
 # @app.route('/', methods=['GET', 'POST'])
 # def index():
 #   return render_template('index.html')
