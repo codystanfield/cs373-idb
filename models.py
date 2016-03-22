@@ -1,10 +1,8 @@
 # sample from docs:
 # http://flask.pocoo.org/docs/0.10/patterns/sqlalchemy/
-from sqlalchemy import Column, String, Integer, ForeignKey
 from database import Base
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from sqlalchemy import Column, String, Integer, ForeignKey
+from idb import db
 
 
 class Cocktail(Base):
@@ -17,7 +15,7 @@ class Cocktail(Base):
         id_: An integer representing primary key sequence.
         name: A string. The name of the cocktail.
         glass: A string indicating the recommended glass for consumption.
-        ingredients: One-to-many relationship with ingredients objects.
+        ingredients: One-to-many relationship with amounts.
         recipe: A string with directions to make the cocktail.
         image: A string indicating the folder/filename for a static image.
     """
@@ -25,8 +23,7 @@ class Cocktail(Base):
     id_ = Column(Integer, primary_key=True)
     name = Column(String(50), primary_key=True)
     glass = Column(String(50))
-    ingredients = db.relationship('Ingredient', backref='cocktail',
-                                  lazy='dynamic')
+    ingredients = db.relationship('Amount', backref='c_data', lazy='dynamic')
     recipe = Column(String(1024))
     image = Column(String(128))
 
@@ -50,24 +47,54 @@ class Ingredient(Base):
     Attributes:
         __tablename__: A string, the database table name.
         id_: An integer representing primary key sequence.
-        cocktail_id: An integer ForeignKey for this object's cocktail.
         name: A string. The name of the ingredient.
-        amount: A string indicating the amount required for this cocktail.
+        cocktails: One-to-many relationship to amounts.
         image: A string indicating the folder/filename for a static image.
     """
     __tablename__ = 'ingredients'
     id_ = Column(Integer, primary_key=True)
-    cocktail_id = Column(Integer, ForeignKey('cocktails.id_'))
     name = Column(String(50))
-    amount = Column(String(50))
+    cocktails = db.relationship('Amount', backref='i_data', lazy='dynamic')
     image = Column(String(128))
 
-    def __init__(self, name, amount=None, image=None):
+    def __init__(self, name, image=None):
         """Inits Ingredient with name, amount, and image."""
         self.name = name
-        self.amount = amount
         self.image = image
 
     def __repr__(self):
         """Returns a string representation of an Ingredient."""
         return '<Ingredient %r>' % (self.name)
+
+
+class Amount(Base):
+    """Models the many-to-many relationship between Cocktails and Ingredients.
+
+    Contains foreign keys to cocktails and ingredients to relate rows in the
+    two tables. Hold the amount of an ingredient to be used in a cocktail as a
+    relationship attribute.
+
+    Attributes:
+        __tablename__: A string, the database table name.
+        id_: An integer representing primary key sequence.
+        amount: A string indicating the amount of this ingredient required for
+                this cocktail.
+        cocktail_id = Column(Integer, ForeignKey('cocktails.id_'))
+        ingredient_id = Column(Integer, ForeignKey('ingredients.id_'))
+    """
+    __tablename__ = '__amounts__'
+    id_ = Column(Integer, primary_key=True)
+    cocktail = Column(Integer, ForeignKey('cocktails.id_'))
+    ingredient = Column(Integer, ForeignKey('ingredients.id_'))
+    amount = Column(String(50))
+
+    def __init__(self, cocktail, ingredient, amount):
+        """Inits Amount by adding this object to the one-to-many relationships
+        in cocktails and ingredients and saving amount."""
+        cocktail.ingredients.append(self)
+        ingredient.cocktails.append(self)
+        self.amount = amount
+
+    def __repr__(self):
+        """Returns a string representation of an Amount relationship."""
+        return '<Amount [%r-|---|-%r]>' % (self.cocktail, self.ingredient)

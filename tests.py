@@ -76,21 +76,18 @@ class TestIdb (TestCase) :
         name    = "Rum"
         ingredient = Ingredient(name)
         self.assertEqual(name,  ingredient.name)
-        self.assertEqual(None,  ingredient.amount)
         self.assertEqual(None,  ingredient.image)
 
     def test_ingredient_init_2 (self) :
         name    = "Lime"
         ingredient = Ingredient(name)
         self.assertEqual(name,  ingredient.name)
-        self.assertEqual(None,  ingredient.amount)
         self.assertEqual(None,  ingredient.image)
 
     def test_ingredient_init_3 (self) :
         name    = "Ice"
         ingredient = Ingredient(name)
         self.assertEqual(name,  ingredient.name)
-        self.assertEqual(None,  ingredient.amount)
         self.assertEqual(None,  ingredient.image)
 
     # ----------
