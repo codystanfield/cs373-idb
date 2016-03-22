@@ -36,7 +36,7 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
   // console.log($scope.drink);
 
   $scope.drinks = drinkRepository.getAllDrinks();
-  $scope.cur_cocktail = $scope.drinks[$routeParams.cocktailID];
+  $scope.drink = $scope.drinks[$routeParams.cocktailID];
   
   // console.log($scope.drinks[$routeParams.cocktailID].name);
 }])
