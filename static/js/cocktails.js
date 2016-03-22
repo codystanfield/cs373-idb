@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('mixopediaApp.cocktails', ['ngRoute'])
 
 
@@ -22,7 +24,7 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
 .controller('cocktailCtrl', ['$scope', '$routeParams', 'drinkRepository', function($scope, $routeParams, drinkRepository){
   console.log("in cocktail.js");
   console.log($routeParams.cocktailID);
-  $scope.indexOfCocktail = $routeParams.cocktailID;
+  $scope.whichCocktail = $routeParams.cocktailID;
 
   // $scope.weird = drinkRepository.getAllDrinks();
 

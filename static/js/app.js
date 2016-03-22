@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('mixopediaApp', [
     'ngRoute',
     'ngSanitize',
@@ -8,6 +10,7 @@ angular.module('mixopediaApp', [
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 
     $locationProvider.html5Mode(true);
+    // $locationProvider.hashPrefix('!');
 
     $routeProvider
         .when('/', {

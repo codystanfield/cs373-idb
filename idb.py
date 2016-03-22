@@ -26,13 +26,23 @@ def shutdown_session(exception=None):
 def index():
     return render_template('index.html')
 
-@app.route("/cocktails")
-def render_cocktails():
-  return render_template('index.html')
+# @app.route("/cocktails")
+# def render_cocktails():
+#   return render_template('index.html')
 
-# @app.route("/cocktails/<id>")
+# @app.route("/cocktails/2")
 # def render_cocktail():
 #   return render_template('index.html')
+
+@app.route('/<path:path>')
+def catch_all(path):
+  return render_template('index.html')
+
+
+# @app.route("/cocktails/2")
+# def render_cocktail():
+#   console.log('in router');
+#   return render_template('cocktail.html')
 
 # @app.route('/', methods=['GET', 'POST'])
 # def index():
