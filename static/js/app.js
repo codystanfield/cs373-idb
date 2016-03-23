@@ -18,6 +18,12 @@ angular.module('mixopediaApp', [
             controllerAs: 'home',
             activeTab: ''
         })
+        .when('/about', {
+            templateUrl: '/static/partials/about.html',
+            controller: '',
+            controllerAs: 'about',
+            activeTab: ''
+        })
         .when('/cocktails', {
             templateUrl: '/static/partials/cocktails.html',
             controller: 'cocktailsCtrl',
