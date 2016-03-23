@@ -4,7 +4,6 @@
 # imports
 # -------
 
-from io       import StringIO
 from unittest import main, TestCase
 
 from models import Cocktail, Ingredient, Amount
@@ -13,47 +12,49 @@ from models import Cocktail, Ingredient, Amount
 # TestNetflix
 # -----------
 
-class TestIdb (TestCase) :
+class TestIdb(TestCase):
+    """Unit tests for methods in models.py"""
 
     # ----------
     # cocktail__init__
     # ----------
 
-    def test_cocktail_init_1(self) :
-        name    = "Vodka Sprite"
-        glass   = "Glass"
-        recipe  = "Vodka Sprite Recipe"
+    def test_cocktail_init_1(self):
+        """Test __init__ method for the class Cocktail"""
+        name = "Vodka Sprite"
+        glass = "Glass"
+        recipe = "Vodka Sprite Recipe"
         cocktail = Cocktail(name, glass, recipe)
         self.assertEqual(name, cocktail.name)
         self.assertEqual(glass, cocktail.glass)
         self.assertEqual(recipe, cocktail.recipe)
         self.assertEqual(None, cocktail.image)
 
-    def test_cocktail_init_2 (self) :
-        name    = "Moscow Mule"
-        glass   = "Cup"
-        recipe  = "Moscow Mule Recipe"
+    def test_cocktail_init_2(self):
+        """Test __init__ method for the class Cocktail"""
+        cocktail = Cocktail(None, None, None)
+        self.assertEqual(None, cocktail.name)
+        self.assertEqual(None, cocktail.glass)
+        self.assertEqual(None, cocktail.recipe)
+        self.assertEqual(None, cocktail.image)
+
+    def test_cocktail_init_3(self):
+        """Test __init__ method for the class Cocktail"""
+        name = ""
+        glass = ""
+        recipe = ""
         cocktail = Cocktail(name, glass, recipe)
         self.assertEqual(name, cocktail.name)
         self.assertEqual(glass, cocktail.glass)
         self.assertEqual(recipe, cocktail.recipe)
         self.assertEqual(None, cocktail.image)
 
-    def test_cocktail_init_3 (self) :
-        name    = "Bloody Mary"
-        glass   = "Flute"
-        recipe  = "Bloody Mary Recipe"
-        cocktail = Cocktail(name, glass, recipe)
-        self.assertEqual(name, cocktail.name)
-        self.assertEqual(glass, cocktail.glass)
-        self.assertEqual(recipe, cocktail.recipe)
-        self.assertEqual(None, cocktail.image)
-
-    def test_cocktail_init_4 (self) :
-        name   = "Aqua"
-        glass  = "Bottle"
+    def test_cocktail_init_4(self):
+        """Test __init__ method for the class Cocktail"""
+        name = "Aqua"
+        glass = "Bottle"
         recipe = "Aqua Recipe"
-        image  = "static/images/cocktails/Aqua.jpg"
+        image = "static/images/cocktails/Aqua.jpg"
         cocktail = Cocktail(name, glass, recipe, image)
         self.assertEqual(name, cocktail.name)
         self.assertEqual(glass, cocktail.glass)
@@ -64,22 +65,26 @@ class TestIdb (TestCase) :
     # cocktail__repr__
     # ----------
 
-    def test_cocktail_repr_1(self) :
+    def test_cocktail_repr_1(self):
+        """Test __repr__ method for the class Cocktail"""
         cocktail = Cocktail("Vodka Sprite", "Glass", "Vodka Sprite Recipe")
         drink = cocktail.__repr__()
-        self.assertEqual("<Cocktail 'Vodka Sprite'>", drink)
+        self.assertEqual("<Cocktail '%s'>" % cocktail.name, drink)
 
-    def test_cocktail_repr_2 (self) :
-        cocktail = Cocktail("Moscow Mule", "Cup", "Moscow Mule Recipe")
+    def test_cocktail_repr_2(self):
+        """Test __repr__ method for the class Cocktail"""
+        cocktail = Cocktail(None, None, None, None)
         drink = cocktail.__repr__()
-        self.assertEqual("<Cocktail 'Moscow Mule'>", drink)
+        self.assertEqual("<Cocktail None>", drink)
 
-    def test_cocktail_repr_3 (self) :
-        cocktail = Cocktail("Bloody Mary", "Flute", "Bloody Mary Recipe")
+    def test_cocktail_repr_3(self):
+        """Test __repr__ method for the class Cocktail"""
+        cocktail = Cocktail("", "", "")
         drink = cocktail.__repr__()
-        self.assertEqual("<Cocktail 'Bloody Mary'>", drink)
+        self.assertEqual("<Cocktail ''>", drink)
 
-    def test_cocktail_repr_4 (self) :
+    def test_cocktail_repr_4(self):
+        """Test __repr__ method for the class Cocktail"""
         cocktail = Cocktail("Aqua", "Bottle", "Aqua Recipe", "static/images/cocktails/Aqua.jpg")
         drink = cocktail.__repr__()
         self.assertEqual("<Cocktail '%s'>" % cocktail.name, drink)
@@ -88,118 +93,163 @@ class TestIdb (TestCase) :
     # ingredient__init__
     # ----------
 
-    def test_ingredient_init_1(self) :
-        name    = "Rum"
+    def test_ingredient_init_1(self):
+        """Test __init__ method for the class Ingredient"""
+        name = "Rum"
         ingredient = Ingredient(name)
-        self.assertEqual(name,  ingredient.name)
-        self.assertEqual(None,  ingredient.image)
+        self.assertEqual(name, ingredient.name)
+        self.assertEqual(None, ingredient.image)
 
-    def test_ingredient_init_2 (self) :
-        name    = "Lime"
+    def test_ingredient_init_2(self):
+        """Test __init__ method for the class Ingredient"""
+        name = None
         ingredient = Ingredient(name)
-        self.assertEqual(name,  ingredient.name)
-        self.assertEqual(None,  ingredient.image)
+        self.assertEqual(name, ingredient.name)
+        self.assertEqual(None, ingredient.image)
 
-    def test_ingredient_init_3 (self) :
-        name    = "Ice"
+    def test_ingredient_init_3(self):
+        """Test __init__ method for the class Ingredient"""
+        name = ""
         ingredient = Ingredient(name)
-        self.assertEqual(name,  ingredient.name)
-        self.assertEqual(None,  ingredient.image)
+        self.assertEqual(name, ingredient.name)
+        self.assertEqual(None, ingredient.image)
+
+    def test_ingredient_init_4(self):
+        """Test __init__ method for the class Ingredient"""
+        name = "Berries"
+        image = "static/images/ingredients/Berries.jpg"
+        ingredient = Ingredient(name, image)
+        self.assertEqual(name, ingredient.name)
+        self.assertEqual(image, ingredient.image)
 
     # ----------
     # ingredient__repr__
     # ----------
 
-    def test_ingredient_repr_1(self) :
-        name    = "Rum"
+    def test_ingredient_repr_1(self):
+        """Test __repr__ method for the class Ingredient"""
+        name = "Rum"
         ingredient = Ingredient(name)
-        ingredientName = ingredient.__repr__()
-        self.assertEqual("<Ingredient 'Rum'>", ingredientName)
+        ingredient_name = ingredient.__repr__()
+        self.assertEqual("<Ingredient '%s'>" % ingredient.name, ingredient_name)
 
-    def test_ingredient_repr_2 (self) :
-        name    = "Lime"
+    def test_ingredient_repr_2(self):
+        """Test __repr__ method for the class Ingredient"""
+        name = None
         ingredient = Ingredient(name)
-        ingredientName = ingredient.__repr__()
-        self.assertEqual("<Ingredient 'Lime'>", ingredientName)
+        ingredient_name = ingredient.__repr__()
+        self.assertEqual("<Ingredient None>", ingredient_name)
 
-    def test_ingredient_repr_3 (self) :
-        name    = "Ice"
+    def test_ingredient_repr_3(self):
+        """Test __repr__ method for the class Ingredient"""
+        name = ""
         ingredient = Ingredient(name)
-        ingredientName = ingredient.__repr__()
-        self.assertEqual("<Ingredient 'Ice'>", ingredientName)
+        ingredient_name = ingredient.__repr__()
+        self.assertEqual("<Ingredient ''>", ingredient_name)
+
+    def test_ingredient_repr_4(self):
+        """Test __repr__ method for the class Ingredient"""
+        name = "Berries"
+        image = "static/images/ingredients/Berries.jpg"
+        ingredient = Ingredient(name, image)
+        ingredient_name = ingredient.__repr__()
+        self.assertEqual("<Ingredient '%s'>" % ingredient.name, ingredient_name)
 
 # ----------
 # amount__init__
 # ----------
 
-    def test_amount_init_1(self) :
+    def test_amount_init_1(self):
+        """Test __init__ method for the class Amount"""
         cocktail = Cocktail("Moscow Mule", "Cup", "Moscow Mule Recipe")
         ingredient = Ingredient("Rum")
-        amount      = "2 oz."
+        amount = "2 oz."
         value = Amount(cocktail, ingredient, amount)
-        self.assertEqual(cocktail,  value.c_data)
-        self.assertEqual(ingredient,  value.i_data)
-        self.assertEqual(amount,  value.amount)
+        self.assertEqual(cocktail, value.c_data)
+        self.assertEqual(ingredient, value.i_data)
+        self.assertEqual(amount, value.amount)
 
-    def test_amount_init_2 (self) :
-        cocktail = Cocktail("Vodka Sprite", "glass", "Vodka Sprite Recipe")
-        ingredient = Ingredient("Lime")
-        amount      = "1"
+    def test_amount_init_2(self):
+        """Test __init__ method for the class Amount"""
+        cocktail = Cocktail(None, None, None, None)
+        ingredient = Ingredient(None, None)
+        amount = "1"
         value = Amount(cocktail, ingredient, amount)
-        self.assertEqual(cocktail,  value.c_data)
-        self.assertEqual(ingredient,  value.i_data)
-        self.assertEqual(amount,  value.amount)
+        self.assertEqual(cocktail, value.c_data)
+        self.assertEqual(ingredient, value.i_data)
+        self.assertEqual(amount, value.amount)
 
-    def test_amount_init_3 (self) :
-        cocktail = Cocktail("Jack and Coke", "cup", "Jack and Coke Recipe")
-        ingredient = Ingredient("Coke")
-        amount      = "3 oz."
+    def test_amount_init_3(self):
+        """Test __init__ method for the class Amount"""
+        cocktail = Cocktail("", "", "")
+        ingredient = Ingredient("")
+        amount = "3 oz."
         value = Amount(cocktail, ingredient, amount)
-        self.assertEqual(cocktail,  value.c_data)
-        self.assertEqual(ingredient,  value.i_data)
-        self.assertEqual(amount,  value.amount)
+        self.assertEqual(cocktail, value.c_data)
+        self.assertEqual(ingredient, value.i_data)
+        self.assertEqual(amount, value.amount)
+
+    def test_amount_init_4(self):
+        """Test __init__ method for the class Amount"""
+        cocktail = Cocktail("Aqua", "Bottle", "Aqua Recipe", "static/images/cocktails/Aqua.jpg")
+        ingredient = Ingredient("Berries", "static/images/ingredients/Berries.jpg")
+        amount = "3 oz."
+        value = Amount(cocktail, ingredient, amount)
+        self.assertEqual(cocktail, value.c_data)
+        self.assertEqual(ingredient, value.i_data)
+        self.assertEqual(amount, value.amount)
 
     # ----------
     # amount__repr__
     # ----------
 
-    def test_amount_repr_1(self) :
+    def test_amount_repr_1(self):
+        """Test __repr__ method for the class Amount"""
         cocktail = Cocktail("Moscow Mule", "Cup", "Moscow Mule Recipe")
         ingredient = Ingredient("Rum")
         amount = Amount(cocktail, ingredient, "2 oz.")
-        # amountName = amount.__repr__()
-        print(cocktail)
-        print(ingredient)
-        print(amount.c_data)
-        amountName = amount.__repr__()
+        amount_name = amount.__repr__()
         self.assertEqual(
-            "<Amount [<Cocktail 'Moscow Mule'>-|---|-<Ingredient 'Rum'>]>",
-            amountName
+            "<Amount [%r-|---|-%r]>" % (amount.c_data, amount.i_data),
+            amount_name
         )
 
-    def test_amount_repr_2 (self) :
-        cocktail = Cocktail("Vodka Sprite", "glass", "Vodka Sprite Recipe")
-        ingredient = Ingredient("Lime")
+    def test_amount_repr_2(self):
+        """Test __repr__ method for the class Amount"""
+        cocktail = Cocktail(None, None, None, None)
+        ingredient = Ingredient(None, None)
         amount = Amount(cocktail, ingredient, "1")
-        amountName = amount.__repr__()
+        amount_name = amount.__repr__()
         self.assertEqual(
-            "<Amount [<Cocktail 'Vodka Sprite'>-|---|-<Ingredient 'Lime'>]>",
-            amountName
+            "<Amount [%r-|---|-%r]>" % (amount.c_data, amount.i_data),
+            amount_name
         )
 
-    def test_amount_repr_3 (self) :
-        cocktail = Cocktail("Jack and Coke", "cup", "Jack and Coke Recipe")
-        ingredient = Ingredient("Coke")
+    def test_amount_repr_3(self):
+        """Test __repr__ method for the class Amount"""
+        cocktail = Cocktail("", "", "")
+        ingredient = Ingredient("")
         amount = Amount(cocktail, ingredient, "3 oz.")
-        amountName = amount.__repr__()
+        amount_name = amount.__repr__()
         self.assertEqual(
-            "<Amount [<Cocktail 'Jack and Coke'>-|---|-<Ingredient 'Coke'>]>",
-            amountName
+            "<Amount [%r-|---|-%r]>" % (amount.c_data, amount.i_data),
+            amount_name
+        )
+
+    def test_amount_repr_4(self):
+        """Test __repr__ method for the class Amount"""
+        cocktail = Cocktail("Aqua", "Bottle", "Aqua Recipe", "static/images/cocktails/Aqua.jpg")
+        ingredient = Ingredient("Berries", "static/images/ingredients/Berries.jpg")
+        amount = Amount(cocktail, ingredient, "3 oz.")
+        amount_name = amount.__repr__()
+        self.assertEqual(
+            "<Amount [%r-|---|-%r]>" % (amount.c_data, amount.i_data),
+            amount_name
         )
 
 # ----
 # main
 # ----
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
     main()
