@@ -10,35 +10,19 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
   // $scope.letterLimit  = 100;
   // $scope.search   = '';     // set the default search/filter term
 
-  //$location.path('cocktails.html')
   $scope.drinks = drinkRepository.getAllDrinks();
 
   $scope.goToCocktail = function(cur_id){
-    console.log(cur_id.cocktail);
-    var cocktail = $filter('filter')($scope.drinks, {id: cur_id.cocktail});
+    //var cocktail = $filter('filter')($scope.drinks, {id: cur_id.cocktail});
     $location.path('/cocktails/' + cur_id.cocktail);
-    //console.log('/cocktail/' + cur_id.cocktail );
   };
 
 }])
 .controller('cocktailCtrl', ['$scope', '$routeParams', 'drinkRepository', function($scope, $routeParams, drinkRepository){
-  console.log("in cocktail.js");
-  console.log($routeParams.cocktailID);
-  $scope.whichCocktail = $routeParams.cocktailID;
-
-  // $scope.weird = drinkRepository.getAllDrinks();
-
-  // $scope.name = $scope.drinks[indexOfCocktail].name;
-  // console.log($scope.drinks);
-  // $scope.drink = $scope.drinks[indexOfCocktail];
-
-  // // $scope.drinks = drinkRepository.getAllDrinks();
-  // console.log($scope.drink);
-
+  //$scope.whichCocktail = $routeParams.cocktailID;
   $scope.drinks = drinkRepository.getAllDrinks();
   $scope.drink = $scope.drinks[$routeParams.cocktailID];
   
-  // console.log($scope.drinks[$routeParams.cocktailID].name);
 }])
 .factory('drinkRepository', function() {
   return {

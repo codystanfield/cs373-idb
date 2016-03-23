@@ -26,37 +26,9 @@ def shutdown_session(exception=None):
 def index():
     return render_template('index.html')
 
-# @app.route("/cocktails")
-# def render_cocktails():
-#   return render_template('index.html')
-
-# @app.route("/cocktails/2")
-# def render_cocktail():
-#   return render_template('index.html')
-
 @app.route('/<path:path>')
 def catch_all(path):
   return render_template('index.html')
-
-
-# @app.route("/cocktails/2")
-# def render_cocktail():
-#   console.log('in router');
-#   return render_template('cocktail.html')
-
-# @app.route('/', methods=['GET', 'POST'])
-# def index():
-#   return render_template('index.html')
-
-# @app.route('/partials/<path:path>')
-# def serve_partial():
-#   return render_template('/partials/{}'.format(path))
-
-# @app.route('/', defaults={'path': ''}, methods=['GET'])
-# @app.route('/<path:path>')
-# def catch_all(path):
-#   return render_template('index.html')
-
 
 if __name__ == '__main__':
   app.run()

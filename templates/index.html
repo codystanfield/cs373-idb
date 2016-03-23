@@ -52,8 +52,8 @@
             <li ng-class="{active: $route.current.activeTab == 'Cocktails'}">
               <a href="/cocktails">Cocktails</a>
             </li>
-            <li>
-              <a href="#">Services</a>
+            <li ng-class="{active: $route.current.activeTab == 'Ingredients'}">
+              <a href="/ingredients">Ingredients</a>
             </li>
             <li>
               <a href="#">Contact</a>
@@ -107,5 +107,6 @@
   <script src="/static/js/app.js"></script>
   <script src="/static/js/home.js"></script>
   <script src="/static/js/cocktails.js"></script>
+  <script src="/static/js/ingredients.js"></script>
 </body>
 </html>

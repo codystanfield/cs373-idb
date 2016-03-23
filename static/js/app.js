@@ -5,6 +5,7 @@ angular.module('mixopediaApp', [
     'ngSanitize',
     'mixopediaApp.home',
     'mixopediaApp.cocktails',
+    'mixopediaApp.ingredients',
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
@@ -30,6 +31,12 @@ angular.module('mixopediaApp', [
             controller: "cocktailCtrl",
             controllerAs: 'cocktail',
             activeTab: ""
+        })
+        .when('/ingredients', {
+            templateUrl: '/static/partials/ingredients.html',
+            controller: 'ingredientsCtrl',
+            controllerAs: 'ingredients',
+            activeTab: 'Ingredients'
         })
         .otherwise({redirectTo: '/'});
         
