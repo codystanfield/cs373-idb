@@ -8,8 +8,12 @@ from unittest import main, TestCase
 
 from models import Cocktail, Ingredient, Amount
 
+import requests
+
+import idb
+
 # -----------
-# TestNetflix
+# TestIDB
 # -----------
 
 class TestIdb(TestCase):
@@ -246,6 +250,23 @@ class TestIdb(TestCase):
             "<Amount [%r-|---|-%r]>" % (amount.c_data, amount.i_data),
             amount_name
         )
+
+    # ---
+    # API
+    # ---
+
+    def test_api_cocktail_list(self):
+        result = idb.api_cocktail_list()
+        self.assertEqual(result[0], '')
+        self.assertEqual(result[1], 501)
+    
+    # .....
+    
+    def test_api_cocktail_route(self):
+        res = requests.get('http://localhost:5000/api/cocktail')
+        self.assertEqual(res.status_code, 501)
+        res = requests.put('http://localhost:5000/api/cocktail')
+        self.assertEqual(res.status_code, 405)
 
 # ----
 # main
