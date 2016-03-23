@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/static/css/custom.css" type="text/css">
   <link rel="stylesheet" href="/static/css/home.css" type="text/css">
   <link rel="stylesheet" href="/static/css/cocktails.css" type="text/css">
+  <link rel="stylesheet" href="/static/css/about.css" type="text/css">
 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -46,17 +47,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#">About</a>
+            <li ng-class="{active: $route.current.activeTab == 'About'}">
+              <a href="/about">About</a>
             </li>
             <li ng-class="{active: $route.current.activeTab == 'Cocktails'}">
               <a href="/cocktails">Cocktails</a>
             </li>
             <li ng-class="{active: $route.current.activeTab == 'Ingredients'}">
               <a href="/ingredients">Ingredients</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
             </li>
           </ul>
         </div>
