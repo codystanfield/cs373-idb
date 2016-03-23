@@ -41,10 +41,10 @@
 
   <!--          Name, glass, image, ingredients, recipe -->        
   <tbody>
-    <tr ng-repeat="item in items | orderBy:sortType:sortReverse" ng-click="goToIngredient({ingredientID: ingredient.id})">
+    <tr ng-repeat="item in items | orderBy:sortType:sortReverse" ng-click="goToIngredient({itemID: item.id})">
       <td>{{ item.name }}</td>
       <td>{{ item.alcoholic }}</td>
-      <td><img ng-src="{{ item.image }}" style="width: 100%; height: auto"></td>
+      <td><img ng-src="{{ item.image }}" style="width: auto; height: 100px"></td>
       <td>
         <div ng-repeat="cocktail in item.cocktails | orderBy">
           {{ cocktail }}   

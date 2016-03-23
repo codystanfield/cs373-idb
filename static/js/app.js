@@ -38,6 +38,12 @@ angular.module('mixopediaApp', [
             controllerAs: 'ingredients',
             activeTab: 'Ingredients'
         })
+        .when('/ingredients/:ingredientID', {
+            templateUrl: '/static/partials/ingredient.html',
+            controller: "ingredientCtrl",
+            controllerAs: 'ingredient',
+            activeTab: ""
+        })
         .otherwise({redirectTo: '/'});
         
     //$locationProvider.html5Mode(true);
