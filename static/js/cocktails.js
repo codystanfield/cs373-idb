@@ -18,10 +18,34 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
   };
 
 }])
-.controller('cocktailCtrl', ['$scope', '$routeParams', 'drinkRepository', function($scope, $routeParams, drinkRepository){
+.controller('cocktailCtrl', ['$scope', '$routeParams', '$location', 'drinkRepository', function($scope, $routeParams, $location, drinkRepository){
   //$scope.whichCocktail = $routeParams.cocktailID;
   $scope.drinks = drinkRepository.getAllDrinks();
   $scope.drink = $scope.drinks[$routeParams.cocktailID];
+
+  $scope.goToIngredient = function(item) {
+    console.log('/ingredients/' + item.ingredientName);
+  
+    if(item.ingredientName == 'vodka'){
+      $location.path('/ingredients/' + 0);
+    } else if(item.ingredientName == 'club soda'){
+      $location.path('/ingredients/' + 1);
+    } else if(item.ingredientName == 'mint'){
+      $location.path('/ingredients/' + 2);
+    } else if(item.ingredientName == 'ginger beer'){
+      $location.path('/ingredients/' + 3);
+    } else if(item.ingredientName == 'lime juice'){
+      $location.path('/ingredients/' + 4);
+    } else if(item.ingredientName == 'heavy cream'){
+      $location.path('/ingredients/' + 5);
+    } else if(item.ingredientName == 'kahlua'){
+      $location.path('/ingredients/' + 6);
+    } else if(item.ingredientName == 'rum'){
+      $location.path('/ingredients/' + 7);
+    } else {
+      $location.path('/ingredients/' + 8);
+    }
+  };
   
 }])
 .factory('drinkRepository', function() {

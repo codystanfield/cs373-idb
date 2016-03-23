@@ -19,7 +19,6 @@ angular.module('mixopediaApp.ingredients', ['ngRoute'])
 }])
 .controller('ingredientCtrl', ['$scope', '$routeParams', '$location', 'ingredientRepository', function($scope, $routeParams, $location, ingredientRepository){
   $scope.items = ingredientRepository.getAllIngredients();
-
   $scope.item = $scope.items[$routeParams.ingredientID];
   
   $scope.goToDrink = function(drink) {
