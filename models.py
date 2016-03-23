@@ -97,4 +97,4 @@ class Amount(Base):
 
     def __repr__(self):
         """Returns a string representation of an Amount relationship."""
-        return '<Amount [%r-|---|-%r]>' % (self.cocktail, self.ingredient)
+        return '<Amount [%r-|---|-%r]>' % (self.c_data, self.i_data)
