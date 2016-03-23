@@ -57,8 +57,9 @@
 
 <!--          Name, glass, image, ingredients, recipe -->        
         <tbody>
-          <tr ng-repeat="drink in drinks | orderBy:sortType:sortReverse" ng-click="goToCocktail({cocktail: drink.id})">
-            <td>{{ drink.name }}</td>
+          <!-- ng-click="goToCocktail({cocktail: drink.id})" --> 
+          <tr ng-repeat="drink in drinks | orderBy:sortType:sortReverse" >
+            <td><a href='/cocktails/{{drink.id}}'>{{ drink.name }}</a></td>
             <td>{{ drink.glass }}</td>
             <td><img ng-src="{{ drink.image }}" style="width: 100%; height: auto"></td>
             <td>
@@ -66,7 +67,7 @@
                 {{ ingredient }}   
               </div>
             </td>
-            <td>{{ drink.recipe }}</td>
+            <td>{{ drink.recipe }}</td> 
           </tr>
         </tbody>
 
