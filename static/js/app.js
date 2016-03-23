@@ -9,9 +9,7 @@ angular.module('mixopediaApp', [
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
-
     $locationProvider.html5Mode(true);
-    // $locationProvider.hashPrefix('!');
 
     $routeProvider
         .when('/', {
@@ -45,22 +43,10 @@ angular.module('mixopediaApp', [
             activeTab: ""
         })
         .otherwise({redirectTo: '/'});
-        
-    //$locationProvider.html5Mode(true);
+
 }])
 
 .controller('indexCtrl', ['$scope', '$route', '$location', function($scope, $route, $location){
     $scope.$route = $route;
-
-    // $scope.range = function(n){
-    //     var ans = [];
-    //     for(var i = 0; i < n; i += 1){
-    //         ans.push(i);
-    //     }
-    //     return ans;
-    // };
-    // $scope.submitQuery = function(){
-    //     $location.path("/search/" + $scope.query); // path not hash
-    // };
 
 }]);
