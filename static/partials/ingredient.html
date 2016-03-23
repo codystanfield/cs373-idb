@@ -20,7 +20,7 @@
       <!-- Comment -->
       <h2>Cocktails</h2>
       <ul ng-repeat="cocktail in item.cocktails">
-        <li>{{cocktail}}</li>
+        <li ng-click="goToDrink({drinkName: cocktail})">{{cocktail}}</li>
       </ul>
 
 

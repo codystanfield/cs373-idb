@@ -17,10 +17,22 @@ angular.module('mixopediaApp.ingredients', ['ngRoute'])
   };
 
 }])
-.controller('ingredientCtrl', ['$scope', '$routeParams', 'ingredientRepository', function($scope, $routeParams, ingredientRepository){
+.controller('ingredientCtrl', ['$scope', '$routeParams', '$location', 'ingredientRepository', function($scope, $routeParams, $location, ingredientRepository){
   $scope.items = ingredientRepository.getAllIngredients();
+
   $scope.item = $scope.items[$routeParams.ingredientID];
   
+  $scope.goToDrink = function(drink) {
+    console.log('/cocktails/' + drink.drinkName);
+    if(drink.drinkName == 'Moscow Mule'){
+      $location.path('/cocktails/' + 0);
+    } else if (drink.drinkName == 'White Russian'){
+      $location.path('/cocktails/' + 1);
+    } else {
+      $location.path('/cocktails/' + 2);
+    }
+  };
+
 }])
 .factory('ingredientRepository', function() {
   return {
