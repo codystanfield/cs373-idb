@@ -27,7 +27,7 @@ script:
     - ls -al
     - make IDB1.log
     - ls -al
-    - python3 idb.py
+    - python3 idb.py &
     - ls -al
     - make test
     - ls -al
