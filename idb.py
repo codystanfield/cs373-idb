@@ -22,15 +22,13 @@ db = SQLAlchemy(app)
 def shutdown_session(exception=None):
   db_session.remove()
 
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html')
 
-# example route and function from here:
-# http://flask.pocoo.org/docs/0.10/tutorial/views/
-@app.route('/')
-def show_entries():
-  # cur = g.db.execute('select title, text from entries order by id desc')
-  # entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
-  return render_template('index.html')#, entries=entries)
-
+@app.route('/<path:path>')
+def catch_all(path):
+  return render_template('index.html')
 
 if __name__ == '__main__':
   app.run()
