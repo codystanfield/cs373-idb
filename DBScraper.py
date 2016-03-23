@@ -4,7 +4,7 @@ import bs4, json, pickle, requests, shutil, signal, sys, time
 
 
 class Cocktail(object):
-    def __init__(self, name):
+    def __init__(self, name, glass=None, ingredients=None, recipe=None, image=None):
         self.name = name
         
     def __str__(self):
@@ -103,7 +103,8 @@ def run_cocktail_images():
     with open('cocktails.pkl', 'rb') as f:
         cocktails = pickle.load(f)
         for c in cocktails:
-            get_image(c.name, 'cocktails', 'cocktail')
+            path = get_image(c.name, 'cocktails', 'cocktail')
+            c.image = path
             print(c.name)
             time.sleep(5)
 
@@ -141,6 +142,8 @@ def get_image(name, directory, append=''):
     # Also leaving the plusses in (also because meh)
     with open('./static/images/{0}/{1}.jpg'.format(directory, name), 'wb') as f:
         shutil.copyfileobj(res.raw, f)
+    
+    return '{0}/{1}'.format(directory, name)
     
 
 # ------------------------------------------------------------------------------
