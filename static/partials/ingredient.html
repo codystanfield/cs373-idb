@@ -25,7 +25,8 @@
       <!-- Facts about Ingredient -->
       <h2>Facts:</h2>
       <ul>
-        <li>Alcoholic: {{item.alcoholic}}</li>
+        <li ng-if="item.alcoholic">Alcoholic</li>
+        <li ng-if="item.alcoholic == false">Non-Alcoholic</li>
         <li>Number of Cocktails: {{item.numCocktails}}</li>
       </ul>
 
