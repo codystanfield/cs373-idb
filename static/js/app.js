@@ -22,7 +22,7 @@ angular.module('mixopediaApp', [
             templateUrl: '/static/partials/about.html',
             controller: '',
             controllerAs: 'about',
-            activeTab: ''
+            activeTab: 'About'
         })
         .when('/cocktails', {
             templateUrl: '/static/partials/cocktails.html',
