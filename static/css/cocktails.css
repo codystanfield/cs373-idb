@@ -52,3 +52,17 @@ body {
 footer {
     margin: 50px 0;
 }
+
+.drink_image {
+    cursor: pointer;
+    border: 3px inset #ccc;
+
+    /*Don't know if this is necessary*/
+    /*-webkit-transition: margin 0.1s ease-out;
+    -moz-transition: margin 0.1s ease-out;
+    -o-transition: margin 0.1s ease-out;*/
+}
+
+.drink_image:hover {
+    margin-top: 2px;
+}

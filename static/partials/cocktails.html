@@ -10,7 +10,7 @@
             <!-- <h1>{{ drink.name }}</h1>
             <ul>
             <div ng-repeat="ingredient in drink.ingredients | orderBy">
-              <li>{{ ingredient }}</li>     
+              <li>{{ ingredient }}</li>
             </div>
           </ul>
         </div> -->
@@ -55,22 +55,22 @@
            </tr>
          </thead>
 
-<!--          Name, glass, image, ingredients, recipe -->        
+<!--          Name, glass, image, ingredients, recipe -->
         <tbody>
           <tr ng-repeat="drink in drinks | orderBy:sortType:sortReverse" ng-click="goToCocktail({cocktail: drink.id})">
             <td>{{ drink.name }}</td>
             <td>{{ drink.glass }}</td>
-            <td><img ng-src="{{ drink.image }}" style="width: 100%; height: auto"></td>
+            <td><img ng-src="{{ drink.image }}" style="width: 100%; height: auto" class="drink_image"></td>
             <td>
               <div ng-repeat="ingredient in drink.ingredients | orderBy">
-                {{ ingredient }}   
+                {{ ingredient }}
               </div>
             </td>
             <td>{{ drink.recipe }}</td>
           </tr>
         </tbody>
 
-         
+
 
        </table>
      <!-- </div> -->
