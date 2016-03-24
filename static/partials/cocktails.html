@@ -15,7 +15,7 @@
           </ul>
         </div> -->
 
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered">
 
          <thead>
            <tr>
@@ -57,7 +57,7 @@
 
 <!--          Name, glass, image, ingredients, recipe -->        
         <tbody>
-          <tr ng-repeat="drink in drinks | orderBy:sortType:sortReverse" ng-click="goToCocktail({cocktail: drink.id})">
+          <tr ng-click="goToCocktail({cocktail: drink.id})" ng-repeat="drink in drinks | orderBy:sortType:sortReverse">
             <td>{{ drink.name }}</td>
             <td>{{ drink.glass }}</td>
             <td><img ng-src="{{ drink.image }}" style="width: 100%; height: auto"></td>
