@@ -36,27 +36,27 @@ def cocktails(id):
 @app.route('/<path:path>')
 def catch_all(path):
     return render_template('index.html')
-  
+
 
 @app.route('/api/cocktail', methods=['GET'])
 def api_cocktail_list():
     return ('', 501)
-    
-    
+
+
 @app.route('/api/cocktail/<int:id>', methods=['GET'])
 def api_cocktail(id):
     return ('', 501)
-    
-    
+
+
 @app.route('/api/cocktail/<int:id>/name', methods=['GET'])
 def api_cocktail_name(id):
     return ('', 501)
 
-    
+
 @app.route('/api/cocktail/<int:id>/ingredients', methods=['GET'])
 def api_cocktail_ingredients(id):
     return ('', 501)
-    
+
 
 @app.route('/api/cocktail/<int:id>/glass', methods=['GET'])
 def api_cocktail_glass(id):
@@ -79,29 +79,29 @@ def api_ingredient_list():
 
 
 @app.route('/api/ingredient/<int:id>', methods=['GET'])
-def api_ingredient():
+def api_ingredient(id):
     return ('', 501)
 
 
 @app.route('/api/ingredient/<int:id>/name', methods=['GET'])
-def api_ingredient_name():
+def api_ingredient_name(id):
     return ('', 501)
 
 
 @app.route('/api/ingredient/<int:id>/cocktails', methods=['GET'])
-def api_ingredient_cocktails():
+def api_ingredient_cocktails(id):
     return ('', 501)
 
 
 @app.route('/api/ingredient/<int:id>/image', methods=['GET'])
-def api_ingredient_image():
+def api_ingredient_image(id):
     return ('', 501)
 
 
 @app.route('/api/ingredient/<int:id>/numcocktails', methods=['GET'])
-def api_ingredient_numcocktails():
+def api_ingredient_numcocktails(id):
     return ('', 501)
-    
+
 
 if __name__ == '__main__':
     app.run()
