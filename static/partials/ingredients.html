@@ -1,6 +1,6 @@
 <!-- Page Content -->
 <div class="container">
-  <table class="table table-bordered table-striped">
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th>
@@ -43,7 +43,8 @@
   <tbody>
     <tr ng-repeat="item in items | orderBy:sortType:sortReverse" ng-click="goToIngredient({itemID: item.id})">
       <td>{{ item.name }}</td>
-      <td>{{ item.alcoholic }}</td>
+      <td ng-if="item.alcoholic">Alcoholic</td>
+      <td ng-if="item.alcoholic == false">Non-Alcoholic</td>
       <td><img ng-src="{{ item.image }}" style="width: auto; height: 100px"></td>
       <td>
         <div ng-repeat="cocktail in item.cocktails | orderBy">

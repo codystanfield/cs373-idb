@@ -7,8 +7,6 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
 
   $scope.sortType     = 'name'; // set the default sort type
   $scope.sortReverse  = false;  // set the default sort order
-  // $scope.letterLimit  = 100;
-  // $scope.search   = '';     // set the default search/filter term
 
   $scope.drinks = drinkRepository.getAllDrinks();
 
