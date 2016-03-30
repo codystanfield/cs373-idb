@@ -25,7 +25,7 @@ def init_db():
     init_db_()
 
 @manager.command
-def load_pickled_data_():
+def load_pickled_data():
     load_pickled_data_()
 
 

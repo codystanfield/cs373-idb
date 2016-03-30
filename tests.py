@@ -4,13 +4,15 @@
 # imports
 # -------
 
-from unittest import main, TestCase
-
-from models import Cocktail, Ingredient, Amount
-
+from unittest import main, \
+                    TestCase
+from models import Cocktail, \
+                   Ingredient, \
+                   Amount
 import requests
-
 import idb
+
+HOST =  'http://104.130.22.54/'
 
 # -----------
 # TestIDB
@@ -375,19 +377,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_cocktail_list_route_1(self):
-        request = requests.get('http://localhost:5000/api/cocktail')
+        request = requests.get(HOST + '/api/cocktail')
         self.assertEqual(request.status_code, 501)
 
     def test_api_cocktail_list_route_2(self):
-        request = requests.put('http://localhost:5000/api/cocktail')
+        request = requests.put(HOST + '/api/cocktail')
         self.assertEqual(request.status_code, 405)
 
     def test_api_cocktail_list_route_3(self):
-        request = requests.post('http://localhost:5000/api/cocktail')
+        request = requests.post(HOST + '/api/cocktail')
         self.assertEqual(request.status_code, 405)
 
     def test_api_cocktail_list_route_4(self):
-        request = requests.delete('http://localhost:5000/api/cocktail')
+        request = requests.delete(HOST + '/api/cocktail')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -411,19 +413,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_cocktail_route_1(self):
-        request = requests.get('http://localhost:5000/api/cocktail/1')
+        request = requests.get(HOST + '/api/cocktail/1')
         self.assertEqual(request.status_code, 501)
 
     def test_api_cocktail_route_2(self):
-        request = requests.put('http://localhost:5000/api/cocktail/1')
+        request = requests.put(HOST + '/api/cocktail/1')
         self.assertEqual(request.status_code, 405)
 
     def test_api_cocktail_route_3(self):
-        request = requests.post('http://localhost:5000/api/cocktail/1')
+        request = requests.post(HOST + '/api/cocktail/1')
         self.assertEqual(request.status_code, 405)
 
     def test_api_cocktail_route_4(self):
-        request = requests.delete('http://localhost:5000/api/cocktail/1')
+        request = requests.delete(HOST + '/api/cocktail/1')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -447,19 +449,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_cocktail_name_route_1(self):
-        request = requests.get('http://localhost:5000/api/cocktail/1/name')
+        request = requests.get(HOST + '/api/cocktail/1/name')
         self.assertEqual(request.status_code, 501)
 
     def test_api_cocktail_name_route_2(self):
-        request = requests.put('http://localhost:5000/api/cocktail/1/name')
+        request = requests.put(HOST + '/api/cocktail/1/name')
         self.assertEqual(request.status_code, 405)
 
     def test_api_cocktail_name_route_3(self):
-        request = requests.post('http://localhost:5000/api/cocktail/1/name')
+        request = requests.post(HOST + '/api/cocktail/1/name')
         self.assertEqual(request.status_code, 405)
 
     def test_api_cocktail_name_route_4(self):
-        request = requests.delete('http://localhost:5000/api/cocktail/1/name')
+        request = requests.delete(HOST + '/api/cocktail/1/name')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -483,19 +485,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_ct_ingred_route_1(self):
-        request = requests.get('http://localhost:5000/api/cocktail/1/ingredients')
+        request = requests.get(HOST + '/api/cocktail/1/ingredients')
         self.assertEqual(request.status_code, 501)
 
     def test_api_ct_ingred_route_2(self):
-        request = requests.put('http://localhost:5000/api/cocktail/1/ingredients')
+        request = requests.put(HOST + '/api/cocktail/1/ingredients')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ct_ingred_route_3(self):
-        request = requests.post('http://localhost:5000/api/cocktail/1/ingredients')
+        request = requests.post(HOST + '/api/cocktail/1/ingredients')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ct_ingred_route_4(self):
-        request = requests.delete('http://localhost:5000/api/cocktail/1/ingredients')
+        request = requests.delete(HOST + '/api/cocktail/1/ingredients')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -519,19 +521,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_cocktail_glass_route_1(self):
-        request = requests.get('http://localhost:5000/api/cocktail/1/glass')
+        request = requests.get(HOST + '/api/cocktail/1/glass')
         self.assertEqual(request.status_code, 501)
 
     def test_api_cocktail_glass_route_2(self):
-        request = requests.put('http://localhost:5000/api/cocktail/1/glass')
+        request = requests.put(HOST + '/api/cocktail/1/glass')
         self.assertEqual(request.status_code, 405)
 
     def test_api_cocktail_glass_route_3(self):
-        request = requests.post('http://localhost:5000/api/cocktail/1/glass')
+        request = requests.post(HOST + '/api/cocktail/1/glass')
         self.assertEqual(request.status_code, 405)
 
     def test_api_cocktail_glass_route_4(self):
-        request = requests.delete('http://localhost:5000/api/cocktail/1/glass')
+        request = requests.delete(HOST + '/api/cocktail/1/glass')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -555,19 +557,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_ct_recipe_route_1(self):
-        request = requests.get('http://localhost:5000/api/cocktail/1/recipe')
+        request = requests.get(HOST + '/api/cocktail/1/recipe')
         self.assertEqual(request.status_code, 501)
 
     def test_api_ct_recipe_route_2(self):
-        request = requests.put('http://localhost:5000/api/cocktail/1/recipe')
+        request = requests.put(HOST + '/api/cocktail/1/recipe')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ct_recipe_route_3(self):
-        request = requests.post('http://localhost:5000/api/cocktail/1/recipe')
+        request = requests.post(HOST + '/api/cocktail/1/recipe')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ct_recipe_route_4(self):
-        request = requests.delete('http://localhost:5000/api/cocktail/1/recipe')
+        request = requests.delete(HOST + '/api/cocktail/1/recipe')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -591,19 +593,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_cocktail_image_route_1(self):
-        request = requests.get('http://localhost:5000/api/cocktail/1/image')
+        request = requests.get(HOST + '/api/cocktail/1/image')
         self.assertEqual(request.status_code, 501)
 
     def test_api_cocktail_image_route_2(self):
-        request = requests.put('http://localhost:5000/api/cocktail/1/image')
+        request = requests.put(HOST + '/api/cocktail/1/image')
         self.assertEqual(request.status_code, 405)
 
     def test_api_cocktail_image_route_3(self):
-        request = requests.post('http://localhost:5000/api/cocktail/1/image')
+        request = requests.post(HOST + '/api/cocktail/1/image')
         self.assertEqual(request.status_code, 405)
 
     def test_api_cocktail_image_route_4(self):
-        request = requests.delete('http://localhost:5000/api/cocktail/1/image')
+        request = requests.delete(HOST + '/api/cocktail/1/image')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -627,19 +629,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_ingred_list_route_1(self):
-        request = requests.get('http://localhost:5000/api/ingredient')
+        request = requests.get(HOST + '/api/ingredient')
         self.assertEqual(request.status_code, 501)
 
     def test_api_ingred_list_route_2(self):
-        request = requests.put('http://localhost:5000/api/ingredient')
+        request = requests.put(HOST + '/api/ingredient')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingred_list_route_3(self):
-        request = requests.post('http://localhost:5000/api/ingredient')
+        request = requests.post(HOST + '/api/ingredient')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingred_list_route_4(self):
-        request = requests.delete('http://localhost:5000/api/ingredient')
+        request = requests.delete(HOST + '/api/ingredient')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -663,19 +665,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_ingredient_route_1(self):
-        request = requests.get('http://localhost:5000/api/ingredient/1')
+        request = requests.get(HOST + '/api/ingredient/1')
         self.assertEqual(request.status_code, 501)
 
     def test_api_ingredient_route_2(self):
-        request = requests.put('http://localhost:5000/api/ingredient/1')
+        request = requests.put(HOST + '/api/ingredient/1')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingredient_route_3(self):
-        request = requests.post('http://localhost:5000/api/ingredient/1')
+        request = requests.post(HOST + '/api/ingredient/1')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingredient_route_4(self):
-        request = requests.delete('http://localhost:5000/api/ingredient/1')
+        request = requests.delete(HOST + '/api/ingredient/1')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -699,19 +701,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_ingred_name_route_1(self):
-        request = requests.get('http://localhost:5000/api/ingredient/1/name')
+        request = requests.get(HOST + '/api/ingredient/1/name')
         self.assertEqual(request.status_code, 501)
 
     def test_api_ingred_name_route_2(self):
-        request = requests.put('http://localhost:5000/api/ingredient/1/name')
+        request = requests.put(HOST + '/api/ingredient/1/name')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingred_name_route_3(self):
-        request = requests.post('http://localhost:5000/api/ingredient/1/name')
+        request = requests.post(HOST + '/api/ingredient/1/name')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingred_name_route_4(self):
-        request = requests.delete('http://localhost:5000/api/ingredient/1/name')
+        request = requests.delete(HOST + '/api/ingredient/1/name')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -735,19 +737,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_ingred_cts_route_1(self):
-        request = requests.get('http://localhost:5000/api/ingredient/1/cocktails')
+        request = requests.get(HOST + '/api/ingredient/1/cocktails')
         self.assertEqual(request.status_code, 501)
 
     def test_api_ingred_cts_route_2(self):
-        request = requests.put('http://localhost:5000/api/ingredient/1/cocktails')
+        request = requests.put(HOST + '/api/ingredient/1/cocktails')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingred_cts_route_3(self):
-        request = requests.post('http://localhost:5000/api/ingredient/1/cocktails')
+        request = requests.post(HOST + '/api/ingredient/1/cocktails')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingred_cts_route_4(self):
-        request = requests.delete('http://localhost:5000/api/ingredient/1/cocktails')
+        request = requests.delete(HOST + '/api/ingredient/1/cocktails')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -771,19 +773,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_ingred_image_route_1(self):
-        request = requests.get('http://localhost:5000/api/ingredient/1/image')
+        request = requests.get(HOST + '/api/ingredient/1/image')
         self.assertEqual(request.status_code, 501)
 
     def test_api_ingred_image_route_2(self):
-        request = requests.put('http://localhost:5000/api/ingredient/1/image')
+        request = requests.put(HOST + '/api/ingredient/1/image')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingred_image_route_3(self):
-        request = requests.post('http://localhost:5000/api/ingredient/1/image')
+        request = requests.post(HOST + '/api/ingredient/1/image')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingred_image_route_4(self):
-        request = requests.delete('http://localhost:5000/api/ingredient/1/image')
+        request = requests.delete(HOST + '/api/ingredient/1/image')
         self.assertEqual(request.status_code, 405)
 
     # ---
@@ -807,19 +809,19 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_ingred_numcts_route_1(self):
-        request = requests.get('http://localhost:5000/api/ingredient/1/numcocktails')
+        request = requests.get(HOST + '/api/ingredient/1/numcocktails')
         self.assertEqual(request.status_code, 501)
 
     def test_api_ingred_numcts_route_2(self):
-        request = requests.put('http://localhost:5000/api/ingredient/1/numcocktails')
+        request = requests.put(HOST + '/api/ingredient/1/numcocktails')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingred_numcts_route_3(self):
-        request = requests.post('http://localhost:5000/api/ingredient/1/numcocktails')
+        request = requests.post(HOST + '/api/ingredient/1/numcocktails')
         self.assertEqual(request.status_code, 405)
 
     def test_api_ingred_numcts_route_4(self):
-        request = requests.delete('http://localhost:5000/api/ingredient/1/numcocktails')
+        request = requests.delete(HOST + '/api/ingredient/1/numcocktails')
         self.assertEqual(request.status_code, 405)
 
 # ----

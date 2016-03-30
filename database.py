@@ -25,11 +25,12 @@ def init_db_():
 
 
 def load_pickled_data_():
-  logger.debug("create_test_data")
-  app.config['SQLALCHEMY_ECHO'] = True
-  guest = Guest(name='Steve')
-  db.session.add(guest)
-  db.session.commit()
+  pass
+  # logger.debug("create_test_data")
+  # app.config['SQLALCHEMY_ECHO'] = True
+  # guest = Guest(name='Steve')
+  # db.session.add(guest)
+  # db.session.commit()
 
 # @manager.command
 # def drop_db():
