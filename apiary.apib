@@ -1,9 +1,258 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://mixopedia.me/
 
-# Cocktails
+# mixopedia
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+<!--Polls is a simple API allowing consumers to view polls and vote in them.-->
+Documentation for the Mixopedia API exposed to the internet at large. 
+
+# Group Cocktails
+
+## All Cocktails [/api/cocktail]
+
+### Get All Cocktails [GET]
+
++ Response 200 (json)
+    
+        {
+            "cocktails": [
+                {
+                    "name": "Old Fashioned",
+                    "id": 1
+                },
+                {
+                    "name": "Margarita",
+                    "id": 2
+                }
+            ]
+        }
+
+## Single Cocktail [/api/cocktail/{id}]
+
++ Paramaters
+    + id (number) - The id of the cocktail
+
+### Get All Information [GET]
+
++ Response 200 (json)
+
+        {
+            'id': 1,
+            'name': 'Old Fashioned',
+            'ingredients': [
+                {
+                    'name': 'whiskey',
+                    'quantity': 2,
+                    'unit': 'ounces'
+                },
+                {
+                    'name': 'sugar',
+                    'quantity': 1,
+                    'unit': 'tsp'
+                },
+                {
+                    'name': 'bitters',
+                    'quantity': 3,
+                    'unit': 'dashes'
+                }
+            ],
+            'recipe': 'Place bitters and sugar in glass, add whiskey, stir.',
+            'glass': 'old fashioned glass',
+            'imageURL': '/static/images/cocktails/old+fashioned.jpg'
+        }
+
+## Cocktail Name [/api/cocktail/{id}/name]
+
++ Paramaters
+    + id (number) - the id of the cocktail
+
+### Get the Cocktail's Name [GET]
+
++ Response 200 (json)
+
+        {
+            'name': 'Old fashioned'
+        }
+
+## Cocktail Ingredients [/api/cocktail/{id}/ingredients]
+
++ Paramaters
+    + id (number) - the id of the cocktail
+
+### Get the Cocktail's Ingredients [GET]
+
++ Response 200 (json)
+
+        {
+            'ingredients': [
+                {
+                    'name': 'whiskey',
+                    'quantity': 2,
+                    'unit': 'ounces'
+                },
+                {
+                    'name': 'sugar',
+                    'quantity': 1,
+                    'unit': 'tsp'
+                },
+                {
+                    'name': 'bitters',
+                    'quantity': 3,
+                    'unit': 'dashes'
+                }
+            ]
+        }
+
+## Cocktail Glass [/api/cocktail/{id}/glass]
+
++ Paramaters
+    + id (number) - the id of the cocktail
+
+### Get the Cocktail's Glass [GET]
+
++ Response 200 (json)
+
+        {
+            'glass': 'old fashioned glass'
+        }
+
+## Cocktail Recipe [/api/cocktail/{id}/recipe]
+
++ Paramaters
+    + id (number) - the id of the cocktail
+
+### Get the Cocktail's Recipe [GET]
+
++ Response 200 (json)
+
+        {
+            'recipe': 'Place bitters and sugar in glass, add whiskey, stir.' 
+        }
+
+## Cocktail Image [/api/cocktail/{id}/image]
+
++ Paramaters
+    + id (number) - the id of the cocktail
+
+### Get the Cocktail's Image URL [GET]
+
++ Response 200 (json)
+
+        {
+            'imageURL': '/static/images/cocktails/old+fashioned.jpg'
+        }
+
+# Group Ingredients
+
+## All Ingredients [/api/ingredient]
+
+### Get All Ingredients [GET]
+
++ Response 200 (json)
+
+        {
+            'ingredients': [
+                {
+                    'name': 'whiskey',
+                    'id': 1
+                }
+                {
+                    'name': 'sugar',
+                    'id': 2
+                }
+                {
+                    'name': 'bitters',
+                    'id': 3
+                }
+            ]
+        }
+
+## Single Ingredient [/api/ingredient/{id}]
+
++ Paramaters
+    + id (number) - the id of the ingredient
+
+### Get All Information [GET]
+
++ Response 200 (json)
+
+        {
+            'id': 1,
+            'name': 'whiskey',
+            'cocktails': [
+                1,
+                15,
+                27
+            ],
+            'alcoholic': true,
+            'numberOfCocktails': 3,
+            'image': '/static/images/ingredients/whiskey.jpg'
+        }
+
+## Ingredient Name [/api/ingredient/{id}/name]
+
++ Paramaters
+    + id (number) - the id of the ingredient
+
+### Get The Ingredient's Name
+
++ Response 200 (json)
+
+        {
+            'name': 'whiskey'
+        }
+
+## Ingredient Cocktail List [/api/ingredient/{id}/cocktails]
+
++ Paramaters
+    + id (number) - the id of the ingredient
+
+### Get a List of the Cocktails that the Ingredient is Used In
+
++ Response 200 (json)
+
+        {
+            'cocktails': [
+                {
+                    'name': 'Old Fashioned',
+                    'id': 1,
+                },
+                {
+                    'name': 'Whiskey Sour',
+                    'id': 15,
+                }
+                {
+                    'name': 'The Retox',
+                    'id': 27,
+                }
+            ]
+        }
+
+## Ingredient Image [/api/ingredient/{id}/image]
+
++ Paramaters
+    + id (number) - the id of the ingredient
+
+### Get The Ingredients' Image URL [GET]
+
++ Response 200 (json)
+
+        {
+            'imageURL': '/static/images/ingredients/whiskey.jpg'
+        }
+        
+## Ingredient Popularity [/api/ingredient/{id}/numcocktails]
+
++ Paramaters
+    + id (number) - the id of the ingredient
+
+### Get the Number of Cocktails That Use The Ingredient
+
++ Response 200 (json)
+
+        {
+            'numCocktails': 3
+        }
 
 ## Questions Collection [/questions]
 
