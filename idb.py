@@ -1,26 +1,32 @@
 # imports
-import psycopg2
 from flask import Flask, request, session, g, redirect, url_for, \
                   abort, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
-from database import SQLALCHEMY_DATABASE_URI
-from database import db_session
+from flask.ext.script import Manager
+from database import SQLALCHEMY_DATABASE_URI, \
+                     db_session, \
+                     init_db_
+
 
 
 # create our little application :)
 app = Flask(__name__)
-app.config.from_object(__name__)
+# app = Flask(__name__, static_url_path='')
+# app.config.from_object(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+manager = Manager(app)
 db = SQLAlchemy(app)
 
+@manager.command
+def init_db():
+    init_db_()
 
-# remove database sessions at the end of the request or when the application
-# shuts down:
-# http://flask.pocoo.org/docs/0.10/patterns/sqlalchemy/
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    db_session.remove()
+@manager.command
+def load_pickled_data_():
+    load_pickled_data_()
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -104,4 +110,4 @@ def api_ingredient_numcocktails(id):
 
 
 if __name__ == '__main__':
-    app.run()
+    manager.run()

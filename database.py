@@ -1,20 +1,16 @@
+# import os
 from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.orm import scoped_session, \
+                           sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-DBUSER = 'idb_user'
-DBPASSWD = 'idb_pw'
-DBHOSTNAME = 'localhost'
-DBPORT = '5432'
-DBNAME = 'idb'
 
-# postgresql+psycopg2://idb_user:idb_pw@localhost:5432/idb
-SQLALCHEMY_DATABASE_URI = ('postgresql+psycopg2://' +
-                           DBUSER + ':' +
-                           DBPASSWD +  '@' +
-                           DBHOSTNAME + ':' +
-                           DBPORT + '/' +
-                           DBNAME)
+SQLALCHEMY_DATABASE_URI = '{engine}://{username}:{password}@{hostname}/{database}'.format(
+            engine='mysql+pymysql',
+            username='idb_user',
+            password='idb_pw',
+            hostname='0.0.0.0',
+            database='idb')
 
 engine = create_engine(SQLALCHEMY_DATABASE_URI, convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
@@ -23,9 +19,20 @@ db_session = scoped_session(sessionmaker(autocommit=False,
 Base = declarative_base()
 Base.query = db_session.query_property()
 
-def init_db():
-  # import all modules here that might define models so that
-  # they will be registered properly on the metadata.  Otherwise
-  # you will have to import them first before calling init_db()
-  import models
+
+def init_db_():
   Base.metadata.create_all(bind=engine)
+
+
+def load_pickled_data_():
+  logger.debug("create_test_data")
+  app.config['SQLALCHEMY_ECHO'] = True
+  guest = Guest(name='Steve')
+  db.session.add(guest)
+  db.session.commit()
+
+# @manager.command
+# def drop_db():
+#     logger.debug("drop_db")
+#     app.config['SQLALCHEMY_ECHO'] = True
+#     db.drop_all()
