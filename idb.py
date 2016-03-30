@@ -24,6 +24,11 @@ db = SQLAlchemy(app)
 def init_db():
     init_db_()
 
+@manager.command
+def load_pickled_data_():
+    load_pickled_data_()
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
