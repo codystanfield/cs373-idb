@@ -1,32 +1,14 @@
 # imports
-from flask import Flask, request, session, g, redirect, url_for, \
-                  abort, render_template, flash
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.script import Manager
-from database import SQLALCHEMY_DATABASE_URI, \
-                     db_session, \
-                     init_db_
-
-
-
-# create our little application :)
-app = Flask(__name__)
-# app = Flask(__name__, static_url_path='')
-# app.config.from_object(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-manager = Manager(app)
-db = SQLAlchemy(app)
-
-@manager.command
-def init_db():
-    init_db_()
-
-@manager.command
-def load_pickled_data():
-    load_pickled_data_()
+from flask import request, \
+                  session, \
+                  g, \
+                  redirect, \
+                  url_for, \
+                  abort, \
+                  render_template, \
+                  flash
+from config import app, \
+                   manager
 
 
 @app.route('/', methods=['GET', 'POST'])

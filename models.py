@@ -1,8 +1,11 @@
-# sample from docs:
 # http://flask.pocoo.org/docs/0.10/patterns/sqlalchemy/
-from database import Base
-from sqlalchemy import Column, String, Integer, ForeignKey
-from idb import db
+from sqlalchemy import Column, \
+                       String, \
+                       Integer, \
+                       Sequence, \
+                       ForeignKey
+from config import db, \
+                   Base
 
 
 class Cocktail(Base):
@@ -20,8 +23,8 @@ class Cocktail(Base):
         image: A string indicating the folder/filename for a static image.
     """
     __tablename__ = 'cocktails'
-    id_ = Column(Integer, primary_key=True)
-    name = Column(String(50), primary_key=True)
+    id_ = Column(Integer,  Sequence('user_id_seq'), primary_key=True)
+    name = Column(String(50))
     glass = Column(String(50))
     ingredients = db.relationship('Amount', backref='c_data', lazy='dynamic')
     recipe = Column(String(1024))
@@ -52,7 +55,7 @@ class Ingredient(Base):
         image: A string indicating the folder/filename for a static image.
     """
     __tablename__ = 'ingredients'
-    id_ = Column(Integer, primary_key=True)
+    id_ = Column(Integer,  Sequence('user_id_seq'), primary_key=True)
     name = Column(String(50))
     cocktails = db.relationship('Amount', backref='i_data', lazy='dynamic')
     image = Column(String(128))
@@ -83,7 +86,7 @@ class Amount(Base):
         ingredient_id = Column(Integer, ForeignKey('ingredients.id_'))
     """
     __tablename__ = '__amounts__'
-    id_ = Column(Integer, primary_key=True)
+    id_ = Column(Integer,  Sequence('amount_seq'), primary_key=True)
     cocktail = Column(Integer, ForeignKey('cocktails.id_'))
     ingredient = Column(Integer, ForeignKey('ingredients.id_'))
     amount = Column(String(50))

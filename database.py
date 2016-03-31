@@ -1,39 +1,44 @@
-# import os
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, \
-                           sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+import pickle
+from config import Base, manager
+from models import Cocktail, \
+                   Ingredient, \
+                   Amount
 
 
-SQLALCHEMY_DATABASE_URI = '{engine}://{username}:{password}@{hostname}/{database}'.format(
-            engine='mysql+pymysql',
-            username='idb_user',
-            password='idb_pw',
-            hostname='0.0.0.0',
-            database='idb')
-
-engine = create_engine(SQLALCHEMY_DATABASE_URI, convert_unicode=True)
-db_session = scoped_session(sessionmaker(autocommit=False,
-                                         autoflush=False,
-                                         bind=engine))
-Base = declarative_base()
-Base.query = db_session.query_property()
+@manager.command
+def init_db():
+  import models
+  Base.metadata.create_all(engine)
 
 
-def init_db_():
-  Base.metadata.create_all(bind=engine)
+@manager.command
+def load_pickled_data():
+
+  with open('cocktails.pkl', 'wb') as f:
+    pickled_cocktails = pickle.load(f)
+
+  for c in pickled_cocktails:
+    # instantiate model
+    cocktail = Cocktail(c.name, c.glass, c.recipe, c.image)
+
+    # for i in c.ingredients:
+    #   if ingredient.name is unique
+    #   if Base.query.returns_rows(__ingredients__, 'name'=i[0]):
+    #     add it to the ingredients table
+    #     db_session.add(ingredient)
+    #   instantiate ingredient from table
+    #   instantiate amount
+    #   amount = Amount(cocktail, ingredient, i[1])
+    #   db_session.add(amount)
 
 
-def load_pickled_data_():
-  pass
-  # logger.debug("create_test_data")
-  # app.config['SQLALCHEMY_ECHO'] = True
-  # guest = Guest(name='Steve')
-  # db.session.add(guest)
-  # db.session.commit()
+    # ...or save/commit here?
 
-# @manager.command
-# def drop_db():
-#     logger.debug("drop_db")
-#     app.config['SQLALCHEMY_ECHO'] = True
-#     db.drop_all()
+
+@manager.command
+def drop_db():
+    Base.metadata.drop_all(bind=engine)
+
+
+if __name__ == '__main__':
+    pass
