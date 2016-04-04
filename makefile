@@ -50,7 +50,7 @@ status:
 	git status
 
 test: tests.py
-	python3 tests.py runserver
+	python3 tests.py
 
 models.html: models.py
 	pydoc -w models

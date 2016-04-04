@@ -11,7 +11,7 @@ from models import Cocktail, \
                    Amount
 import requests
 import idb
-#
+
 HOST = 'http://104.130.22.54/'
 
 # -----------
