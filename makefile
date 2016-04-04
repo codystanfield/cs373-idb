@@ -30,7 +30,7 @@ check:
     echo "success";
 
 clean:
-	# rm -f  .coverage
+	rm -f  .coverage
 	rm -f  *.pyc
 	rm -rf __pycache__
 
@@ -50,10 +50,10 @@ status:
 	git status
 
 test: tests.py
-	python3 tests.py
+	python3 tests.py runserver
 
-model.html: models.py
-	pydoc3 -w models
+models.html: models.py
+	pydoc -w models
 
 IDB1.log:
 	git log > IDB1.log

@@ -14,8 +14,6 @@ def init_db():
   logger.debug("init_db")
   app.config['SQLALCHEMY_ECHO'] = True
   Base.metadata.create_all(engine)
-  # from config import db
-  # db.create_all()
 
 
 @manager.command

@@ -12,7 +12,7 @@ from models import Cocktail, \
 import requests
 import idb
 
-HOST = 'http://104.130.22.74/'
+HOST = 'http://104.130.22.54/'
 
 # -----------
 # TestIDB
