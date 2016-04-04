@@ -4,17 +4,16 @@ from sqlalchemy import Column, \
                        Integer, \
                        Sequence, \
                        ForeignKey
-from config import db, \
-                   Base
+from config import db
 
 
-class Cocktail(Base):
+class Cocktail(db.Model):
     """Cocktail model.
 
     Contains cocktail attributes and a one-to-many relationship to Ingredients
 
     Attributes:
-        __tablename__: A string, the database table name.
+        __tablename__: A string, the datadb.Model table name.
         id_: An integer representing primary key sequence.
         name: A string. The name of the cocktail.
         glass: A string indicating the recommended glass for consumption.
@@ -42,13 +41,13 @@ class Cocktail(Base):
         return '<Cocktail %r>' % (self.name)
 
 
-class Ingredient(Base):
+class Ingredient(db.Model):
     """Ingredient model.
 
     Contains ingredient attributes.
 
     Attributes:
-        __tablename__: A string, the database table name.
+        __tablename__: A string, the datadb.Model table name.
         id_: An integer representing primary key sequence.
         name: A string. The name of the ingredient.
         cocktails: One-to-many relationship to amounts.
@@ -70,7 +69,7 @@ class Ingredient(Base):
         return '<Ingredient %r>' % (self.name)
 
 
-class Amount(Base):
+class Amount(db.Model):
     """Models the many-to-many relationship between Cocktails and Ingredients.
 
     Contains foreign keys to cocktails and ingredients to relate rows in the
@@ -78,7 +77,7 @@ class Amount(Base):
     relationship attribute.
 
     Attributes:
-        __tablename__: A string, the database table name.
+        __tablename__: A string, the datadb.Model table name.
         id_: An integer representing primary key sequence.
         amount: A string indicating the amount of this ingredient required for
                 this cocktail.

@@ -1,5 +1,9 @@
 import pickle
-from config import Base, manager
+from config import logger, \
+                   engine,\
+                   Base, \
+                   app, \
+                   manager
 from models import Cocktail, \
                    Ingredient, \
                    Amount
@@ -7,13 +11,15 @@ from models import Cocktail, \
 
 @manager.command
 def init_db():
-  import models
+  logger.debug("init_db")
+  app.config['SQLALCHEMY_ECHO'] = True
   Base.metadata.create_all(engine)
+  # from config import db
+  # db.create_all()
 
 
 @manager.command
 def load_pickled_data():
-
   with open('cocktails.pkl', 'wb') as f:
     pickled_cocktails = pickle.load(f)
 
@@ -37,8 +43,8 @@ def load_pickled_data():
 
 @manager.command
 def drop_db():
-    Base.metadata.drop_all(bind=engine)
+    Base.metadata.drop_all(engine)
 
 
 if __name__ == '__main__':
-    pass
+    manager.run()
