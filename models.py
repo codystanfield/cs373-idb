@@ -4,10 +4,11 @@ from sqlalchemy import Column, \
                        Integer, \
                        Sequence, \
                        ForeignKey
-from config import db
+from config import db, \
+                   Base
 
 
-class Cocktail(db.Model):
+class Cocktail(Base):
     """Cocktail model.
 
     Contains cocktail attributes and a one-to-many relationship to Ingredients
@@ -21,7 +22,7 @@ class Cocktail(db.Model):
         recipe: A string with directions to make the cocktail.
         image: A string indicating the folder/filename for a static image.
     """
-    __tablename__ = 'cocktails'
+    __tablename__ = 'cocktail'
     id_ = Column(Integer,  Sequence('user_id_seq'), primary_key=True)
     name = Column(String(50))
     glass = Column(String(50))
@@ -41,7 +42,7 @@ class Cocktail(db.Model):
         return '<Cocktail %r>' % (self.name)
 
 
-class Ingredient(db.Model):
+class Ingredient(Base):
     """Ingredient model.
 
     Contains ingredient attributes.
@@ -53,7 +54,7 @@ class Ingredient(db.Model):
         cocktails: One-to-many relationship to amounts.
         image: A string indicating the folder/filename for a static image.
     """
-    __tablename__ = 'ingredients'
+    __tablename__ = 'ingredient'
     id_ = Column(Integer,  Sequence('user_id_seq'), primary_key=True)
     name = Column(String(50))
     cocktails = db.relationship('Amount', backref='i_data', lazy='dynamic')
@@ -69,7 +70,7 @@ class Ingredient(db.Model):
         return '<Ingredient %r>' % (self.name)
 
 
-class Amount(db.Model):
+class Amount(Base):
     """Models the many-to-many relationship between Cocktails and Ingredients.
 
     Contains foreign keys to cocktails and ingredients to relate rows in the
@@ -86,8 +87,8 @@ class Amount(db.Model):
     """
     __tablename__ = '__amounts__'
     id_ = Column(Integer,  Sequence('amount_seq'), primary_key=True)
-    cocktail = Column(Integer, ForeignKey('cocktails.id_'))
-    ingredient = Column(Integer, ForeignKey('ingredients.id_'))
+    cocktail = Column(Integer, ForeignKey('cocktail.id_'))
+    ingredient = Column(Integer, ForeignKey('ingredient.id_'))
     amount = Column(String(50))
 
     def __init__(self, cocktail, ingredient, amount):

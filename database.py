@@ -1,12 +1,14 @@
 import pickle
 from config import logger, \
                    engine,\
+                   db_session, \
                    Base, \
                    app, \
                    manager
 from models import Cocktail, \
                    Ingredient, \
                    Amount
+from DBScraper import Cocktail_
 
 
 @manager.command
@@ -18,25 +20,30 @@ def init_db():
 
 @manager.command
 def load_pickled_data():
-  with open('cocktails.pkl', 'wb') as f:
+  with open('cocktails.pkl', 'rb') as f:
     pickled_cocktails = pickle.load(f)
 
   for c in pickled_cocktails:
-    # instantiate model
-    cocktail = Cocktail(c.name, c.glass, c.recipe, c.image)
+    # instantiate and add cocktail
+    cocktail = Cocktail(name=c.name, glass=c.glass, recipe=c.recipe, image=c.image)
+    db_session.add(cocktail)
 
-    # for i in c.ingredients:
-    #   if ingredient.name is unique
-    #   if Base.query.returns_rows(__ingredients__, 'name'=i[0]):
-    #     add it to the ingredients table
-    #     db_session.add(ingredient)
-    #   instantiate ingredient from table
-    #   instantiate amount
-    #   amount = Amount(cocktail, ingredient, i[1])
-    #   db_session.add(amount)
+    # add each ingredient that is not already in db
+    for i in c.ingredients:
+        ingredient = Ingredient.query.filter(Ingredient.name==i[0]).one_or_none()
+        if ingredient is None:
+            image_name = i[0].replace(' ', '+').replace('/', '\\')
+            image_path = '{0}/{1}'.format('ingredients', image_name)
 
+            ingredient = Ingredient(i[0], image_path)
 
-    # ...or save/commit here?
+        db_session.add(ingredient)
+
+        # add the amount for each ingredient
+        amount = Amount(cocktail, ingredient, i[1])
+        db_session.add(amount)
+    # commit unpickled cocktail goodness
+    db_session.commit()
 
 
 @manager.command
