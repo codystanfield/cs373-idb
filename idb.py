@@ -52,22 +52,22 @@ def api_cocktail_list():
 @app.route('/api/cocktail/<int:id_>', methods=['GET'])
 def api_cocktail(id_):
     results = []
-    for c in Cocktail.query.filter(Cocktail.id_ == id_):
-        obj = {}
-        obj['id'] = c.id_
-        obj['name'] = c.name
-        obj['recipe'] = c.recipe
-        obj['glass'] = c.glass
-        obj['imageURL'] = c.image
-        
-        ingredients = []
-        
-        for i in Amount.query.filter(Amount.cocktail == id_):
-            ing = Ingredient.query.filter(Ingredient.id_ == i.ingredient).one_or_none()
-            ingredients.append({'name': ing.name, 'quantity': i.amount})
-        obj['ingredients'] = ingredients
-        
-        results.append(obj)
+    c = Cocktail.query.filter(Cocktail.id_ == id_).one_or_none()
+    obj = {}
+    obj['id'] = c.id_
+    obj['name'] = c.name
+    obj['recipe'] = c.recipe
+    obj['glass'] = c.glass
+    obj['imageURL'] = c.image
+    
+    ingredients = []
+    
+    for i in Amount.query.filter(Amount.cocktail == id_):
+        ing = Ingredient.query.filter(Ingredient.id_ == i.ingredient).one_or_none()
+        ingredients.append({'name': ing.name, 'quantity': i.amount})
+    obj['ingredients'] = ingredients
+    
+    results.append(obj)
         
     return json.dumps(results)
 
