@@ -52,29 +52,32 @@ def api_cocktail_list():
 @app.route('/api/cocktail/<int:id_>', methods=['GET'])
 def api_cocktail(id_):
     results = []
-    for c in Cocktail.query.filter(Cocktail.id_ == id_):
-        obj = {}
-        obj['id'] = c.id_
-        obj['name'] = c.name
-        obj['recipe'] = c.recipe
-        obj['glass'] = c.glass
-        obj['imageURL'] = c.image
 
-        ingredients = []
+    c = Cocktail.query.filter(Cocktail.id_ == id_).one_or_none()
+    obj = {}
+    obj['id'] = c.id_
+    obj['name'] = c.name
+    obj['recipe'] = c.recipe
+    obj['glass'] = c.glass
+    obj['imageURL'] = c.image
 
-        for i in Amount.query.filter(Amount.cocktail == id_):
-            ing = Ingredient.query.filter(Ingredient.id_ == i.ingredient).one_or_none()
-            ingredients.append({'name': ing.name, 'quantity': i.amount})
-        obj['ingredients'] = ingredients
+    ingredients = []
 
-        results.append(obj)
+    for i in Amount.query.filter(Amount.cocktail == id_):
+        ing = Ingredient.query.filter(Ingredient.id_ == i.ingredient).one_or_none()
+        ingredients.append({'name': ing.name, 'quantity': i.amount})
+    obj['ingredients'] = ingredients
+
+    results.append(obj)
 
     return json.dumps(results)
 
 
 @app.route('/api/cocktail/<int:id_>/name', methods=['GET'])
 def api_cocktail_name(id_):
-    return ('', 501)
+    results = []
+    c = Cocktail.query.filter(Cocktail.id_ == id_).one_or_none()
+    return json.dumps({'name': c.name})
 
 
 @app.route('/api/cocktail/<int:id_>/ingredients', methods=['GET'])
