@@ -3,16 +3,29 @@
 angular.module('mixopediaApp.cocktails', ['ngRoute'])
 
 
-.controller('cocktailsCtrl', ['$scope', '$filter', '$location', 'drinkRepository', function($scope, $filter, $location, drinkRepository){
+.controller('cocktailsCtrl', ['$scope', '$filter', '$location', '$http',  'drinkRepository', function($scope, $filter, $location, $http, drinkRepository){
 
   $scope.sortType     = 'name'; // set the default sort type
   $scope.sortReverse  = false;  // set the default sort order
 
-  $scope.drinks = drinkRepository.getAllDrinks();
+  // $scope.drinks = drinkRepository.getAllDrinks();
+  $scope.drinks = [];
+  $http({
+    method: 'GET',
+    url: '/api/cocktail'
+  }).then(function successCallback(response) {
+      // this callback will be called asynchronously
+      // when the response is available
+      $scope.drinks = response.data;
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      console.log(response);
+    });
 
-  $scope.goToCocktail = function(cur_id){
-    $location.path('/cocktails/' + cur_id.cocktail);
-  };
+  // $scope.goToCocktail = function(cur_id){
+  //   $location.path('/cocktails/' + cur_id.cocktail);
+  // };
 
 }])
 .controller('cocktailCtrl', ['$scope', '$routeParams', '$location', 'drinkRepository', function($scope, $routeParams, $location, drinkRepository){

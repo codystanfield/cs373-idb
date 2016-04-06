@@ -15,7 +15,9 @@
           </ul>
         </div> -->
 
-        <table class="table table-bordered">
+        {{ drinks }}
+
+        <!-- <table class="table table-bordered">
 
          <thead>
            <tr>
@@ -39,9 +41,9 @@
               <span ng-show="sortType == 'image' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
               <span ng-show="sortType == 'image' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
              </th>
-             <th>
+             <th> -->
               <!-- currently not working -->
-              <a href="#" ng-click="sortType = 'ingredients'; sortReverse = !sortReverse">
+              <!-- <a href="#" ng-click="sortType = 'ingredients'; sortReverse = !sortReverse">
               Ingredients
               <span ng-show="sortType == 'ingredients' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
               <span ng-show="sortType == 'ingredients' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
@@ -53,10 +55,10 @@
               <span ng-show="sortType == 'recipe' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
              </th>
            </tr>
-         </thead>
+         </thead> -->
 
 <!--          Name, glass, image, ingredients, recipe -->
-        <tbody>
+        <!-- <tbody>
           <tr ng-click="goToCocktail({cocktail: drink.id})" ng-repeat="drink in drinks | orderBy:sortType:sortReverse">
             <td>{{ drink.name }}</td>
             <td>{{ drink.glass }}</td>
@@ -69,6 +71,6 @@
             <td>{{ drink.recipe }}</td>
           </tr>
         </tbody>
-       </table>
+       </table> -->
      </div>
 

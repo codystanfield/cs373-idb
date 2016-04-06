@@ -51,7 +51,6 @@ def api_cocktail_list():
 @app.route('/api/cocktail/<int:id_>', methods=['GET'])
 def api_cocktail(id_):
     results = []
-    for c in Cocktail.query.filter(Cocktail.id_ == id_)
     return ('', 501)
 
 
