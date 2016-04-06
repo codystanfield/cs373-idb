@@ -115,7 +115,11 @@ def api_cocktail_image(id_):
 
 @app.route('/api/ingredient', methods=['GET'])
 def api_ingredient_list():
-    return ('', 501)
+    results = []
+    for i in Ingredient.query.all():
+        results.append({'name': i.name, 'id': i.id_})
+
+    return json.dumps(results)
 
 
 @app.route('/api/ingredient/<int:id_>', methods=['GET'])
