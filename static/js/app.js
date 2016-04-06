@@ -3,6 +3,7 @@
 angular.module('mixopediaApp', [
     'ngRoute',
     'ngSanitize',
+    'ngResource',
     'mixopediaApp.home',
     'mixopediaApp.cocktails',
     'mixopediaApp.ingredients',

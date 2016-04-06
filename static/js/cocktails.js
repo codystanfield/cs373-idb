@@ -1,14 +1,55 @@
 'use strict';
 
-angular.module('mixopediaApp.cocktails', ['ngRoute'])
+angular.module('mixopediaApp.cocktails', ['ngRoute', 'ngResource'])
 
 
-.controller('cocktailsCtrl', ['$scope', '$filter', '$location', 'drinkRepository', function($scope, $filter, $location, drinkRepository){
+.controller('cocktailsCtrl', ['$scope', '$filter', '$location', '$resource', '$http', 'drinkRepository', function($scope, $filter, $location, $resource, $http, drinkRepository){
 
   $scope.sortType     = 'name'; // set the default sort type
   $scope.sortReverse  = false;  // set the default sort order
 
-  $scope.drinks = drinkRepository.getAllDrinks();
+  // $scope.drinks = drinkRepository.getAllDrinks();
+
+
+  var CocktailAPI = $resource("http://www.thecocktaildb.com/api/json/v1/1/filter.php",
+    { callback: "JSON_CALLBACK" },
+    { get: { method: "JSONP" }});
+
+  $scope.getAllCocktails = function() {
+    var cocktails = CocktailAPI.get({ c:  "Cocktail"});
+    // .$promise.then(function(data) {
+    //   $scope.temp  = data.toJSON();
+    // }); 
+
+    $scope.temp = JSON.parse(angular.toJson(cocktails));
+    // cocktails.$resolved.
+    angular.forEach(cocktails, function(key, value) {
+       $scope.drinks = value;
+    });
+    //$scope.drinks = cocktails.drinks.strDrink;
+    //scope.user = User.get( {username: 'bob'}  );    // GET
+    // cocktails.$promise.then(function(data) {
+    //   $scope.drinks = data;
+    // });
+
+    // $scope.temp = cocktails;
+
+    
+    // angular.forEach(cocktails, function(key, value){
+    //   $scope.drinks = value;
+    // });
+
+  };
+
+  // $scope.getAllCocktails = function () {
+  //   $http({method : 'jsonp', url : 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail'})
+  //           .success(function(data, status) {
+  //               $scope.drinks = data.toJSON();
+  //           })
+  //           .error(function(data, status) {
+  //               alert(status);
+  //           });
+  // };
 
   $scope.goToCocktail = function(cur_id){
     $location.path('/cocktails/' + cur_id.cocktail);

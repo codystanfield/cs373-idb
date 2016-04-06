@@ -14,6 +14,11 @@
             </div>
           </ul>
         </div> -->
+        <h1 ng-init="getAllCocktails()">{{ temp }}</h1>
+         <h1 >{{ temp }}</h1>
+        <div ng-repeat="drink in temp.$resolved">
+          <h2>{{drink}}</h2>
+        </div>
 
         <table class="table table-bordered">
 
@@ -56,7 +61,7 @@
          </thead>
 
 <!--          Name, glass, image, ingredients, recipe -->
-        <tbody>
+        <!-- <tbody>
           <tr ng-click="goToCocktail({cocktail: drink.id})" ng-repeat="drink in drinks | orderBy:sortType:sortReverse">
             <td>{{ drink.name }}</td>
             <td>{{ drink.glass }}</td>
@@ -68,7 +73,7 @@
             </td>
             <td>{{ drink.recipe }}</td>
           </tr>
-        </tbody>
+        </tbody> -->
        </table>
      </div>
 
