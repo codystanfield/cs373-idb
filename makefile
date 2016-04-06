@@ -49,8 +49,12 @@ status:
 	git remote -v
 	git status
 
-test: tests.py
-	python3 tests.py
+test: TestOutput.tmp
+
+TestOutput.tmp: tests.py
+	coverage3 run --omit=app.py,*flask*,*sqlalchemy*,*dist-packages* --branch tests.py >  TestOutput.tmp 2>&1
+	coverage3 report -m              >> TestOutput.tmp
+	cat TestOutput.tmp
 
 models.html: models.py
 	pydoc -w models

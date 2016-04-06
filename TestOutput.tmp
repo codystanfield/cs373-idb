@@ -1,0 +1,119 @@
+DEBUG: -----app logging initiated-----
+DEBUG: The log statement below is for development purposes only. Remove and clean logs before deployment.
+DEBUG: SQLALCHEMY_DATABASE_URI: mysql+pymysql://None:None@None/None
+............INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/cocktail/1/glass HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/cocktail/1/glass HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/cocktail/1/glass HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/cocktail/1/glass HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/cocktail/1/image HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/cocktail/1/image HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/cocktail/1/image HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/cocktail/1/image HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/cocktail HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/cocktail HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/cocktail HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/cocktail HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/cocktail/1/name HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/cocktail/1/name HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/cocktail/1/name HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/cocktail/1/name HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/cocktail/1 HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/cocktail/1 HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/cocktail/1 HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/cocktail/1 HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/cocktail/1/ingredients HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/cocktail/1/ingredients HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/cocktail/1/ingredients HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/cocktail/1/ingredients HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/cocktail/1/recipe HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/cocktail/1/recipe HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/cocktail/1/recipe HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/cocktail/1/recipe HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/ingredient/1/cocktails HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/ingredient/1/cocktails HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/ingredient/1/cocktails HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/ingredient/1/cocktails HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/ingredient/1/image HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/ingredient/1/image HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/ingredient/1/image HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/ingredient/1/image HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/ingredient HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/ingredient HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/ingredient HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/ingredient HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/ingredient/1/name HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/ingredient/1/name HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/ingredient/1/name HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/ingredient/1/name HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/ingredient/1/numcocktails HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/ingredient/1/numcocktails HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/ingredient/1/numcocktails HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/ingredient/1/numcocktails HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "GET //api/ingredient/1 HTTP/1.1" 501 0
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "PUT //api/ingredient/1 HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "POST //api/ingredient/1 HTTP/1.1" 405 178
+.INFO: Starting new HTTP connection (1): 104.130.22.54
+DEBUG: "DELETE //api/ingredient/1 HTTP/1.1" 405 178
+.......................
+----------------------------------------------------------------------
+Ran 86 tests in 4.603s
+
+OK
+Name        Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------
+config.py      25      0      0      0   100%   
+models.py      40      0      0      0   100%   
+tests.py      389      0      2      1    99%   831->-7
+-------------------------------------------------------
+TOTAL         454      0      2      1    99%   

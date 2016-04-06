@@ -19,6 +19,7 @@ from unittest import TextTestRunner, \
                      makeSuite
 
 
+import os, json, subprocess
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -99,17 +100,40 @@ def api_ingredient_image(id):
 def api_ingredient_numcocktails(id):
     return ('', 501)
 
+# @app.route('/tests', methods=['GET'])
+# def tests():
+#     p = subprocess.Popen(["make", "test"],
+#             stdout=subprocess.PIPE,
+#             stderr=subprocess.PIPE,
+#             stdin=subprocess.PIPE)
+#     out, err = p.communicate()
+#     return render_template('tests.html', output=err+out)
 
 @app.route('/tests', methods=['GET'])
-def run_unittests():
+def tests():
     """
     Runs unit tests and returns the result.
     """
-    io = StringIO()
-    TextTestRunner(stream=io, verbosity=2).run(makeSuite(TestIdb))
-    results = io.getvalue().split('\n')
-    # return results
-    return render_template("tests.html", text=results)
+    os.system("make test")
+    f = open("TestOutput.tmp", 'r')
+    result = []
+    for line in f:
+        result += [line]
+    f.close()
+    os.system("make clean")    
+    return render_template('tests.html', result=result);
+
+    # p = subprocess.Popen(["make", "test"],
+    #         stdout=subprocess.PIPE,
+    #         stderr=subprocess.PIPE,
+    #         stdin=subprocess.PIPE)
+    # out, err = p.communicate()
+    # return render_template('tests.html', output=err+out)
+    # io = StringIO()
+    # TextTestRunner(stream=io, verbosity=2).run(makeSuite(TestIdb))
+    # results = io.getvalue().split('\n')
+    # # return results
+    # return render_template("tests.html", text=results)
 
 if __name__ == '__main__':
     manager.run()
