@@ -5,12 +5,12 @@
 # -------
 
 from unittest import main, \
-                    TestCase
+                     TestCase
 from models import Cocktail, \
                    Ingredient, \
                    Amount
 import requests
-import idb
+# import idb
 
 HOST = 'http://104.130.22.54/'
 
@@ -360,17 +360,17 @@ class TestIdb(TestCase):
     # api_cocktail_list
     # ---
 
-    def test_api_cocktail_list_1(self):
-        result = idb.api_cocktail_list()
-        self.assertEqual(result[0], '')
-
-    def test_api_cocktail_list_2(self):
-        result = idb.api_cocktail_list()
-        self.assertEqual(result[1], 501)
-
-    def test_api_cocktail_list_3(self):
-        result = idb.api_cocktail_list()
-        self.assertIsNotNone(result[1])
+    # def test_api_cocktail_list_1(self):
+    #     result = idb.api_cocktail_list()
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_cocktail_list_2(self):
+    #     result = idb.api_cocktail_list()
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_cocktail_list_3(self):
+    #     result = idb.api_cocktail_list()
+    #     self.assertIsNotNone(result[1])
 
     # ---
     # api_cocktail_list_route
@@ -396,17 +396,17 @@ class TestIdb(TestCase):
     # api_cocktail
     # ---
 
-    def test_api_cocktail_1(self):
-        result = idb.api_cocktail(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_cocktail_2(self):
-        result = idb.api_cocktail(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_cocktail_3(self):
-        result = idb.api_cocktail(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_cocktail_1(self):
+    #     result = idb.api_cocktail(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_cocktail_2(self):
+    #     result = idb.api_cocktail(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_cocktail_3(self):
+    #     result = idb.api_cocktail(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_cocktail_route
@@ -432,17 +432,17 @@ class TestIdb(TestCase):
     # api_cocktail_name
     # ---
 
-    def test_api_cocktail_name_1(self):
-        result = idb.api_cocktail_name(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_cocktail_name_2(self):
-        result = idb.api_cocktail_name(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_cocktail_name_3(self):
-        result = idb.api_cocktail_name(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_cocktail_name_1(self):
+    #     result = idb.api_cocktail_name(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_cocktail_name_2(self):
+    #     result = idb.api_cocktail_name(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_cocktail_name_3(self):
+    #     result = idb.api_cocktail_name(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_cocktail_name_route
@@ -468,17 +468,17 @@ class TestIdb(TestCase):
     # api_cocktail_ingredients
     # ---
 
-    def test_api_cocktail_ingredients_1(self):
-        result = idb.api_cocktail_ingredients(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_cocktail_ingredients_2(self):
-        result = idb.api_cocktail_ingredients(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_cocktail_ingredients_3(self):
-        result = idb.api_cocktail_ingredients(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_cocktail_ingredients_1(self):
+    #     result = idb.api_cocktail_ingredients(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_cocktail_ingredients_2(self):
+    #     result = idb.api_cocktail_ingredients(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_cocktail_ingredients_3(self):
+    #     result = idb.api_cocktail_ingredients(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_cocktail_ingredients_route
@@ -504,17 +504,17 @@ class TestIdb(TestCase):
     # api_cocktail_glass
     # ---
 
-    def test_api_cocktail_glass_1(self):
-        result = idb.api_cocktail_glass(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_cocktail_glass_2(self):
-        result = idb.api_cocktail_glass(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_cocktail_glass_3(self):
-        result = idb.api_cocktail_glass(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_cocktail_glass_1(self):
+    #     result = idb.api_cocktail_glass(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_cocktail_glass_2(self):
+    #     result = idb.api_cocktail_glass(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_cocktail_glass_3(self):
+    #     result = idb.api_cocktail_glass(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_cocktail_glass_route
@@ -540,17 +540,17 @@ class TestIdb(TestCase):
     # api_cocktail_recipe
     # ---
 
-    def test_api_cocktail_recipe_1(self):
-        result = idb.api_cocktail_recipe(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_cocktail_recipe_2(self):
-        result = idb.api_cocktail_recipe(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_cocktail_recipe_3(self):
-        result = idb.api_cocktail_recipe(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_cocktail_recipe_1(self):
+    #     result = idb.api_cocktail_recipe(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_cocktail_recipe_2(self):
+    #     result = idb.api_cocktail_recipe(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_cocktail_recipe_3(self):
+    #     result = idb.api_cocktail_recipe(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_cocktail_recipe_route
@@ -576,17 +576,17 @@ class TestIdb(TestCase):
     # api_cocktail_image
     # ---
 
-    def test_api_cocktail_image_1(self):
-        result = idb.api_cocktail_image(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_cocktail_image_2(self):
-        result = idb.api_cocktail_image(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_cocktail_image_3(self):
-        result = idb.api_cocktail_image(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_cocktail_image_1(self):
+    #     result = idb.api_cocktail_image(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_cocktail_image_2(self):
+    #     result = idb.api_cocktail_image(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_cocktail_image_3(self):
+    #     result = idb.api_cocktail_image(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_cocktail_image_route
@@ -612,17 +612,17 @@ class TestIdb(TestCase):
     # api_ingredient_list
     # ---
 
-    def test_api_ingredient_list_1(self):
-        result = idb.api_ingredient_list()
-        self.assertEqual(result[0], '')
-
-    def test_api_ingredient_list_2(self):
-        result = idb.api_ingredient_list()
-        self.assertEqual(result[1], 501)
-
-    def test_api_ingredient_list_3(self):
-        result = idb.api_ingredient_list()
-        self.assertIsNotNone(result[1])
+    # def test_api_ingredient_list_1(self):
+    #     result = idb.api_ingredient_list()
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_ingredient_list_2(self):
+    #     result = idb.api_ingredient_list()
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_ingredient_list_3(self):
+    #     result = idb.api_ingredient_list()
+    #     self.assertIsNotNone(result[1])
 
     # ---
     # api_ingredient_list_route
@@ -648,17 +648,17 @@ class TestIdb(TestCase):
     # api_ingredient
     # ---
 
-    def test_api_ingredient_1(self):
-        result = idb.api_ingredient(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_ingredient_2(self):
-        result = idb.api_ingredient(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_ingredient_3(self):
-        result = idb.api_ingredient(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_ingredient_1(self):
+    #     result = idb.api_ingredient(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_ingredient_2(self):
+    #     result = idb.api_ingredient(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_ingredient_3(self):
+    #     result = idb.api_ingredient(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_ingredient_route
@@ -684,17 +684,17 @@ class TestIdb(TestCase):
     # api_ingredient_name
     # ---
 
-    def test_api_ingredient_name_1(self):
-        result = idb.api_ingredient_name(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_ingredient_name_2(self):
-        result = idb.api_ingredient_name(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_ingredient_name_3(self):
-        result = idb.api_ingredient_name(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_ingredient_name_1(self):
+    #     result = idb.api_ingredient_name(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_ingredient_name_2(self):
+    #     result = idb.api_ingredient_name(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_ingredient_name_3(self):
+    #     result = idb.api_ingredient_name(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_ingredient_name_route
@@ -720,17 +720,17 @@ class TestIdb(TestCase):
     # api_ingredient_cocktails
     # ---
 
-    def test_api_ingredient_cocktails_1(self):
-        result = idb.api_ingredient_cocktails(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_ingredient_cocktails_2(self):
-        result = idb.api_ingredient_cocktails(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_ingredient_cocktails_3(self):
-        result = idb.api_ingredient_cocktails(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_ingredient_cocktails_1(self):
+    #     result = idb.api_ingredient_cocktails(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_ingredient_cocktails_2(self):
+    #     result = idb.api_ingredient_cocktails(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_ingredient_cocktails_3(self):
+    #     result = idb.api_ingredient_cocktails(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_ingredient_cocktails_route
@@ -756,17 +756,17 @@ class TestIdb(TestCase):
     # api_ingredient_image
     # ---
 
-    def test_api_ingredient_image_1(self):
-        result = idb.api_ingredient_image(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_ingredient_image_2(self):
-        result = idb.api_ingredient_image(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_ingredient_image_3(self):
-        result = idb.api_ingredient_image(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_ingredient_image_1(self):
+    #     result = idb.api_ingredient_image(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_ingredient_image_2(self):
+    #     result = idb.api_ingredient_image(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_ingredient_image_3(self):
+    #     result = idb.api_ingredient_image(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_ingredient_image_route
@@ -792,17 +792,17 @@ class TestIdb(TestCase):
     # api_ingredient_numcocktails
     # ---
 
-    def test_api_ingred_numcocktails_1(self):
-        result = idb.api_ingredient_numcocktails(1)
-        self.assertEqual(result[0], '')
-
-    def test_api_ingred_numcocktails_2(self):
-        result = idb.api_ingredient_numcocktails(1)
-        self.assertEqual(result[1], 501)
-
-    def test_api_ingred_numcocktails_3(self):
-        result = idb.api_ingredient_numcocktails(None)
-        self.assertEqual(result[1], 501)
+    # def test_api_ingred_numcocktails_1(self):
+    #     result = idb.api_ingredient_numcocktails(1)
+    #     self.assertEqual(result[0], '')
+    #
+    # def test_api_ingred_numcocktails_2(self):
+    #     result = idb.api_ingredient_numcocktails(1)
+    #     self.assertEqual(result[1], 501)
+    #
+    # def test_api_ingred_numcocktails_3(self):
+    #     result = idb.api_ingredient_numcocktails(None)
+    #     self.assertEqual(result[1], 501)
 
     # ---
     # api_ingredient_numcocktails_route

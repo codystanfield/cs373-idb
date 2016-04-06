@@ -1,4 +1,4 @@
-# imports
+# flask imports
 from flask import request, \
                   session, \
                   g, \
@@ -7,8 +7,17 @@ from flask import request, \
                   abort, \
                   render_template, \
                   flash
+
+# app configuration imports
 from config import app, \
                    manager
+
+# unit test imports
+from io import StringIO
+from tests import TestIdb
+from unittest import TextTestRunner, \
+                     makeSuite
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -90,6 +99,17 @@ def api_ingredient_image(id):
 def api_ingredient_numcocktails(id):
     return ('', 501)
 
+
+@app.route('/tests', methods=['GET'])
+def run_unittests():
+    """
+    Runs unit tests and returns the result.
+    """
+    io = StringIO()
+    TextTestRunner(stream=io, verbosity=2).run(makeSuite(TestIdb))
+    results = io.getvalue().split('\n')
+    # return results
+    return render_template("tests.html", text=results)
 
 if __name__ == '__main__':
     manager.run()

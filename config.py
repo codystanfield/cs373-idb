@@ -21,13 +21,6 @@ logger.debug("-----app logging initiated-----")
 
 
 # database configuration
-# SQLALCHEMY_DATABASE_URI = '{engine}://{username}:{password}@{hostname}/{database}'.format(
-#         engine='mysql+pymysql',
-#         username='idb_user',
-#         password='idb_pw',
-#         hostname='0.0.0.0',
-#         database='idb')
-
 SQLALCHEMY_DATABASE_URI = '{engine}://{username}:{password}@{hostname}/{database}'.format(
         engine='mysql+pymysql',
         username=os.getenv('MYSQL_USER'),
@@ -45,7 +38,7 @@ db_session.configure()
 Base = declarative_base()
 Base.query = db_session.query_property()
 
-# application configureation
+# application configuration
 app = Flask(__name__)
 
 
