@@ -1,26 +1,23 @@
-# imports
-import psycopg2
-from flask import Flask, request, session, g, redirect, url_for, \
-                  abort, render_template, flash
-from flask.ext.sqlalchemy import SQLAlchemy
-from database import SQLALCHEMY_DATABASE_URI
-from database import db_session
+# flask imports
+from flask import request, \
+                  session, \
+                  g, \
+                  redirect, \
+                  url_for, \
+                  abort, \
+                  render_template, \
+                  flash
 
+# app configuration imports
+from config import app, \
+                   manager
 
-# create our little application :)
-app = Flask(__name__)
-app.config.from_object(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+# unit test imports
+from io import StringIO
+from tests import TestIdb
+from unittest import TextTestRunner, \
+                     makeSuite
 
-db = SQLAlchemy(app)
-
-
-# remove database sessions at the end of the request or when the application
-# shuts down:
-# http://flask.pocoo.org/docs/0.10/patterns/sqlalchemy/
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    db_session.remove()
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -103,5 +100,16 @@ def api_ingredient_numcocktails(id):
     return ('', 501)
 
 
+@app.route('/tests', methods=['GET'])
+def run_unittests():
+    """
+    Runs unit tests and returns the result.
+    """
+    io = StringIO()
+    TextTestRunner(stream=io, verbosity=2).run(makeSuite(TestIdb))
+    results = io.getvalue().split('\n')
+    # return results
+    return render_template("tests.html", text=results)
+
 if __name__ == '__main__':
-    app.run()
+    manager.run()

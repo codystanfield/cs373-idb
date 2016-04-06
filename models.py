@@ -1,8 +1,11 @@
-# sample from docs:
 # http://flask.pocoo.org/docs/0.10/patterns/sqlalchemy/
-from database import Base
-from sqlalchemy import Column, String, Integer, ForeignKey
-from idb import db
+from sqlalchemy import Column, \
+                       String, \
+                       Integer, \
+                       Sequence, \
+                       ForeignKey
+from config import db, \
+                   Base
 
 
 class Cocktail(Base):
@@ -11,7 +14,7 @@ class Cocktail(Base):
     Contains cocktail attributes and a one-to-many relationship to Ingredients
 
     Attributes:
-        __tablename__: A string, the database table name.
+        __tablename__: A string, the datadb.Model table name.
         id_: An integer representing primary key sequence.
         name: A string. The name of the cocktail.
         glass: A string indicating the recommended glass for consumption.
@@ -19,9 +22,9 @@ class Cocktail(Base):
         recipe: A string with directions to make the cocktail.
         image: A string indicating the folder/filename for a static image.
     """
-    __tablename__ = 'cocktails'
-    id_ = Column(Integer, primary_key=True)
-    name = Column(String(50), primary_key=True)
+    __tablename__ = 'cocktail'
+    id_ = Column(Integer,  Sequence('user_id_seq'), primary_key=True)
+    name = Column(String(50))
     glass = Column(String(50))
     ingredients = db.relationship('Amount', backref='c_data', lazy='dynamic')
     recipe = Column(String(1024))
@@ -45,14 +48,14 @@ class Ingredient(Base):
     Contains ingredient attributes.
 
     Attributes:
-        __tablename__: A string, the database table name.
+        __tablename__: A string, the datadb.Model table name.
         id_: An integer representing primary key sequence.
         name: A string. The name of the ingredient.
         cocktails: One-to-many relationship to amounts.
         image: A string indicating the folder/filename for a static image.
     """
-    __tablename__ = 'ingredients'
-    id_ = Column(Integer, primary_key=True)
+    __tablename__ = 'ingredient'
+    id_ = Column(Integer,  Sequence('user_id_seq'), primary_key=True)
     name = Column(String(50))
     cocktails = db.relationship('Amount', backref='i_data', lazy='dynamic')
     image = Column(String(128))
@@ -75,7 +78,7 @@ class Amount(Base):
     relationship attribute.
 
     Attributes:
-        __tablename__: A string, the database table name.
+        __tablename__: A string, the datadb.Model table name.
         id_: An integer representing primary key sequence.
         amount: A string indicating the amount of this ingredient required for
                 this cocktail.
@@ -83,9 +86,9 @@ class Amount(Base):
         ingredient_id = Column(Integer, ForeignKey('ingredients.id_'))
     """
     __tablename__ = '__amounts__'
-    id_ = Column(Integer, primary_key=True)
-    cocktail = Column(Integer, ForeignKey('cocktails.id_'))
-    ingredient = Column(Integer, ForeignKey('ingredients.id_'))
+    id_ = Column(Integer,  Sequence('amount_seq'), primary_key=True)
+    cocktail = Column(Integer, ForeignKey('cocktail.id_'))
+    ingredient = Column(Integer, ForeignKey('ingredient.id_'))
     amount = Column(String(50))
 
     def __init__(self, cocktail, ingredient, amount):
