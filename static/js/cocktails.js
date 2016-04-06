@@ -23,9 +23,9 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
       console.log(response);
     });
 
-  // $scope.goToCocktail = function(cur_id){
-  //   $location.path('/cocktails/' + cur_id.cocktail);
-  // };
+  $scope.goToCocktail = function(cur_id){
+    $location.path('/cocktails/' + cur_id.cocktail);
+  };
 
 }])
 .controller('cocktailCtrl', ['$scope', '$routeParams', '$location', 'drinkRepository', function($scope, $routeParams, $location, drinkRepository){
