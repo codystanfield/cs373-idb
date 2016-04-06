@@ -52,6 +52,7 @@ def api_cocktail_list():
 @app.route('/api/cocktail/<int:id_>', methods=['GET'])
 def api_cocktail(id_):
     results = []
+    
     c = Cocktail.query.filter(Cocktail.id_ == id_).one_or_none()
     obj = {}
     obj['id'] = c.id_
@@ -74,7 +75,9 @@ def api_cocktail(id_):
 
 @app.route('/api/cocktail/<int:id_>/name', methods=['GET'])
 def api_cocktail_name(id_):
-    return ('', 501)
+    results = []
+    c = Cocktail.query.filter(Cocktail.id_ == id_).one_or_none()
+    return json.dumps({'name': c.name})
 
 
 @app.route('/api/cocktail/<int:id_>/ingredients', methods=['GET'])
