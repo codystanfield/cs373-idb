@@ -32,6 +32,7 @@ check:
 clean:
 	rm -f  .coverage
 	rm -f  *.pyc
+	rm -f TestOutput.tmp
 	rm -rf __pycache__
 
 config:
@@ -52,7 +53,7 @@ status:
 test: TestOutput.tmp
 
 TestOutput.tmp: tests.py
-	coverage3 run --omit=app.py,*flask*,*sqlalchemy*,*dist-packages* --branch tests.py >  TestOutput.tmp 2>&1
+	coverage3 run --omit=idb.py,*flask*,*sqlalchemy*,*dist-packages* --branch tests.py >  TestOutput.tmp 2>&1
 	coverage3 report -m              >> TestOutput.tmp
 	cat TestOutput.tmp
 
