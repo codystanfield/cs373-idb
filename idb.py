@@ -94,7 +94,9 @@ def api_cocktail_ingredients(id_):
 
 @app.route('/api/cocktail/<int:id_>/glass', methods=['GET'])
 def api_cocktail_glass(id_):
-    return ('', 501)
+    results = []
+    c = Cocktail.query.filter(Cocktail.id_ == id_).one_or_none()
+    return json.dumps({'glass': c.glass})
 
 
 @app.route('/api/cocktail/<int:id_>/recipe', methods=['GET'])
