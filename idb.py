@@ -15,7 +15,9 @@ from config import app, \
 
 # unit test imports
 from io import StringIO
-from models import Cocktail
+from models import Cocktail, \
+                   Ingredient, \
+                   Amount
 from tests import TestIdb
 from unittest import TextTestRunner, \
                      makeSuite
@@ -45,16 +47,37 @@ def api_cocktail_list():
         results.append({'name': c.name, 'id': c.id_})
 
     return json.dumps(results)
-    
+
 
 @app.route('/api/cocktail/<int:id_>', methods=['GET'])
 def api_cocktail(id_):
-    return ('', 501)
+    results = []
+
+    c = Cocktail.query.filter(Cocktail.id_ == id_).one_or_none()
+    obj = {}
+    obj['id'] = c.id_
+    obj['name'] = c.name
+    obj['recipe'] = c.recipe
+    obj['glass'] = c.glass
+    obj['imageURL'] = c.image
+
+    ingredients = []
+
+    for i in Amount.query.filter(Amount.cocktail == id_):
+        ing = Ingredient.query.filter(Ingredient.id_ == i.ingredient).one_or_none()
+        ingredients.append({'name': ing.name, 'quantity': i.amount})
+    obj['ingredients'] = ingredients
+
+    results.append(obj)
+
+    return json.dumps(results)
 
 
 @app.route('/api/cocktail/<int:id_>/name', methods=['GET'])
 def api_cocktail_name(id_):
-    return ('', 501)
+    results = []
+    c = Cocktail.query.filter(Cocktail.id_ == id_).one_or_none()
+    return json.dumps({'name': c.name})
 
 
 @app.route('/api/cocktail/<int:id_>/ingredients', methods=['GET'])
