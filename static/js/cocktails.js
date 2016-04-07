@@ -14,14 +14,29 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
     method: 'GET',
     url: '/api/cocktail'
   }).then(function successCallback(response) {
-      // this callback will be called asynchronously
-      // when the response is available
-      $scope.drinks = response.data;
-    }, function errorCallback(response) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-      console.log(response);
+    // this callback will be called asynchronously
+    // when the response is available
+    angular.forEach(response.data, function(key){
+      var cur_id = key["id"];
+      $http({
+        method: 'GET',
+        url: '/api/cocktail/' + cur_id
+      }).then(function successCallback(response) {
+        angular.forEach(response.data, function(drink){
+          $scope.drinks.push(drink);
+        });
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+        console.log(response);
+      });
     });
+    console.log($scope.drinks);
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    console.log(response);
+  });
 
   $scope.goToCocktail = function(cur_id){
     $location.path('/cocktails/' + cur_id.cocktail);
