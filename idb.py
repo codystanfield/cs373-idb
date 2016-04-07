@@ -148,7 +148,9 @@ def api_ingredient(id_):
 
 @app.route('/api/ingredient/<int:id_>/name', methods=['GET'])
 def api_ingredient_name(id_):
-    return ('', 501)
+    results = []
+    i = Ingredient.query.filter(Ingredient.id_ == id_).one_or_none()
+    return json.dumps({'name': i.name})
 
 
 @app.route('/api/ingredient/<int:id_>/cocktails', methods=['GET'])
