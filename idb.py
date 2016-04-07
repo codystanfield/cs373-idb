@@ -160,7 +160,9 @@ def api_ingredient_cocktails(id_):
 
 @app.route('/api/ingredient/<int:id_>/image', methods=['GET'])
 def api_ingredient_image(id_):
-    return ('', 501)
+    results = []
+    i = Ingredient.query.filter(Ingredient.id_ == id_).one_or_none()
+    return json.dumps({'imageURL': '/static/images/' + i.image})
 
 
 @app.route('/api/ingredient/<int:id_>/numcocktails', methods=['GET'])
