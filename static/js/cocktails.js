@@ -8,7 +8,6 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
   $scope.sortType     = 'name'; // set the default sort type
   $scope.sortReverse  = false;  // set the default sort order
 
-  // $scope.drinks = drinkRepository.getAllDrinks();
   $scope.drinks = [];
   $http({
     method: 'GET',
@@ -43,30 +42,23 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
   };
 
 }])
-.controller('cocktailCtrl', ['$scope', '$routeParams', '$location', 'drinkRepository', function($scope, $routeParams, $location, drinkRepository){
+.controller('cocktailCtrl', ['$scope', '$routeParams', '$location', '$http', function($scope, $routeParams, $location, $http){
   // $scope.drinks = drinkRepository.getAllDrinks();
-  $scope.drink = $scope.drinks[$routeParams.cocktailID];
+  $scope.drink = [];
+  $http({
+    method: 'GET',
+    url: '/api/cocktail/' + $routeParams.cocktailID
+  }).then(function successCallback(response) {
+    $scope.drink = response.data[0];
+    console.log(response.data[0]);
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    console.log(response);
+  });
 
   $scope.goToIngredient = function(item) {  
-    if(item.ingredientName == 'vodka'){
-      $location.path('/ingredients/' + 0);
-    } else if(item.ingredientName == 'club soda'){
-      $location.path('/ingredients/' + 1);
-    } else if(item.ingredientName == 'mint'){
-      $location.path('/ingredients/' + 2);
-    } else if(item.ingredientName == 'ginger beer'){
-      $location.path('/ingredients/' + 3);
-    } else if(item.ingredientName == 'lime juice'){
-      $location.path('/ingredients/' + 4);
-    } else if(item.ingredientName == 'heavy cream'){
-      $location.path('/ingredients/' + 5);
-    } else if(item.ingredientName == 'kahlua'){
-      $location.path('/ingredients/' + 6);
-    } else if(item.ingredientName == 'rum'){
-      $location.path('/ingredients/' + 7);
-    } else {
-      $location.path('/ingredients/' + 8);
-    }
+    $location.path('/ingredients/' + $scope.drink.id);
   };
   
 }]);
