@@ -56,8 +56,8 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
     console.log(response);
   });
 
-  $scope.goToIngredient = function(item) {  
-    $location.path('/ingredients/' + $scope.drink.id);
+  $scope.goToIngredient = function(i) {  
+    $location.path('/ingredients/' + i.ingredientID);
   };
   
 }]);
