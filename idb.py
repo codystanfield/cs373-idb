@@ -167,7 +167,8 @@ def api_ingredient_image(id_):
 
 @app.route('/api/ingredient/<int:id_>/numcocktails', methods=['GET'])
 def api_ingredient_numcocktails(id_):
-    return ('', 501)
+    count = Amount.query.filter(Amount.ingredient == id_).count()
+    return json.dumps({'numCocktails': count})
 
 
 @app.route('/tests', methods=['GET'])
