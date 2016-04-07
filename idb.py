@@ -187,7 +187,14 @@ def run_unit_tests():
       retcode = p.poll() #returns None while subprocess is running
       line = p.stdout.readline()
       output += str(line)
-    return output
+    o = output.split('\\n') # Split by line
+    o = o[3:-2]   # Remove first 3 and last 2 lines
+    o[5] = o[5].replace(' ', '&emsp;')
+    o[7] = o[7].replace(' ', '&emsp;')
+    o[8] = o[8].replace(' ', '&emsp;')
+    o[10] = o[10].replace(' ', '&emsp;')
+    
+    return '<br>'.join(o).replace("'b'", '')
 
 
 if __name__ == '__main__':
