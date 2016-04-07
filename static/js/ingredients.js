@@ -2,7 +2,7 @@
 
 angular.module('mixopediaApp.ingredients', ['ngRoute'])
 
-.controller('ingredientsCtrl', ['$scope', '$filter', '$location', 'ingredientRepository', function($scope, $filter, $location, ingredientRepository){
+.controller('ingredientsCtrl', ['$scope', '$filter', '$location', 'ingredientRepository', '$http', function($scope, $filter, $location, ingredientRepository, $http){
 
   $scope.sortType     = 'name'; // set the default sort type
   $scope.sortReverse  = false;  // set the default sort order
@@ -11,25 +11,60 @@ angular.module('mixopediaApp.ingredients', ['ngRoute'])
 
   $scope.items = ingredientRepository.getAllIngredients();
 
+  $scope.items = [];
+  $http({
+    method: 'GET',
+    url: '/api/ingredient'
+  }).then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+    angular.forEach(response.data, function(key){
+      var cur_id = key["id"];
+      $http({
+        method: 'GET',
+        url: '/api/ingredient/' + cur_id
+      }).then(function successCallback(response) {
+        angular.forEach(response.data, function(item){
+          $scope.items.push(item);
+        });
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+        console.log(response);
+      });
+    });
+    console.log($scope.items);
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    console.log(response);
+  });
+
   $scope.goToIngredient = function(cur_id){
     // var ingredient = $filter('filter')($scope.ingredients, {id: cur_id.ingredientID});
     $location.path('/ingredients/' + cur_id.itemID);
   };
 
 }])
-.controller('ingredientCtrl', ['$scope', '$routeParams', '$location', 'ingredientRepository', function($scope, $routeParams, $location, ingredientRepository){
-  $scope.items = ingredientRepository.getAllIngredients();
-  $scope.item = $scope.items[$routeParams.ingredientID];
+.controller('ingredientCtrl', ['$scope', '$routeParams', '$location', 'ingredientRepository', '$http', function($scope, $routeParams, $location, ingredientRepository, $http){
+  // $scope.items = ingredientRepository.getAllIngredients();
+  // $scope.item = $scope.items[$routeParams.ingredientID];
+
+  $scope.item = [];
+  $http({
+    method: 'GET',
+    url: '/api/ingredient/' + $routeParams.ingredientID
+  }).then(function successCallback(response) {
+    $scope.item = response.data[0];
+    console.log(response.data[0]);
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    console.log(response);
+  });
   
-  $scope.goToDrink = function(drink) {
-    console.log('/cocktails/' + drink.drinkName);
-    if(drink.drinkName == 'Moscow Mule'){
-      $location.path('/cocktails/' + 0);
-    } else if (drink.drinkName == 'White Russian'){
-      $location.path('/cocktails/' + 1);
-    } else {
-      $location.path('/cocktails/' + 2);
-    }
+  $scope.goToDrink = function(d) {
+    $location.path('/cocktails/' + d.drinkID);
   };
 
 }])

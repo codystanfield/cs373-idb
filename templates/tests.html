@@ -1,1 +1,12 @@
-{{ text }}
+<body style="background-color:#eeeeee">
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Coverage result:</h1>
+      <div class="well well-sm">
+        <p>{% for line in result %}
+               {{line}}<br>
+           {% endfor %}</p>
+      </div> 
+    </div>
+  </div>
+</body>

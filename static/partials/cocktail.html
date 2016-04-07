@@ -7,18 +7,18 @@
     <div class="col-lg-8">
 
       <!-- Title -->
-      <h1>{{drink.name}}</h1>
+      <h1>{{ drink.name }}</h1>
       <hr>
 
       <!-- Preview Image -->
-      <img class="img-responsive" ng-src="{{drink.image}}" alt="">
+      <img class="img-responsive" ng-src="{{drink.imageURL}}" alt="">
 
       <hr>
 
       <!-- List of Ingredients -->
       <h2>Ingredients</h2>
       <ul ng-repeat="ingredient in drink.ingredients">
-        <li ng-click="goToIngredient({ingredientName: ingredient})"><a>{{ingredient}}</a></li>
+        <li ng-click="goToIngredient({ingredientID: ingredient.id})"><a>{{ingredient.quantity}} {{ingredient.name}}</a></li>
       </ul>
 
       <!-- Recipe -->
