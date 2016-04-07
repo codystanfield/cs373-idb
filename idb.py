@@ -14,13 +14,13 @@ from config import app, \
                    manager
 
 # unit test imports
+import subprocess
 from io import StringIO
 from models import Cocktail, \
                    Ingredient, \
                    Amount
-from tests import TestIdb
-from unittest import TextTestRunner, \
-                     makeSuite
+
+# api return format import
 import json
 
 
@@ -59,13 +59,13 @@ def api_cocktail(id_):
     obj['name'] = c.name
     obj['recipe'] = c.recipe
     obj['glass'] = c.glass
-    obj['imageURL'] = '/static/images/' + c.image
+    obj['imageURL'] = '/static/images/' + c.image + '.jpg'
 
     ingredients = []
 
     for i in Amount.query.filter(Amount.cocktail == id_):
         ing = Ingredient.query.filter(Ingredient.id_ == i.ingredient).one_or_none()
-        ingredients.append({'name': ing.name, 'quantity': i.amount})
+        ingredients.append({'name': ing.name, 'quantity': i.amount, 'id': ing.id_})
     obj['ingredients'] = ingredients
 
     results.append(obj)
@@ -84,11 +84,11 @@ def api_cocktail_name(id_):
 def api_cocktail_ingredients(id_):
     results = []
     c = Cocktail.query.filter(Cocktail.id_ == id_).one_or_none()
-    
+
     for i in Amount.query.filter(Amount.cocktail == id_):
         ing = Ingredient.query.filter(Ingredient.id_ == i.ingredient).one_or_none()
-        results.append({'name': ing.name, 'quantity': i.amount})
-        
+        results.append({'name': ing.name, 'quantity': i.amount, 'id': ing.id_})
+
     return json.dumps(results)
 
 
@@ -110,7 +110,7 @@ def api_cocktail_recipe(id_):
 def api_cocktail_image(id_):
     results = []
     c = Cocktail.query.filter(Cocktail.id_ == id_).one_or_none()
-    return json.dumps({'imageURL': '/static/images/{0}'.format(c.image)})
+    return json.dumps({'imageURL': '/static/images/{0}.jpg'.format(c.image)})
 
 
 @app.route('/api/ingredient', methods=['GET'])
@@ -125,24 +125,24 @@ def api_ingredient_list():
 @app.route('/api/ingredient/<int:id_>', methods=['GET'])
 def api_ingredient(id_):
     results = []
-    
+
     i = Ingredient.query.filter(Ingredient.id_ == id_).one_or_none()
     obj = {}
     obj['id'] = i.id_
     obj['name'] = i.name
-    obj['imageURL'] = i.image
-    
+    obj['imageURL'] = '/static/images/{0}.jpg'.format(i.image)
+
     cocktails = []
-    
+
     for i in Amount.query.filter(Amount.ingredient == id_):
         c = Cocktail.query.filter(Cocktail.id_ == i.cocktail).one_or_none()
-        cocktails.append(c.id_)
-        
+        cocktails.append({'name': c.name, 'id': c.id_})
+
     obj['cocktails'] = cocktails
     obj['numberOfCocktails'] = len(cocktails)
-    
+
     results.append(obj)
-        
+
     return json.dumps(results)
 
 
@@ -157,11 +157,11 @@ def api_ingredient_name(id_):
 def api_ingredient_cocktails(id_):
     results = []
     i = Ingredient.query.filter(Ingredient.id_ == id_).one_or_none()
-    
+
     for a in Amount.query.filter(Amount.ingredient == id_):
         c = Cocktail.query.filter(Cocktail.id_ == a.cocktail).one_or_none()
         results.append({'name': c.name, 'id': c.id_})
-        
+
     return json.dumps(results)
 
 
@@ -169,7 +169,7 @@ def api_ingredient_cocktails(id_):
 def api_ingredient_image(id_):
     results = []
     i = Ingredient.query.filter(Ingredient.id_ == id_).one_or_none()
-    return json.dumps({'imageURL': '/static/images/' + i.image})
+    return json.dumps({'imageURL': '/static/images/' + i.image + '.jpg'})
 
 
 @app.route('/api/ingredient/<int:id_>/numcocktails', methods=['GET'])
@@ -179,15 +179,16 @@ def api_ingredient_numcocktails(id_):
 
 
 @app.route('/tests', methods=['GET'])
-def run_unittests():
-    """
-    Runs unit tests and returns the result.
-    """
-    io = StringIO()
-    TextTestRunner(stream=io, verbosity=2).run(makeSuite(TestIdb))
-    results = io.getvalue().split('\n')
-    # return results
-    return render_template("tests.html", text=results)
+def run_unit_tests():
+    p = subprocess.Popen(['make', 'test'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    output = ''
+    retcode = None
+    while retcode is None:
+      retcode = p.poll() #returns None while subprocess is running
+      line = p.stdout.readline()
+      output += str(line)
+    return output
+
 
 if __name__ == '__main__':
     manager.run()
