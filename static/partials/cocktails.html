@@ -1,20 +1,5 @@
 <!-- Page Content -->
     <div class="container">
-
-<!--       <div class="alert alert-info">
-        <p>Sort Type: {{ sortType }}</p>
-        <p>Sort Reverse: {{ sortReverse }}</p>
-      </div> -->
-
-      <!-- <div ng-repeat="drink in drinks | orderBy:sortType:sortReverse"> -->
-            <!-- <h1>{{ drink.name }}</h1>
-            <ul>
-            <div ng-repeat="ingredient in drink.ingredients | orderBy">
-              <li>{{ ingredient }}</li>
-            </div>
-          </ul>
-        </div> -->
-
         <table class="table table-bordered">
 
          <thead>
@@ -34,10 +19,10 @@
               </a>
              </th>
              <th>
-              <a href="#" ng-click="sortType = 'image'; sortReverse = !sortReverse">
+              <a href="#" ng-click="sortType = 'imageURL'; sortReverse = !sortReverse">
               Image
-              <span ng-show="sortType == 'image' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
-              <span ng-show="sortType == 'image' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+              <span ng-show="sortType == 'imageURL' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+              <span ng-show="sortType == 'imageURL' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
              </th>
              <th>
               <!-- currently not working -->

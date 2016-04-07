@@ -11,10 +11,10 @@
           </a>
        </th>
        <th>
-        <a href="#" ng-click="sortType = 'image'; sortReverse = !sortReverse">
+        <a href="#" ng-click="sortType = 'imageURL'; sortReverse = !sortReverse">
         Image
-        <span ng-show="sortType == 'image' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
-        <span ng-show="sortType == 'image' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+        <span ng-show="sortType == 'imageURL' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+        <span ng-show="sortType == 'imageURL' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
        </th>
        <th>
         <!-- currently not working -->
@@ -24,26 +24,31 @@
         <span ng-show="sortType == 'cocktails' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
        </th>
        <th>
-        <a href="#" ng-click="sortType = 'numCocktails'; sortReverse = !sortReverse">
+        <a href="#" ng-click="sortType = 'numberOfCocktails'; sortReverse = !sortReverse">
         Number of Cocktails
-        <span ng-show="sortType == 'numCocktails' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
-        <span ng-show="sortType == 'numCocktails' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+        <span ng-show="sortType == 'numberOfCocktails' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+        <span ng-show="sortType == 'numberOfCocktails' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
        </th>
      </tr>
    </thead>
 
-  <!--          Name, glass, image, ingredients, recipe -->        
+  <!--          Name, glass, image, ingredients, recipe -->
   <tbody>
-    <tr ng-repeat="item in items | orderBy:sortType:sortReverse" ng-click="goToIngredient({itemID: item.id})">
+    <tr dir-paginate="item in items | orderBy:sortType:sortReverse | itemsPerPage:10" ng-click="goToIngredient({itemID: item.id})">
       <td>{{ item.name }}</td>
       <td><img ng-src="{{ item.imageURL }}" style="width: auto; height: 100px"></td>
       <td>
         <div ng-repeat="cocktail in item.cocktails">
-          {{ cocktail.name }}   
+          {{ cocktail.name }}
         </div>
       </td>
       <td>{{ item.numberOfCocktails }}</td>
     </tr>
   </tbody>
   </table>
+  <dir-pagination-controls
+   max-size="10"
+   direction-links="true"
+   boundary-links="true">
+ </dir-pagination-controls>
 </div>
