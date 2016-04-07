@@ -65,7 +65,7 @@ def api_cocktail(id_):
 
     for i in Amount.query.filter(Amount.cocktail == id_):
         ing = Ingredient.query.filter(Ingredient.id_ == i.ingredient).one_or_none()
-        ingredients.append({'name': ing.name, 'quantity': i.amount})
+        ingredients.append({'name': ing.name, 'quantity': i.amount, 'id': ing.id_})
     obj['ingredients'] = ingredients
 
     results.append(obj)
@@ -87,7 +87,7 @@ def api_cocktail_ingredients(id_):
 
     for i in Amount.query.filter(Amount.cocktail == id_):
         ing = Ingredient.query.filter(Ingredient.id_ == i.ingredient).one_or_none()
-        results.append({'name': ing.name, 'quantity': i.amount})
+        results.append({'name': ing.name, 'quantity': i.amount, 'id': ing.id_})
 
     return json.dumps(results)
 
@@ -136,7 +136,7 @@ def api_ingredient(id_):
 
     for i in Amount.query.filter(Amount.ingredient == id_):
         c = Cocktail.query.filter(Cocktail.id_ == i.cocktail).one_or_none()
-        cocktails.append(c.id_)
+        cocktails.append({'name': c.name, 'id': c.id_})
 
     obj['cocktails'] = cocktails
     obj['numberOfCocktails'] = len(cocktails)
