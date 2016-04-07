@@ -59,7 +59,7 @@ def api_cocktail(id_):
     obj['name'] = c.name
     obj['recipe'] = c.recipe
     obj['glass'] = c.glass
-    obj['imageURL'] = c.image
+    obj['imageURL'] = '/static/images/' + c.image
     
     ingredients = []
     
@@ -124,7 +124,26 @@ def api_ingredient_list():
 
 @app.route('/api/ingredient/<int:id_>', methods=['GET'])
 def api_ingredient(id_):
-    return ('', 501)
+    results = []
+    
+    i = Ingredient.query.filter(Ingredient.id_ == id_).one_or_none()
+    obj = {}
+    obj['id'] = i.id_
+    obj['name'] = i.name
+    obj['imageURL'] = i.image
+    
+    cocktails = []
+    
+    for i in Amount.query.filter(Amount.ingredient == id_):
+        c = Cocktail.query.filter(Cocktail.id_ == i.cocktail).one_or_none()
+        cocktails.append(c.id_)
+        
+    obj['cocktails'] = cocktails
+    obj['numberOfCocktails'] = len(cocktails)
+    
+    results.append(obj)
+        
+    return json.dumps(results)
 
 
 @app.route('/api/ingredient/<int:id_>/name', methods=['GET'])
