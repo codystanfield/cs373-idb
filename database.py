@@ -13,8 +13,8 @@ from DBScraper import Cocktail_
 
 @manager.command
 def init_db():
-  logger.debug("init_db")
-  app.config['SQLALCHEMY_ECHO'] = True
+  # logger.debug("init_db")
+  # app.config['SQLALCHEMY_ECHO'] = True
   Base.metadata.create_all(engine)
 
 
