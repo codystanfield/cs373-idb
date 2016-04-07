@@ -46,9 +46,22 @@ angular.module('mixopediaApp.ingredients', ['ngRoute'])
   };
 
 }])
-.controller('ingredientCtrl', ['$scope', '$routeParams', '$location', 'ingredientRepository', function($scope, $routeParams, $location, ingredientRepository){
-  $scope.items = ingredientRepository.getAllIngredients();
-  $scope.item = $scope.items[$routeParams.ingredientID];
+.controller('ingredientCtrl', ['$scope', '$routeParams', '$location', 'ingredientRepository', '$http', function($scope, $routeParams, $location, ingredientRepository, $http){
+  // $scope.items = ingredientRepository.getAllIngredients();
+  // $scope.item = $scope.items[$routeParams.ingredientID];
+
+  $scope.item = [];
+  $http({
+    method: 'GET',
+    url: '/api/ingredient/' + $routeParams.ingredientID
+  }).then(function successCallback(response) {
+    $scope.item = response.data[0];
+    console.log(response.data[0]);
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    console.log(response);
+  });
   
   $scope.goToDrink = function(drink) {
     console.log('/cocktails/' + drink.drinkName);

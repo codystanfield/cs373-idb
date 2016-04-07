@@ -38,8 +38,8 @@
       <td>{{ item.name }}</td>
       <td><img ng-src="{{ item.imageURL }}" style="width: auto; height: 100px"></td>
       <td>
-        <div ng-repeat="cocktail in item.cocktails | orderBy">
-          {{ cocktail }}   
+        <div ng-repeat="cocktail in item.cocktails">
+          {{ cocktail.name }}   
         </div>
       </td>
       <td>{{ item.numberOfCocktails }}</td>
