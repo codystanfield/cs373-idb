@@ -63,7 +63,9 @@
             <td><img ng-src="{{ drink.imageURL }}" style="width: 100%; height: auto"></td>
             <td>
               <div ng-repeat="ingredient in drink.ingredients | orderBy">
-                {{ ingredient }}
+                <div ng-repeat="i in ingredient">
+                  {{ i }}
+                </div>
               </div>
             </td>
             <td>{{ drink.recipe }}</td>
