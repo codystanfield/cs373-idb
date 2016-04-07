@@ -2,7 +2,7 @@
 
 angular.module('mixopediaApp.ingredients', ['ngRoute'])
 
-.controller('ingredientsCtrl', ['$scope', '$filter', '$location', 'ingredientRepository', function($scope, $filter, $location, ingredientRepository){
+.controller('ingredientsCtrl', ['$scope', '$filter', '$location', 'ingredientRepository', '$http', function($scope, $filter, $location, ingredientRepository, $http){
 
   $scope.sortType     = 'name'; // set the default sort type
   $scope.sortReverse  = false;  // set the default sort order
@@ -10,6 +10,35 @@ angular.module('mixopediaApp.ingredients', ['ngRoute'])
   // $scope.search   = '';     // set the default search/filter term
 
   $scope.items = ingredientRepository.getAllIngredients();
+
+  $scope.items = [];
+  $http({
+    method: 'GET',
+    url: '/api/ingredient'
+  }).then(function successCallback(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+    angular.forEach(response.data, function(key){
+      var cur_id = key["id"];
+      $http({
+        method: 'GET',
+        url: '/api/ingredient/' + cur_id
+      }).then(function successCallback(response) {
+        angular.forEach(response.data, function(item){
+          $scope.items.push(item);
+        });
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+        console.log(response);
+      });
+    });
+    console.log($scope.items);
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    console.log(response);
+  });
 
   $scope.goToIngredient = function(cur_id){
     // var ingredient = $filter('filter')($scope.ingredients, {id: cur_id.ingredientID});

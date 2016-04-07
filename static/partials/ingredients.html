@@ -11,13 +11,6 @@
           </a>
        </th>
        <th>
-        <a href="#" ng-click="sortType = 'alcoholic'; sortReverse = !sortReverse">
-        Alcoholic
-        <span ng-show="sortType == 'alcoholic' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
-        <span ng-show="sortType == 'alcoholic' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
-        </a>
-       </th>
-       <th>
         <a href="#" ng-click="sortType = 'image'; sortReverse = !sortReverse">
         Image
         <span ng-show="sortType == 'image' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
@@ -43,15 +36,13 @@
   <tbody>
     <tr ng-repeat="item in items | orderBy:sortType:sortReverse" ng-click="goToIngredient({itemID: item.id})">
       <td>{{ item.name }}</td>
-      <td ng-if="item.alcoholic">Alcoholic</td>
-      <td ng-if="item.alcoholic == false">Non-Alcoholic</td>
-      <td><img ng-src="{{ item.image }}" style="width: auto; height: 100px"></td>
+      <td><img ng-src="{{ item.imageURL }}" style="width: auto; height: 100px"></td>
       <td>
         <div ng-repeat="cocktail in item.cocktails | orderBy">
           {{ cocktail }}   
         </div>
       </td>
-      <td>{{ item.numCocktails }}</td>
+      <td>{{ item.numberOfCocktails }}</td>
     </tr>
   </tbody>
   </table>
