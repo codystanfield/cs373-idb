@@ -6,6 +6,7 @@ angular.module('mixopediaApp', [
     'mixopediaApp.home',
     'mixopediaApp.cocktails',
     'mixopediaApp.ingredients',
+    'angularUtils.directives.dirPagination'
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
