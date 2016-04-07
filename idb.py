@@ -155,7 +155,14 @@ def api_ingredient_name(id_):
 
 @app.route('/api/ingredient/<int:id_>/cocktails', methods=['GET'])
 def api_ingredient_cocktails(id_):
-    return ('', 501)
+    results = []
+    i = Ingredient.query.filter(Ingredient.id_ == id_).one_or_none()
+    
+    for a in Amount.query.filter(Amount.ingredient == id_):
+        c = Cocktail.query.filter(Cocktail.id_ == a.cocktail).one_or_none()
+        results.append({'name': c.name, 'id': c.id_})
+        
+    return json.dumps(results)
 
 
 @app.route('/api/ingredient/<int:id_>/image', methods=['GET'])
