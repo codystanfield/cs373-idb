@@ -11,26 +11,16 @@
       <hr>
 
       <!-- Preview Image -->
-      <img class="img-responsive" ng-src="{{item.image}}" alt="{{item.name}}">
+      <img class="img-responsive" ng-src="{{item.imageURL}}" alt="{{item.name}}">
 
       <hr>
 
       <!-- List of Cocktails -->
-      <h2>Cocktails</h2>
+      <h2>{{item.numberOfCocktails}} Cocktails</h2>
       <ul ng-repeat="cocktail in item.cocktails">
-        <li ng-click="goToDrink({drinkName: cocktail})"><a>{{cocktail}}</a></li>
+        <li ng-click="goToDrink({drinkID: cocktail.id})"><a>{{cocktail.name}}{{cocktail.id}}</a></li>
       </ul>
 
-
-      <!-- Facts about Ingredient -->
-      <h2>Facts:</h2>
-      <ul>
-        <li ng-if="item.alcoholic">Alcoholic</li>
-        <li ng-if="item.alcoholic == false">Non-Alcoholic</li>
-        <li>Number of Cocktails: {{item.numCocktails}}</li>
-      </ul>
-
-      <hr>
 
     </div>
 
@@ -52,4 +42,4 @@
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 </div>
-<!-- /.container -->
+<!-- /.container

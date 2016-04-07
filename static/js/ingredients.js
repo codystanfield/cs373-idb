@@ -63,15 +63,8 @@ angular.module('mixopediaApp.ingredients', ['ngRoute'])
     console.log(response);
   });
   
-  $scope.goToDrink = function(drink) {
-    console.log('/cocktails/' + drink.drinkName);
-    if(drink.drinkName == 'Moscow Mule'){
-      $location.path('/cocktails/' + 0);
-    } else if (drink.drinkName == 'White Russian'){
-      $location.path('/cocktails/' + 1);
-    } else {
-      $location.path('/cocktails/' + 2);
-    }
+  $scope.goToDrink = function(d) {
+    $location.path('/cocktails/' + d.drinkID);
   };
 
 }])
