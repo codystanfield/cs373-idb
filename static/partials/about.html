@@ -50,7 +50,10 @@ http://www.thecocktaildb.com/
   <title></title>
 </head>
 <body>
+  <div ng-bind-html="tests"></div>
+  <!-- {{ tests }} -->
   <div class="container">
+    <button ng-click="getTests()">Run Tests</button>
     <!-- Introduction Row -->
     <!--   <div class="row">
       <div class="col-lg-12">
@@ -61,8 +64,9 @@ http://www.thecocktaildb.com/
             Software Engineering project.  Our group name is Alcoholics.  Enjoy
             and drink responsibily!</p>
       </div>
-  </div> -->
-    <!-- Team Members Row -->
+  </div> --><!-- Team Members Row -->
+  
+    
     <div class="row">
       <div class="col-lg-12">
         <h2 class="page-header">Meet Our Team: "The Alcoholics"</h2>
