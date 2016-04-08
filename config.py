@@ -27,8 +27,8 @@ SQLALCHEMY_DATABASE_URI = '{engine}://{username}:{password}@{hostname}/{database
         password=os.getenv('MYSQL_PASSWORD'),
         hostname=os.getenv('MYSQL_HOST'),
         database=os.getenv('MYSQL_DATABASE'))
-# logger.debug("The log statement below is for development purposes only. Remove and clean logs before deployment.")
-# logger.debug("SQLALCHEMY_DATABASE_URI: %s", SQLALCHEMY_DATABASE_URI)
+logger.debug("The log statement below is for development purposes only. Remove and clean logs before deployment.")
+logger.debug("SQLALCHEMY_DATABASE_URI: %s", SQLALCHEMY_DATABASE_URI)
 
 engine = create_engine(SQLALCHEMY_DATABASE_URI, convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
