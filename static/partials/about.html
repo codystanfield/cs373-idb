@@ -44,12 +44,8 @@ Data Sources:
 http://www.thecocktaildb.com/
 -->
 <!-- Page Content -->
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
+
+  <!-- {{ tests }} -->
   <div class="container">
     <!-- Introduction Row -->
     <!--   <div class="row">
@@ -61,8 +57,9 @@ http://www.thecocktaildb.com/
             Software Engineering project.  Our group name is Alcoholics.  Enjoy
             and drink responsibily!</p>
       </div>
-  </div> -->
-    <!-- Team Members Row -->
+  </div> --><!-- Team Members Row -->
+
+
     <div class="row">
       <div class="col-lg-12">
         <h2 class="page-header">Meet Our Team: "The Alcoholics"</h2>
@@ -621,8 +618,13 @@ http://www.thecocktaildb.com/
             </div>
           </div>
         </div>
+
       </div><!-- /.container -->
+      <button type="button" class="btn btn-info" ng-click="getTests()">Run Tests</button>
+      <div>
+        <pre>
+          <code class="bash" ng-bind-html="tests"></code>
+        </pre>
+      </div>
     </div>
   </div>
-</body>
-</html>

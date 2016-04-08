@@ -11,9 +11,10 @@ from models import Cocktail, \
                    Amount
 import requests
 import idb
+import json
 
-HOST = 'http://104.130.22.54'
-# HOST = 'http://localhost:5000'
+#HOST = 'http://104.130.22.54'
+HOST = 'http://localhost:5000'
 
 # -----------
 # TestIDB
@@ -376,15 +377,15 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_cocktail_list_1(self):
-        result = idb.api_cocktail_list()
-        self.assertEqual(result[0], '[')
+        result = json.loads(idb.api_cocktail_list())
+        self.assertEqual(result[0], {'name': "'57 Chevy with a White License Plate", 'id': 1})
 
     def test_api_cocktail_list_2(self):
-        result = idb.api_cocktail_list()
-        self.assertEqual(result[1], '{')
+        result = json.loads(idb.api_cocktail_list())
+        self.assertEqual(result[1], {'name': '155 Belmont', 'id': 2})
 
     def test_api_cocktail_list_3(self):
-        result = idb.api_cocktail_list()
+        result = json.loads(idb.api_cocktail_list())
         self.assertIsNotNone(result[1])
 
     # ---
@@ -392,16 +393,16 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_cocktail_1(self):
-        result = idb.api_cocktail(1)
-        self.assertEqual(result[0], '[')
+        result = json.loads(idb.api_cocktail(1))
+        self.assertEqual(result[0]['ingredients'][0]['quantity'], '1 oz white ')
 
     def test_api_cocktail_2(self):
-        result = idb.api_cocktail(1)
-        self.assertEqual(result[1], '{')
+        result = json.loads(idb.api_cocktail(2))
+        self.assertEqual(result[0]['ingredients'][2]['name'], 'Vodka')
 
     def test_api_cocktail_3(self):
-        result = idb.api_cocktail(2)
-        self.assertEqual(result[1], '{')
+        result = json.loads(idb.api_cocktail(55))
+        self.assertEqual(result[0]['name'], 'Brandy Alexandra')
 
 
     # ---
@@ -409,95 +410,95 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_cocktail_name_1(self):
-        result = idb.api_cocktail_name(1)
-        self.assertEqual(result[0], '{')
+        result = json.loads(idb.api_cocktail_name(1))
+        self.assertEqual(result['name'], "'57 Chevy with a White License Plate")
 
     def test_api_cocktail_name_2(self):
-        result = idb.api_cocktail_name(1)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_cocktail_name(2))
+        self.assertEqual(result['name'], '155 Belmont')
 
     def test_api_cocktail_name_3(self):
-        result = idb.api_cocktail_name(2)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_cocktail_name(3))
+        self.assertEqual(result['name'], '9 1/2 Weeks')
 
     # ---
     # api_cocktail_ingredients
     # ---
 
     def test_api_cocktail_ingredients_1(self):
-        result = idb.api_cocktail_ingredients(1)
-        self.assertEqual(result[0], '[')
+        result = json.loads(idb.api_cocktail_ingredients(1))
+        self.assertEqual(result[0], {'quantity': '1 oz white ', 'name': 'Creme de Cacao', 'id': 1})
 
     def test_api_cocktail_ingredients_2(self):
-        result = idb.api_cocktail_ingredients(1)
-        self.assertEqual(result[1], '{')
+        result = json.loads(idb.api_cocktail_ingredients(1))
+        self.assertEqual(result[1], {'quantity': '1 oz ', 'name': 'Vodka', 'id': 2})
 
     def test_api_cocktail_ingredients_3(self):
-        result = idb.api_cocktail_ingredients(None)
-        self.assertEqual(result[1], ']')
+        result = json.loads(idb.api_cocktail_ingredients(None))
+        self.assertEqual(result, [])
 
     # ---
     # api_cocktail_glass
     # ---
 
     def test_api_cocktail_glass_1(self):
-        result = idb.api_cocktail_glass(1)
-        self.assertEqual(result[0], '{')
+        result = json.loads(idb.api_cocktail_glass(1))
+        self.assertEqual(result['glass'], 'Highball glass')
 
     def test_api_cocktail_glass_2(self):
-        result = idb.api_cocktail_glass(1)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_cocktail_glass(2))
+        self.assertEqual(result['glass'], 'White wine glass')
 
     def test_api_cocktail_glass_3(self):
-        result = idb.api_cocktail_glass(2)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_cocktail_glass(3))
+        self.assertEqual(result['glass'], 'Cocktail glass')
 
     # ---
     # api_cocktail_recipe
     # ---
 
     def test_api_cocktail_recipe_1(self):
-        result = idb.api_cocktail_recipe(1)
-        self.assertEqual(result[0], '{')
+        result = json.loads(idb.api_cocktail_recipe(1))
+        self.assertEqual(result['recipe'], '1. Fill a rocks glass with ice 2.add white creme de cacao and vodka 3.stir')
 
     def test_api_cocktail_recipe_2(self):
-        result = idb.api_cocktail_recipe(1)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_cocktail_recipe(2))
+        self.assertEqual(result['recipe'], 'Blend with ice. Serve in a wine glass. Garnish with carrot.')
 
     def test_api_cocktail_recipe_3(self):
-        result = idb.api_cocktail_recipe(2)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_cocktail_recipe(3))
+        self.assertEqual(result['recipe'], 'Combine all ingredients in glass mixer. Chill and strain into Cocktail glass. Garnish with sliced strawberry.')
 
     # ---
     # api_cocktail_image
     # ---
 
     def test_api_cocktail_image_1(self):
-        result = idb.api_cocktail_image(1)
-        self.assertEqual(result[0], '{')
+        result = json.loads(idb.api_cocktail_image(1))
+        self.assertEqual(result['imageURL'], "/static/images/cocktails/'57+Chevy+with+a+White+License+Plate.jpg")
 
     def test_api_cocktail_image_2(self):
-        result = idb.api_cocktail_image(1)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_cocktail_image(2))
+        self.assertEqual(result['imageURL'], '/static/images/cocktails/155+Belmont.jpg')
 
     def test_api_cocktail_image_3(self):
-        result = idb.api_cocktail_image(2)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_cocktail_image(3))
+        self.assertEqual(result['imageURL'], '/static/images/cocktails/9+1\\2+Weeks.jpg')
 
     # ---
     # api_ingredient_list
     # ---
 
     def test_api_ingredient_list_1(self):
-        result = idb.api_ingredient_list()
-        self.assertEqual(result[0], '[')
+        result = json.loads(idb.api_ingredient_list())
+        self.assertEqual(result[0], {'name': 'Creme de Cacao', 'id': 1})
 
     def test_api_ingredient_list_2(self):
-        result = idb.api_ingredient_list()
-        self.assertEqual(result[1], '{')
+        result = json.loads(idb.api_ingredient_list())
+        self.assertEqual(result[1], {'name': 'Vodka', 'id': 2})
 
     def test_api_ingredient_list_3(self):
-        result = idb.api_ingredient_list()
+        result = json.loads(idb.api_ingredient_list())
         self.assertIsNotNone(result[1])
 
     ## ---
@@ -505,80 +506,80 @@ class TestIdb(TestCase):
     # ---
 
     def test_api_ingredient_1(self):
-        result = idb.api_ingredient(1)
-        self.assertEqual(result[0], '[')
+        result = json.loads(idb.api_ingredient(1))
+        self.assertEqual(result[0]['cocktails'][0]['id'], 1)
 
     def test_api_ingredient_2(self):
-        result = idb.api_ingredient(1)
-        self.assertEqual(result[1], '{')
+        result = json.loads(idb.api_ingredient(2))
+        self.assertEqual(result[0]['numberOfCocktails'], 77)
 
     def test_api_ingredient_3(self):
-        result = idb.api_ingredient(2)
-        self.assertEqual(result[1], '{')
+        result = json.loads(idb.api_ingredient(3))
+        self.assertEqual(result[0]['cocktails'][2]['name'], 'Caribbean Smoked Torch')
 
     # ---
     # api_ingredient_name
     # ---
 
     def test_api_ingredient_name_1(self):
-        result = idb.api_ingredient_name(1)
-        self.assertEqual(result[0], '{')
+        result = json.loads(idb.api_ingredient_name(1))
+        self.assertEqual(result['name'], 'Creme de Cacao')
 
     def test_api_ingredient_name_2(self):
-        result = idb.api_ingredient_name(1)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_ingredient_name(2))
+        self.assertEqual(result['name'], 'Vodka')
 
     def test_api_ingredient_name_3(self):
-        result = idb.api_ingredient_name(2)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_ingredient_name(3))
+        self.assertEqual(result['name'], 'Dark rum')
 
     # ---
     # api_ingredient_cocktails
     # ---
 
     def test_api_ingredient_cocktails_1(self):
-        result = idb.api_ingredient_cocktails(1)
-        self.assertEqual(result[0], '[')
+        result = json.loads(idb.api_ingredient_cocktails(1))
+        self.assertEqual(result[0], {'name': "'57 Chevy with a White License Plate", 'id': 1})
 
     def test_api_ingredient_cocktails_2(self):
-        result = idb.api_ingredient_cocktails(1)
-        self.assertEqual(result[1], '{')
+        result = json.loads(idb.api_ingredient_cocktails(1))
+        self.assertEqual(result[1], {'name': 'Alexander (Original)', 'id': 12})
 
     def test_api_ingredient_cocktails_3(self):
-        result = idb.api_ingredient_cocktails(None)
-        self.assertEqual(result[1], ']')
+        result = json.loads(idb.api_ingredient_cocktails(None))
+        self.assertEqual(result, [])
 
     # ---
     # api_ingredient_image
     # ---
 
     def test_api_ingredient_image_1(self):
-        result = idb.api_ingredient_image(1)
-        self.assertEqual(result[0], '{')
+        result = json.loads(idb.api_ingredient_image(1))
+        self.assertEqual(result['imageURL'], '/static/images/ingredients/Creme+de+Cacao.jpg')
 
     def test_api_ingredient_image_2(self):
-        result = idb.api_ingredient_image(1)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_ingredient_image(2))
+        self.assertEqual(result['imageURL'], '/static/images/ingredients/Vodka.jpg')
 
     def test_api_ingredient_image_3(self):
-        result = idb.api_ingredient_image(2)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_ingredient_image(3))
+        self.assertEqual(result['imageURL'], '/static/images/ingredients/Dark+rum.jpg')
 
     # ---
     # api_ingredient_numcocktails
     # ---
 
     def test_api_ingred_numcocktails_1(self):
-        result = idb.api_ingredient_numcocktails(1)
-        self.assertEqual(result[0], '{')
+        result = json.loads(idb.api_ingredient_numcocktails(1))
+        self.assertEqual(result, {'numCocktails': 7})
 
     def test_api_ingred_numcocktails_2(self):
-        result = idb.api_ingredient_numcocktails(1)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_ingredient_numcocktails(1))
+        self.assertEqual(result['numCocktails'], 7)
 
     def test_api_ingred_numcocktails_3(self):
-        result = idb.api_ingredient_numcocktails(2)
-        self.assertEqual(result[1], '"')
+        result = json.loads(idb.api_ingredient_numcocktails(2))
+        self.assertEqual(result, {'numCocktails': 77})
 
 # ----
 # main
