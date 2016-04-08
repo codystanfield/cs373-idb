@@ -570,7 +570,7 @@ class TestIdb(TestCase):
 
     def test_api_cocktail_image_1(self):
         result = json.loads(idb.api_cocktail_image(1))
-        self.assertEqual(result['imageURL'], "/static/images/cocktails/57-Chevy-with-a-White-License-Plate.jpg.jpg")
+        self.assertEqual(result['imageURL'], "/static/images/cocktails/57-Chevy-with-a-White-License-Plate.jpg")
 
     def test_api_cocktail_image_2(self):
         result = json.loads(idb.api_cocktail_image(2))
@@ -594,7 +594,7 @@ class TestIdb(TestCase):
 
     def test_api_cocktail_image_route_3(self):
         result = json.loads(app.test_client().get('/api/cocktail/220/image').data.decode())
-        self.assertEqual(result['imageURL'], '/static/images/cocktails/Lemon-Drop-4jpg')
+        self.assertEqual(result['imageURL'], '/static/images/cocktails/Lemon-Drop-4.jpg')
 
     # ---
     # api_ingredient_list
