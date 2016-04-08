@@ -25,6 +25,7 @@ before_script:
     - uname -a
     - printenv
     - pip list
+    - mysql -e "create database IF NOT EXISTS idb;" -uroot
 
 script:
     - date
