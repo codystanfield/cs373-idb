@@ -570,15 +570,15 @@ class TestIdb(TestCase):
 
     def test_api_cocktail_image_1(self):
         result = json.loads(idb.api_cocktail_image(1))
-        self.assertEqual(result['imageURL'], "/static/images/cocktails/'57+Chevy+with+a+White+License+Plate.jpg")
+        self.assertEqual(result['imageURL'], "/static/images/cocktails/57-Chevy-with-a-White-License-Plate.jpg.jpg")
 
     def test_api_cocktail_image_2(self):
         result = json.loads(idb.api_cocktail_image(2))
-        self.assertEqual(result['imageURL'], '/static/images/cocktails/155+Belmont.jpg')
+        self.assertEqual(result['imageURL'], '/static/images/cocktails/155-Belmont.jpg')
 
     def test_api_cocktail_image_3(self):
         result = json.loads(idb.api_cocktail_image(4))
-        self.assertEqual(result['imageURL'], '/static/images/cocktails/A+Gilligan\'s+Island.jpg')
+        self.assertEqual(result['imageURL'], '/static/images/cocktails/A-Gilligans-Island.jpg')
 
     # ---
     # api_cocktail_image_route
@@ -586,15 +586,15 @@ class TestIdb(TestCase):
 
     def test_api_cocktail_image_route_1(self):
         result = json.loads(app.test_client().get('/api/cocktail/66/image').data.decode())
-        self.assertEqual(result['imageURL'], '/static/images/cocktails/Captain\'s+Cream+Soda.jpg')
+        self.assertEqual(result['imageURL'], '/static/images/cocktails/Captains-Cream-Soda.jpg')
 
     def test_api_cocktail_image_route_2(self):
         result = json.loads(app.test_client().get('/api/cocktail/81/image').data.decode())
-        self.assertEqual(result['imageURL'], '/static/images/cocktails/Coco+Cognac.jpg')
+        self.assertEqual(result['imageURL'], '/static/images/cocktails/Coco-Cognac.jpg')
 
     def test_api_cocktail_image_route_3(self):
         result = json.loads(app.test_client().get('/api/cocktail/220/image').data.decode())
-        self.assertEqual(result['imageURL'], '/static/images/cocktails/Lemon+Drop+#4.jpg')
+        self.assertEqual(result['imageURL'], '/static/images/cocktails/Lemon-Drop-4jpg')
 
     # ---
     # api_ingredient_list
