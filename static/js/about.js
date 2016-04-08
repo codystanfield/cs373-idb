@@ -2,7 +2,6 @@
 
 angular.module('mixopediaApp.about', ['ngRoute'])
 
-
 .controller('aboutCtrl', ['$scope', '$filter', '$location', '$http', function($scope, $filter, $location, $http){
 
   $scope.tests = "";
