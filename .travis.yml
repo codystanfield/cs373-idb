@@ -30,5 +30,6 @@ script:
     - python3 idb.py &
     - ls -al
     - make test
+    - cat TestOutput.tmp
     - ls -al
     - make check

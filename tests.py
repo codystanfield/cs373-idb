@@ -571,15 +571,15 @@ class TestIdb(TestCase):
     def test_api_cocktail_image_1(self):
         result = json.loads(idb.api_cocktail_image(1))
         self.assertEqual(result['imageURL'], '/static/images/cocktails' +
-        '/\'57+Chevy+with+a+White+License+Plate.jpg')
+        '/57-Chevy-with-a-White-License-Plate.jpg')
 
     def test_api_cocktail_image_2(self):
         result = json.loads(idb.api_cocktail_image(2))
-        self.assertEqual(result['imageURL'], '/static/images/cocktails/155+Belmont.jpg')
+        self.assertEqual(result['imageURL'], '/static/images/cocktails/155-Belmont.jpg')
 
     def test_api_cocktail_image_3(self):
         result = json.loads(idb.api_cocktail_image(3))
-        self.assertEqual(result['imageURL'], '/static/images/cocktails/9+1\\2+Weeks.jpg')
+        self.assertEqual(result['imageURL'], '/static/images/cocktails/9-1-2-Weeks.jpg')
 
     # ---
     # api_cocktail_image_route
@@ -797,3 +797,14 @@ class TestIdb(TestCase):
 
 if __name__ == "__main__":
     main()
+
+# ----------------------------------------------------------------------
+# Ran 112 tests in 0.678s
+#
+# OK
+# Name        Stmts   Miss Branch BrPart  Cover   Missing
+# -------------------------------------------------------
+# idb.py        111     18     16      1    83%   30, 35, 40, 183-197, 201, 200->201
+# models.py      40      0      0      0   100%
+# -------------------------------------------------------
+# TOTAL         151     18     16      1    87%
