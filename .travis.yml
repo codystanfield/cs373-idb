@@ -7,6 +7,12 @@ python:
 
 sudo: false
 
+services:
+  - mysql
+
+env:
+  - MYSQL_USER=root MYSQL_PASSWORD="" MYSQL_HOST=localhost MYSQL_DATABASE=idb
+
 notifications:
   slack: cs373-idb:qbdxxyoOlhhavbkqCTQLOly5
 
@@ -19,15 +25,18 @@ before_script:
     - uname -a
     - printenv
     - pip list
+    - mysql -e "create database IF NOT EXISTS idb;" -uroot
 
 script:
     - date
     - ls -al
+    - python3 database.py init_db
+    - ls -al
+    - python3 database.py load_pickled_data
+    - ls -al
     - make models.html
     - ls -al
     - make IDB1.log
-    - ls -al
-    - python3 idb.py &
     - ls -al
     - make test
     - cat TestOutput.tmp
