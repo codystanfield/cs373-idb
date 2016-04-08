@@ -6,7 +6,8 @@ angular.module('mixopediaApp', [
     'mixopediaApp.home',
     'mixopediaApp.cocktails',
     'mixopediaApp.ingredients',
-    'angularUtils.directives.dirPagination'
+    'angularUtils.directives.dirPagination',
+    'mixopediaApp.about'
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
@@ -21,7 +22,7 @@ angular.module('mixopediaApp', [
         })
         .when('/about', {
             templateUrl: '/static/partials/about.html',
-            controller: '',
+            controller: 'aboutCtrl',
             controllerAs: 'about',
             activeTab: 'About'
         })
