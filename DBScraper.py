@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import bs4, json, pickle, requests, shutil, signal, sys, time
+import bs4, json, pickle, requests, shutil, signal, sys, time, slugify
 
 
 class Cocktail_(object):
@@ -109,7 +109,7 @@ def run_cocktail_images():
             path = get_image(c.name, 'cocktails', 'cocktail')
             c.image = path
             print(c.name)
-            time.sleep(1)
+            # time.sleep(1)
 
 
 def run_ingredient_images():
@@ -124,13 +124,14 @@ def run_ingredient_images():
                     get_image(i, 'ingredients')
                     ingredients_found.add(i)
                     print(i)
-                    time.sleep(1)
+                    # time.sleep(1)
 
 
 def get_image(name, directory, append=''):
     # Replace characters to make a searchable string
-    name = name.replace(' ', '+')
-    name = name.replace('/', '\\')  # TODO: Probably not the best idea, works for now
+    # name = name.replace(' ', '+')
+    # name = name.replace('/', '\\')  # TODO: Probably not the best idea, works for now
+    name = slugify.slugify(name)
 
     # Get the html from Google images
     url = 'https://www.google.com/search?safe=on&tbm=isch&q={0}+{1}'.format(name, append)
