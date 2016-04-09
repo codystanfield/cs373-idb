@@ -48,7 +48,7 @@ def load_pickled_data():
 
 @manager.command
 def drop_db():
-    db_session.close()
+    # db_session.close()
     Base.metadata.drop_all(engine)
 
 
