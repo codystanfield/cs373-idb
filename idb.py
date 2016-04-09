@@ -180,7 +180,7 @@ def api_ingredient_numcocktails(id_):
 
 @app.route('/tests', methods=['GET'])
 def run_unit_tests():
-    p = subprocess.Popen(['make', 'test'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    p = subprocess.Popen(['make', 'test', '-B'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     output = ''
     retcode = None
     while retcode is None:
@@ -189,13 +189,8 @@ def run_unit_tests():
       output += str(line)
     o = output.split('\\n') # Split by line
     o = o[3:-2]   # Remove first 3 and last 2 lines
-    o[5] = o[5].replace(' ', '&emsp;')
-    o[7] = o[7].replace(' ', '&emsp;')
-    o[8] = o[8].replace(' ', '&emsp;')
-    o[10] = o[10].replace(' ', '&emsp;')
-    
-    return '<br>'.join(o).replace("'b'", '')
 
+    return '<br>'.join(o).replace("'b'", '')
 
 if __name__ == '__main__':
     manager.run()

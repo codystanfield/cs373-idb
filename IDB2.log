@@ -1,14 +1,239 @@
+commit b2ec21db67dd9d46a61922a22dff080951439526
+Merge: 2b35d15 3a34aa6
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 21:43:58 2016 -0500
+
+    Merge branch 'master' into dev-cody
+    
+    * master:
+      Tests.py and about.html updated
+      Removed cat command
+      fixing stupid mistake in tests.py
+      Hopefully this is last tests.py update
+      Last push for tests.py
+      Committed log, should be last push for phase 2
+      Updated about page
+      Updated about page
+      Trying to make tests pass
+      Ran pylint on tests.py
+      Front end code cleaned up :)
+      Added get HTTP requests with JSON files in tests.py
+    
+    Conflicts:
+    	tests.py
+
+commit 3a34aa6e635e44c574bf29283858944399a977d4
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 20:54:04 2016 -0500
+
+    Tests.py and about.html updated
+
+commit 2b35d156dbe7228183d111a7c0d82bae2c417218
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:17:11 2016 -0500
+
+    Killed the cat to make Travis happy
+
+commit 26c6e4c2a4fc548fab6ce7ac67840e4242d1369b
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:15:23 2016 -0500
+
+    + to -
+
+commit 6de7c35d57d186e71583dac6a70069fd56829246
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:13:20 2016 -0500
+
+    Fixed tests
+
+commit d931661346cb569403a24a2aea322840fcbbb74f
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:10:58 2016 -0500
+
+    I can't spell
+
+commit 912c8120463232237b07f1bfcfb83866fe55bf16
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:09:14 2016 -0500
+
+    You're killin me Travis
+
+commit a39adc15ceb2a2805ac71864cbde572ddd2a5f7c
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:07:00 2016 -0500
+
+    Updated /tests route to not break
+
+commit 081f1482f3b6919915ef5704fd874773117fef2e
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:46:33 2016 -0500
+
+    Removed cat command
+
+commit 0cb85c11b6daa55d204af7609939de32c53ae0fe
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:33:05 2016 -0500
+
+    fixing stupid mistake in tests.py
+
+commit 8900189ea0e0812bd24a58ad03368399af916670
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:30:35 2016 -0500
+
+    Hopefully this is last tests.py update
+
+commit cea504b60a21840fb82f525744c8df66c90bc734
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:23:32 2016 -0500
+
+    Last push for tests.py
+
+commit 04dbf8d0e8c520eab599fcd3a9aff16e270406cb
+Merge: 211de23 b871ddb
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:12:24 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+    
+    # Conflicts:
+    #	static/partials/about.html
+
+commit b871ddbab2bebf413a391a51db2ac2210b66c2c1
+Merge: e00ed48 2471ab8
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:10:17 2016 -0500
+
+    Merge branch 'master' of https://github.com/crakkerjak/cs373-idb
+    
+    trying to merge
+
+commit 2471ab8ed1a5381605e4f9a2d40303abe7849851
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 21:36:41 2016 -0500
+
+    Committed log, should be last push for phase 2
+
 commit 437c278e4f8b0f377dfa42d608301b0bbd8bbe04
 Author: codystanfield <cody.stanfield2@gmail.com>
 Date:   Thu Apr 7 21:33:34 2016 -0500
 
     Updated about page
 
+commit 211de23ea828a03a7e027ec08d7fa34f5c79bba9
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 20:59:42 2016 -0500
+
+    Updated about page
+
+commit e29a453f234f8ecf527981c10853db85958b7311
+Merge: 5a016f6 e00ed48
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 20:45:09 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+    
+    # Conflicts:
+    #	.travis.yml
+    #	tests.py
+
+commit 5a016f6809ac9b0a01d33e8b75c2647b3518c6e5
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 20:43:29 2016 -0500
+
+    Trying to make tests pass
+
+commit e00ed4855245a98dbb669a044e27bfefae3d1989
+Merge: f8c6655 be68d00
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:43:17 2016 -0500
+
+    Merge branch 'dev-cody'
+    
+    * dev-cody:
+      why....
+      I dun broked it
+      Updated tests again
+      Updated tests
+      cmon travis, please
+      Updated requirements.txt
+      Updated images
+
+commit be68d00d933b1711b7ad22469eab3d6d3881e9c1
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:40:23 2016 -0500
+
+    why....
+
+commit 3cf7c7dd985839db2301b2cafb3f76d8ca2e0bd9
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:38:08 2016 -0500
+
+    I dun broked it
+
+commit baf22dbc2e69891d289df082c8d3ac58656c365d
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:34:39 2016 -0500
+
+    Updated tests again
+
+commit c6b4bc00918d7ab6dbea88669b29b08328a87a09
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:32:26 2016 -0500
+
+    Updated tests
+
+commit 516855a81546a1ba37c9c034e6ae63b44a2065e5
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 20:32:10 2016 -0500
+
+    Ran pylint on tests.py
+    
+    close #66,  close #67
+
+commit e19bc9d48656a5d90dbe68ff5d44b63a65872cfa
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:28:39 2016 -0500
+
+    cmon travis, please
+
+commit 8810ecb05cda0d419862e92204c6b7e71ba83cea
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:26:09 2016 -0500
+
+    Updated requirements.txt
+
+commit 6aa2649be6e678c8b32e791d69596156ed2c2076
+Merge: c2fad74 e7fa298
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:23:12 2016 -0500
+
+    Merge branch 'master' into dev-cody
+    
+    * master:
+      Run Tests button works
+      Dre added the button for tests
+      Finished tests.py to make all tests pass with JSON
+      Ingredients table paginated
+      Pagination is implemented on cocktails table
+      Added json reading in tests.py, they do not pass
+
+commit c2fad7467cc7c7c303c095f166a671259ee7d4f8
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:22:46 2016 -0500
+
+    Updated images
+
 commit f8c66554e28c338640c34eafb13efd916fb71397
 Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
 Date:   Thu Apr 7 20:21:20 2016 -0500
 
     Front end code cleaned up :)
+
+commit 87b82009e175e8f409a6fa01b50bb9f651c284e6
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 20:15:28 2016 -0500
+
+    Added get HTTP requests with JSON files in tests.py
 
 commit e7fa29810bde8ef1968da891a0e7f635daf52f28
 Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
