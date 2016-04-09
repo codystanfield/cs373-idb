@@ -187,10 +187,11 @@ def run_unit_tests():
       retcode = p.poll() #returns None while subprocess is running
       line = p.stdout.readline()
       output += str(line)
-    o = output.split('\\n') # Split by line
-    o = o[3:-2]   # Remove first 3 and last 2 lines
+    # o = output.split('\\n') # Split by line
+    # o = o[3:-2]   # Remove first 3 and last 2 lines
 
-    return '<br>'.join(o).replace("'b'", '')
+    # return '<br>'.join(o).replace("'b'", '')
+    return output
 
 if __name__ == '__main__':
     manager.run()

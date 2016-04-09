@@ -51,12 +51,19 @@ status:
 	git status
 
 test: TestOutput.tmp
+	rm TestOutput.tmp
+
+# TestOutput.tmp: tests.py
+# 	coverage3 run --omit=*flask*,*sqlalchemy*,*dist-packages*,tests.py,config.py,*jinja*,*itsdangerous.py,/usr/local/lib/* tests.py >  TestOutput.tmp 2>&1
+# 	coverage3 report -m              >> TestOutput.tmp
+# 	cat TestOutput.tmp
+# 	rm TestOutput.tmp
 
 TestOutput.tmp: tests.py
-	coverage3 run --omit=*flask*,*sqlalchemy*,*dist-packages*,tests.py,config.py,*jinja*,*itsdangerous.py,/usr/local/lib/* --branch tests.py >  TestOutput.tmp 2>&1
-	coverage3 report -m              >> TestOutput.tmp
+	coverage3 run --branch tests.py > TestOutput.tmp 2>&1
+	coverage3 report -m --omit='*/site-packages/*' >> TestOutput.tmp
 	cat TestOutput.tmp
-	rm TestOutput.tmp
+	# rm TestOutput.tmp
 
 models.html: models.py
 	pydoc -w models
