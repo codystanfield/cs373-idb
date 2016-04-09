@@ -483,7 +483,7 @@ class TestIdb(TestCase):
 
     def test_api_cocktail_image_3(self):
         result = json.loads(idb.api_cocktail_image(4))
-        self.assertEqual(result['imageURL'], "/static/images/cocktails/A-Gilligans+Island.jpg")
+        self.assertEqual(result['imageURL'], "/static/images/cocktails/A-Gilligans-Island.jpg")
         
     # ---
     # api_ingredient_list
