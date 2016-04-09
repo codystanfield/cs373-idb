@@ -39,4 +39,5 @@ script:
     - make IDB1.log
     - ls -al
     - make test
+    - cat TestOutout.tmp
     - make check
