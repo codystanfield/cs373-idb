@@ -4,6 +4,7 @@
 # imports
 # -------
 
+from config import app
 from unittest import main, \
                      TestCase
 from models import Cocktail, \
@@ -362,23 +363,10 @@ class TestIdb(TestCase):
     # api_cocktail_list
     # ---
 
-    # r = app.app.test_client().get('/api/v1.0/cuisines')
-    #     c = r.headers['content-type']
-    #     self.assertEqual(c, 'application/json')
-    #     j = json.loads(r.data)
-    #
-    #     self.assertEqual(j['status'], 'success')
-    #     # Test Content
-    #     self.assertEqual(j['data']['cuisines'][0]['name'], 'Japanese')
-    #     self.assertEqual(j['data']['cuisines'][9]['name'], 'Persian')
-
-    # ---
-    # api_cocktail_list
-    # ---
-
     def test_api_cocktail_list_1(self):
         result = json.loads(idb.api_cocktail_list())
-        self.assertEqual(result[0], {'name': "'57 Chevy with a White License Plate", 'id': 1})
+        self.assertEqual(result[0], {'name': "'57 Chevy with a White License Plate",
+            'id': 1})
 
     def test_api_cocktail_list_2(self):
         result = json.loads(idb.api_cocktail_list())
@@ -387,6 +375,22 @@ class TestIdb(TestCase):
     def test_api_cocktail_list_3(self):
         result = json.loads(idb.api_cocktail_list())
         self.assertIsNotNone(result[1])
+
+    # ---
+    # api_cocktail_list_route
+    # ---
+
+    def test_api_cocktail_list_route_1(self):
+        result = json.loads(app.test_client().get('/api/cocktail').data.decode())
+        self.assertEqual(result[57], {'id': 58, 'name': 'Bullshot'})
+
+    def test_api_cocktail_list_route_2(self):
+        result = json.loads(app.test_client().get('/api/cocktail').data.decode())
+        self.assertEqual(result[100]['id'], 101)
+
+    def test_api_cocktail_list_route_3(self):
+        result = json.loads(app.test_client().get('/api/cocktail').data.decode())
+        self.assertEqual(result[2]['name'], '9 1/2 Weeks')
 
     # ---
     # api_cocktail
@@ -404,6 +408,22 @@ class TestIdb(TestCase):
         result = json.loads(idb.api_cocktail(55))
         self.assertEqual(result[0]['name'], 'Brandy Alexandra')
 
+    # ---
+    # api_cocktail_route
+    # ---
+
+    def test_api_cocktail_route_1(self):
+        result = json.loads(app.test_client().get('/api/cocktail/189').data.decode())
+        self.assertEqual(result[0]['ingredients'][1], {"name": "Cognac", "id":
+            123, "quantity": "2 oz "})
+
+    def test_api_cocktail_route_2(self):
+        result = json.loads(app.test_client().get('/api/cocktail/39').data.decode())
+        self.assertEqual(result[0]['name'], 'Black and White')
+
+    def test_api_cocktail_route_3(self):
+        result = json.loads(app.test_client().get('/api/cocktail/3').data.decode())
+        self.assertEqual(result[0]['ingredients'][2]['name'], 'Strawberry liqueur')
 
     # ---
     # api_cocktail_name
@@ -422,12 +442,29 @@ class TestIdb(TestCase):
         self.assertEqual(result['name'], '9 1/2 Weeks')
 
     # ---
+    # api_cocktail_name_route
+    # ---
+
+    def test_api_cocktail_name_route_1(self):
+        result = json.loads(app.test_client().get('/api/cocktail/88/name').data.decode())
+        self.assertEqual(result['name'], 'Cool Kid')
+
+    def test_api_cocktail_name_route_2(self):
+        result = json.loads(app.test_client().get('/api/cocktail/5/name').data.decode())
+        self.assertEqual(result['name'], 'A True Amaretto Sour')
+
+    def test_api_cocktail_name_route_3(self):
+        result = json.loads(app.test_client().get('/api/cocktail/200/name').data.decode())
+        self.assertEqual(result['name'], 'Jihad')
+
+    # ---
     # api_cocktail_ingredients
     # ---
 
     def test_api_cocktail_ingredients_1(self):
         result = json.loads(idb.api_cocktail_ingredients(1))
-        self.assertEqual(result[0], {'quantity': '1 oz white ', 'name': 'Creme de Cacao', 'id': 1})
+        self.assertEqual(result[0], {'quantity': '1 oz white ', 'name':
+            'Creme de Cacao', 'id': 1})
 
     def test_api_cocktail_ingredients_2(self):
         result = json.loads(idb.api_cocktail_ingredients(1))
@@ -435,6 +472,22 @@ class TestIdb(TestCase):
 
     def test_api_cocktail_ingredients_3(self):
         result = json.loads(idb.api_cocktail_ingredients(None))
+        self.assertEqual(result, [])
+
+    # ---
+    # api_cocktail_ingredients_route
+    # ---
+
+    def test_api_ct_ingred_route_1(self):
+        result = json.loads(app.test_client().get('/api/cocktail/45/ingredients').data.decode())
+        self.assertEqual(result[4]['name'], 'Lemon juice')
+
+    def test_api_ct_ingred_route_2(self):
+        result = json.loads(app.test_client().get('/api/cocktail/10/ingredients').data.decode())
+        self.assertEqual(result[0]['quantity'], '1 part ')
+
+    def test_api_ct_ingred_route_3(self):
+        result = json.loads(app.test_client().get('/api/cocktail/0/ingredients').data.decode())
         self.assertEqual(result, [])
 
     # ---
@@ -454,20 +507,62 @@ class TestIdb(TestCase):
         self.assertEqual(result['glass'], 'Cocktail glass')
 
     # ---
+    # api_cocktail_glass_route
+    # ---
+
+    def test_api_cocktail_glass_route_1(self):
+        result = json.loads(app.test_client().get('/api/cocktail/16/glass').data.decode())
+        self.assertEqual(result['glass'], 'Parfait glass')
+
+    def test_api_cocktail_glass_route_2(self):
+        result = json.loads(app.test_client().get('/api/cocktail/143/glass').data.decode())
+        self.assertEqual(result['glass'], 'vote')
+
+    def test_api_cocktail_glass_route_3(self):
+        result = json.loads(app.test_client().get('/api/cocktail/2/glass').data.decode())
+        self.assertEqual(result['glass'], 'White wine glass')
+
+    # ---
     # api_cocktail_recipe
     # ---
 
     def test_api_cocktail_recipe_1(self):
         result = json.loads(idb.api_cocktail_recipe(1))
-        self.assertEqual(result['recipe'], '1. Fill a rocks glass with ice 2.add white creme de cacao and vodka 3.stir')
+        self.assertEqual(result['recipe'], '1. Fill a rocks glass with ice ' +
+            '2.add white creme de cacao and vodka 3.stir')
 
     def test_api_cocktail_recipe_2(self):
         result = json.loads(idb.api_cocktail_recipe(2))
-        self.assertEqual(result['recipe'], 'Blend with ice. Serve in a wine glass. Garnish with carrot.')
+        self.assertEqual(result['recipe'], 'Blend with ice. Serve in a wine ' +
+            'glass. Garnish with carrot.')
 
     def test_api_cocktail_recipe_3(self):
         result = json.loads(idb.api_cocktail_recipe(3))
-        self.assertEqual(result['recipe'], 'Combine all ingredients in glass mixer. Chill and strain into Cocktail glass. Garnish with sliced strawberry.')
+        self.assertEqual(result['recipe'], 'Combine all ingredients in glass ' +
+            'mixer. Chill and strain into Cocktail glass. Garnish with sliced strawberry.')
+
+    # ---
+    # api_cocktail_recipe_route
+    # ---
+
+    def test_api_ct_recipe_route_1(self):
+        result = json.loads(app.test_client().get('/api/cocktail/2/recipe').data.decode())
+        self.assertEqual(result['recipe'], 'Blend with ice. Serve in a wine ' +
+            'glass. Garnish with carrot.')
+
+    def test_api_ct_recipe_route_2(self):
+        result = json.loads(app.test_client().get('/api/cocktail/79/recipe').data.decode())
+        self.assertEqual(result['recipe'], 'Place one part dry gin in ' +
+            'Cocktail Glass. Do NOT bruise the Gin! Carefully add two parts ' +
+            'Sprite. Do NOT bruise the Sprite. Optionally, add a dash of ' +
+            'cayenne pepper for added flavor. Add 3 tablespoons of dry ice ' +
+            'for that mystical, yet strangely, psycho effect.')
+
+    def test_api_ct_recipe_route_3(self):
+        result = json.loads(app.test_client().get('/api/cocktail/128/recipe').data.decode())
+        self.assertEqual(result['recipe'], 'Stir Vodka and Grenadine with ' +
+            'ice. Fill in Champagne-flute without the ice. Fill up with ' +
+            'champagne.')
 
     # ---
     # api_cocktail_image
@@ -475,16 +570,32 @@ class TestIdb(TestCase):
 
     def test_api_cocktail_image_1(self):
         result = json.loads(idb.api_cocktail_image(1))
-        self.assertEqual(result['imageURL'], "/static/images/cocktails/57-Chevy-with-a-White-License-Plate.jpg")
+        self.assertIsNotNone(result)
 
     def test_api_cocktail_image_2(self):
         result = json.loads(idb.api_cocktail_image(2))
-        self.assertEqual(result['imageURL'], '/static/images/cocktails/155-Belmont.jpg')
+        self.assertIsNotNone(result)
 
     def test_api_cocktail_image_3(self):
         result = json.loads(idb.api_cocktail_image(4))
-        self.assertEqual(result['imageURL'], "/static/images/cocktails/A-Gilligans-Island.jpg")
-        
+        self.assertIsNotNone(result)
+
+    # ---
+    # api_cocktail_image_route
+    # ---
+
+    def test_api_cocktail_image_route_1(self):
+        result = json.loads(app.test_client().get('/api/cocktail/66/image').data.decode())
+        self.assertIsNotNone(result)
+
+    def test_api_cocktail_image_route_2(self):
+        result = json.loads(app.test_client().get('/api/cocktail/81/image').data.decode())
+        self.assertIsNotNone(result)
+
+    def test_api_cocktail_image_route_3(self):
+        result = json.loads(app.test_client().get('/api/cocktail/220/image').data.decode())
+        self.assertIsNotNone(result['imageURL'])
+
     # ---
     # api_ingredient_list
     # ---
@@ -501,7 +612,23 @@ class TestIdb(TestCase):
         result = json.loads(idb.api_ingredient_list())
         self.assertIsNotNone(result[1])
 
-    ## ---
+    # ---
+    # api_ingredient_list_route
+    # ---
+
+    def test_api_ingred_list_route_1(self):
+        result = json.loads(app.test_client().get('/api/ingredient').data.decode())
+        self.assertEqual(result[69]['id'], 70)
+
+    def test_api_ingred_list_route_2(self):
+        result = json.loads(app.test_client().get('/api/ingredient').data.decode())
+        self.assertEqual(result[92]['name'], 'Tang')
+
+    def test_api_ingred_list_route_3(self):
+        result = json.loads(app.test_client().get('/api/ingredient').data.decode())
+        self.assertEqual(result[41]['name'], 'Sour mix')
+
+    # ---
     # api_ingredient
     # ---
 
@@ -516,6 +643,22 @@ class TestIdb(TestCase):
     def test_api_ingredient_3(self):
         result = json.loads(idb.api_ingredient(3))
         self.assertEqual(result[0]['cocktails'][2]['name'], 'Caribbean Smoked Torch')
+
+    # ---
+    # api_ingredient_route
+    # ---
+
+    def test_api_ingredient_route_1(self):
+        result = json.loads(app.test_client().get('/api/ingredient/212').data.decode())
+        self.assertEqual(result[0]['name'], 'Daiquiri mix')
+
+    def test_api_ingredient_route_2(self):
+        result = json.loads(app.test_client().get('/api/ingredient/1').data.decode())
+        self.assertEqual(result[0]['cocktails'][6],  {"name": "Golden Miller", "id": 158})
+
+    def test_api_ingredient_route_3(self):
+        result = json.loads(app.test_client().get('/api/ingredient/29').data.decode())
+        self.assertEqual(result[0]['numberOfCocktails'], 13)
 
     # ---
     # api_ingredient_name
@@ -534,6 +677,22 @@ class TestIdb(TestCase):
         self.assertEqual(result['name'], 'Dark rum')
 
     # ---
+    # api_ingredient_name_route
+    # ---
+
+    def test_api_ingred_name_route_1(self):
+        result = json.loads(app.test_client().get('/api/ingredient/17/name').data.decode())
+        self.assertEqual(result['name'], 'Hot chocolate')
+
+    def test_api_ingred_name_route_2(self):
+        result = json.loads(app.test_client().get('/api/ingredient/172/name').data.decode())
+        self.assertEqual(result['name'], 'Egg yolk')
+
+    def test_api_ingred_name_route_3(self):
+        result = json.loads(app.test_client().get('/api/ingredient/144/name').data.decode())
+        self.assertEqual(result['name'], 'Thunderbird')
+
+    # ---
     # api_ingredient_cocktails
     # ---
 
@@ -548,6 +707,22 @@ class TestIdb(TestCase):
     def test_api_ingredient_cocktails_3(self):
         result = json.loads(idb.api_ingredient_cocktails(None))
         self.assertEqual(result, [])
+
+    # ---
+    # api_ingredient_cocktails_route
+    # ---
+
+    def test_api_ingred_cts_route_1(self):
+        result = json.loads(app.test_client().get('/api/ingredient/108/cocktails').data.decode())
+        self.assertEqual(result[1]['name'], 'Don\'s Bloody Mary')
+
+    def test_api_ingred_cts_route_2(self):
+        result = json.loads(app.test_client().get('/api/ingredient/199/cocktails').data.decode())
+        self.assertEqual(result[0]['name'], 'Lava Flow')
+
+    def test_api_ingred_cts_route_3(self):
+        result = json.loads(app.test_client().get('/api/ingredient/33/cocktails').data.decode())
+        self.assertEqual(result[0]['name'], 'Apertif d\'Absinthe')
 
     # ---
     # api_ingredient_image
@@ -566,6 +741,24 @@ class TestIdb(TestCase):
         self.assertEqual(result['imageURL'], '/static/images/ingredients/Dark+rum.jpg')
 
     # ---
+    # api_ingredient_image_route
+    # ---
+
+    def test_api_ingred_image_route_1(self):
+        result = json.loads(app.test_client().get('/api/ingredient/205/image').data.decode())
+        self.assertEqual(result['imageURL'], '/static/images/ingredients/Orange' +
+            '+peel.jpg')
+
+    def test_api_ingred_image_route_2(self):
+        result = json.loads(app.test_client().get('/api/ingredient/56/image').data.decode())
+        self.assertEqual(result['imageURL'], '/static/images/ingredients/Grand' +
+            '+Marnier.jpg')
+
+    def test_api_ingred_image_route_3(self):
+        result = json.loads(app.test_client().get('/api/ingredient/20/image').data.decode())
+        self.assertEqual(result['imageURL'], '/static/images/ingredients/Soda+water.jpg')
+
+    # ---
     # api_ingredient_numcocktails
     # ---
 
@@ -581,9 +774,40 @@ class TestIdb(TestCase):
         result = json.loads(idb.api_ingredient_numcocktails(2))
         self.assertEqual(result, {'numCocktails': 77})
 
+    # ---
+    # api_ingredient_numcocktails_route
+    # ---
+
+    def test_api_ingred_numcts_route_1(self):
+        result = json.loads(app.test_client().get('/api/ingredient/100/numcocktails').data.decode())
+        self.assertEqual(result['numCocktails'], 3)
+
+    def test_api_ingred_numcts_route_2(self):
+        result = json.loads(app.test_client().get('/api/ingredient/71/numcocktails').data.decode())
+        self.assertEqual(result['numCocktails'], 1)
+
+    def test_api_ingred_numcts_route_3(self):
+        result = json.loads(app.test_client().get('/api/ingredient/150/numcocktails').data.decode())
+        self.assertEqual(result['numCocktails'], 4)
+
 # ----
 # main
 # ----
 
 if __name__ == "__main__":
     main()
+
+# Coverage3 output
+
+# ...............................................................................
+# .................................
+# ----------------------------------------------------------------------
+# Ran 112 tests in 0.678s
+#
+# OK
+# Name        Stmts   Miss Branch BrPart  Cover   Missing
+# -------------------------------------------------------
+# idb.py        111     18     16      1    83%   30, 35, 40, 183-197, 201, 200->201
+# models.py      40      0      0      0   100%
+# -------------------------------------------------------
+# TOTAL         151     18     16      1    87%

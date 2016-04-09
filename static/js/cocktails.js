@@ -30,7 +30,6 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
         console.log(response);
       });
     });
-    console.log($scope.drinks);
   }, function errorCallback(response) {
     // called asynchronously if an error occurs
     // or server returns response with an error status.
@@ -49,16 +48,14 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
     url: '/api/cocktail/' + $routeParams.cocktailID
   }).then(function successCallback(response) {
     $scope.drink = response.data[0];
-    console.log(response.data[0]);
   }, function errorCallback(response) {
     // called asynchronously if an error occurs
     // or server returns response with an error status.
     console.log(response);
   });
 
-  $scope.goToIngredient = function(i) {  
+  $scope.goToIngredient = function(i) {
     $location.path('/ingredients/' + i.ingredientID);
   };
-  
-}]);
 
+}]);
