@@ -31,20 +31,18 @@
        </th>
      </tr>
    </thead>
-
-  <!--          Name, glass, image, ingredients, recipe -->
-  <tbody>
-    <tr dir-paginate="item in items | orderBy:sortType:sortReverse | itemsPerPage:10" ng-click="goToIngredient({itemID: item.id})">
-      <td>{{ item.name }}</td>
-      <td><img ng-src="{{ item.imageURL }}" style="width: auto; height: 100px"></td>
-      <td>
-        <div ng-repeat="cocktail in item.cocktails">
-          {{ cocktail.name }}
-        </div>
-      </td>
-      <td>{{ item.numberOfCocktails }}</td>
-    </tr>
-  </tbody>
+    <tbody>
+      <tr dir-paginate="item in items | orderBy:sortType:sortReverse | itemsPerPage:10" ng-click="goToIngredient({itemID: item.id})">
+        <td>{{ item.name }}</td>
+        <td><img ng-src="{{ item.imageURL }}" style="width: auto; height: 100px"></td>
+        <td>
+          <div ng-repeat="cocktail in item.cocktails">
+            {{ cocktail.name }}
+          </div>
+        </td>
+        <td>{{ item.numberOfCocktails }}</td>
+      </tr>
+    </tbody>
   </table>
   <dir-pagination-controls
    max-size="10"

@@ -790,6 +790,46 @@ class TestIdb(TestCase):
         result = json.loads(app.test_client().get('/api/ingredient/150/numcocktails').data.decode())
         self.assertEqual(result['numCocktails'], 4)
 
+    # ---
+    # query
+    # ---
+
+    # def test_query_1(self):
+    #     result = json.loads(idb.query())
+    #     self.assertEqual(result, {'numCocktails': 7})
+    #
+    # def test_query_2(self):
+    #     result = json.loads(idb.query())
+    #     self.assertEqual(result['numCocktails'], 7)
+    #
+    # def test_query_3(self):
+    #     result = json.loads(idb.query())
+    #     self.assertEqual(result, {'numCocktails': 77})
+
+    # ---
+    # query_route
+    # ---
+
+    def test_query_route_1(self):
+        result = json.loads(app.test_client().get('/api/query').data.decode())
+        with self.assertRaises(KeyError):
+          result['numCocktails']
+
+    def test_query_route_2(self):
+        result = json.loads(app.test_client().get('/api/query').data.decode())
+        self.assertEqual(result, {'cocktails': {'and': {}, 'or': {}},
+            'ingredients': {'and': {}, 'or': {}}})
+
+    def test_query_route_3(self):
+        result = json.loads(app.test_client().get('/api/query').data.decode())
+        self.assertIsNotNone(result)
+
+    # def test_query_route_4(self):
+    #     headers = {'query': 'blue'}
+    #     result = requests.get(HOST + '/api/query', headers=headers)
+    #     result_data = result.json()
+    #     self.assertEqual(result_data['cocktail'], 4)
+
 # ----
 # main
 # ----
@@ -799,15 +839,16 @@ if __name__ == "__main__":
 
 # Coverage3 output
 
-# ...............................................................................
-# .................................
+# .............................................................................
+#......................................
 # ----------------------------------------------------------------------
-# Ran 112 tests in 0.678s
+# Ran 115 tests in 0.708s
 #
 # OK
 # Name        Stmts   Miss Branch BrPart  Cover   Missing
 # -------------------------------------------------------
-# idb.py        111     18     16      1    83%   30, 35, 40, 183-197, 201, 200->201
+# idb.py        139     33     30      2    71%   36, 41, 46, 197-223, 228-238,
+#   241, 195->197, 240->241
 # models.py      40      0      0      0   100%
 # -------------------------------------------------------
-# TOTAL         151     18     16      1    87%
+# TOTAL         179     33     30      2    77%   ------

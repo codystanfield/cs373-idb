@@ -1,0 +1,146 @@
+<div class="container">
+  <style>
+    .highlightedText {
+      font-weight: 700;
+    }
+  </style>
+
+  <h1 ng-show="drinks_and.length == 0 && drinks_or.length == 0 && items_and == 0 && items_or == 0">"{{query}}" was not found</h1>
+  <div ng-hide="drinks_and.length == 0">
+    <h1 ng-hide="numWordsInQuery == 1">AND Search Results for "{{query}}" in Cocktails</h1>
+    <h1 ng-show="numWordsInQuery == 1">Search Results for "{{query}}" in Cocktails</h1>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Glass</th>
+          <th>Image</th>
+          <th>Ingredients</th>
+          <th>Recipe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-click="goToCocktail({cocktail: drink.id})" pagination-id="drink_and_page" dir-paginate="drink in drinks_and | itemsPerPage: 3">
+          <td ng-bind-html="highlight(drink.name, query) | lowercase"></td>
+          <td ng-bind-html="highlight(drink.glass, query) | lowercase"></td>
+          <td><img ng-src="{{ drink.imageURL }}" style="width: 100%; height: auto"></td>
+          <td>
+            <div ng-repeat="ingredient in drink.ingredients">
+              <span ng-bind-html="highlight(ingredient.quantity, query) | lowercase"></span><span ng-bind-html="highlight(ingredient.name, query) | lowercase"></span>
+            </div>
+          </td>
+          <td ng-bind-html="highlight(drink.recipe, query) | lowercase">{{ drink.recipe }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <dir-pagination-controls
+      max-size="3"
+      direction-links="true"
+      boundary-links="true"
+      pagination-id="drink_and_page">
+    </dir-pagination-controls>
+  </div>
+
+  <div ng-hide="drinks_or.length == 0">
+    <h1>OR Search Results for "{{query}}" in Cocktails</h1>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Glass</th>
+          <th>Image</th>
+          <th>Ingredients</th>
+          <th>Recipe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-click="goToCocktail({cocktail: drink.id})" pagination-id="drink_or_page" dir-paginate="drink in drinks_or | itemsPerPage: 3">
+          <td ng-bind-html="highlight(drink.name, query) | lowercase"></td>
+          <td ng-bind-html="highlight(drink.glass, query) | lowercase"></td>
+          <td><img ng-src="{{ drink.imageURL }}" style="width: 100%; height: auto"></td>
+          <td>
+            <div ng-repeat="ingredient in drink.ingredients">
+              <span ng-bind-html="highlight(ingredient.quantity, query) | lowercase"></span><span ng-bind-html="highlight(ingredient.name, query) | lowercase"></span>
+            </div>
+          </td>
+          <td ng-bind-html="highlight(drink.recipe, query) | lowercase"></td>
+        </tr>
+      </tbody>
+    </table>
+    <dir-pagination-controls
+      max-size="3"
+      direction-links="true"
+      boundary-links="true"
+      pagination-id="drink_or_page">
+    </dir-pagination-controls>
+  </div>
+
+  <div ng-hide="items_and.length == 0">
+    <h1 ng-hide="numWordsInQuery == 1">AND Search Results for "{{query}}" in Ingredients</h1>
+    <h1 ng-show="numWordsInQuery == 1">Search Results for "{{query}}" in Ingredients</h1>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Cocktials</th>
+          <th>Number of Cocktails</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr dir-paginate="item in items_and | itemsPerPage:3" pagination-id="item_and_page" ng-click="goToIngredient({itemID: item.id})">
+          <td ng-bind-html="highlight(item.name, query) | lowercase"></td>
+          <td><img ng-src="{{ item.imageURL }}" style="width: auto; height: 100px"></td>
+          <td>
+            <div ng-repeat="cocktail in item.cocktails">
+              <span ng-bind-html="highlight(cocktail.name, query) | lowercase"></span>
+            </div>
+          </td>
+          <td ng-bind-html="highlight(item.numberOfCocktails, query)"></td>
+        </tr>
+      </tbody>
+    </table>
+    <dir-pagination-controls
+      max-size="3"
+      direction-links="true"
+      boundary-links="true"
+      pagination-id="item_and_page">
+    </dir-pagination-controls>
+  </div>
+
+  <div ng-hide="items_or.length == 0">
+    <h1>OR Search Results for "{{query}}" in Ingredients</h1>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Cocktials</th>
+          <th>Number of Cocktails</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr dir-paginate="item in items_or | itemsPerPage:3" pagination-id="item_or_page" ng-click="goToIngredient({itemID: item.id})">
+          <td ng-bind-html="highlight(item.name, query) | lowercase"></td>
+          <td><img ng-src="{{ item.imageURL }}" style="width: auto; height: 100px"></td>
+          <td>
+            <div ng-repeat="cocktail in item.cocktails">
+              <span ng-bind-html="highlight(cocktail.name, query) | lowercase"></span>
+            </div>
+          </td>
+          <td ng-bind-html="highlight(item.numberOfCocktails, query)">{{ item.numberOfCocktails }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <dir-pagination-controls
+      max-size="3"
+      direction-links="true"
+      boundary-links="true"
+      pagination-id="item_or_page">
+    </dir-pagination-controls>
+  </div>
+</div>

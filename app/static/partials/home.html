@@ -10,14 +10,22 @@
           <hr class="intro-divider">
           <ul class="list-inline intro-social-buttons">
             <li>
-              <a href="/cocktails" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-glass"></i> <span class="network-name">Cocktails</span></a>
+              <a href="/cocktails" class="btn btn-default btn-lg" ng-show="continue"><i class="glyphicon glyphicon-glass"></i> <span class="network-name">Cocktails</span></a>
             </li>
             <li>
-              <a href="/ingredients" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-grain"></i> <span class="network-name">Ingredients</span></a>
+              <a href="/ingredients" class="btn btn-default btn-lg" ng-show="continue"><i class="glyphicon glyphicon-grain"></i> <span class="network-name">Ingredients</span></a>
             </li>
             <!-- <li>
                 <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
             </li> -->
+            <div>Day
+                <select ng-model="selectedDay" ng-options="day as day.date for day in days"></select>Month
+                <select ng-model="selectedMonth" ng-options="month as month.date for month in months"></select>Year
+                <select ng-model="selectedYear" ng-options="year as year.date for year in years"></select>
+            </div>
+            <div>
+                <button ng-click="dateDiff(selectedMonth, selectedDay, selectedYear)" class="btn btn-warning">Validate Age</button>
+            </div>
           </ul>
         </div>
       </div>
@@ -27,7 +35,5 @@
     <!-- /.container -->
 </div>
 <!-- /.intro-header -->
-
-
 
 <a  name="contact"></a>
