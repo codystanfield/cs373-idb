@@ -37,13 +37,13 @@ script:
     - cd app && python3 database.py load_pickled_data && cd ..
     - ls -al
     - ls -al app 
-    - make -C app models.html
+    - make models.html
     - ls -al
     - ls -al app 
-    - make -C app IDB1.log
+    - make IDB1.log
     - ls -al
     - ls -al app 
-    - make -C app test
+    - make test
     - ls -al
     - ls -al app 
-    - make -C app check
+    - make check

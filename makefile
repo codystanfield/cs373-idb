@@ -1,12 +1,12 @@
-FILES :=           \
-    .gitignore		 \
-    .travis.yml    \
-		makefile       \
-		apiary.apib		 \
-		IDB1.log			 \
-		models.html		 \
-		models.py			 \
-		tests.py			 \
+FILES :=               \
+    .gitignore		     \
+    .travis.yml        \
+		makefile           \
+		apiary.apib		     \
+		IDB1.log			     \
+		models.html		 		 \
+		app/models.py			 \
+		app/tests.py			 \
 		UML.pdf
 
 
@@ -52,14 +52,14 @@ status:
 
 test: TestOutput.tmp
 
-TestOutput.tmp: tests.py
-	coverage3 run --omit=*flask*,*sqlalchemy*,*dist-packages*,tests.py,config.py,*jinja*,*itsdangerous.py,/usr/local/lib/* --branch tests.py >  TestOutput.tmp 2>&1
+TestOutput.tmp: app/tests.py
+	coverage3 run --omit=*flask*,*sqlalchemy*,*dist-packages*,app/tests.py,config.py,*jinja*,*itsdangerous.py,/usr/local/lib/* --branch app/tests.py >  TestOutput.tmp 2>&1
 	coverage3 report -m              >> TestOutput.tmp
 	cat TestOutput.tmp
 	rm TestOutput.tmp
 
-models.html: models.py
-	pydoc -w models
+models.html: app/models.py
+	pydoc -w app/models
 
-IDB1.log:
-	git log > IDB1.log
+IDB3.log:
+	git log > IDB3.log
