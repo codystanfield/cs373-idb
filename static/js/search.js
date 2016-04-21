@@ -34,15 +34,23 @@ angular.module('mixopediaApp.search', ['ngRoute'])
       console.log(value);
       angular.forEach(key, function(list, boolean) {
         console.log(boolean);
+        var and_or = boolean;
         // iterate through the list of items
         angular.forEach(list, function(item_id) {
           console.log(item_id);
+          console.log('/api/' + category + '/' + item_id);
+          var temp = '/api/' + category + '/' + item_id;
           $http({
             method: 'GET',
-            url: '/api/ + ' + category + '/' + item_id
+            url: temp
           }).then(function successCallback(response) {
-            angular.forEach(response.data, function(drink){
-              $scope.drinks.push(drink);
+            console.log("**** response " + response.data);
+            angular.forEach(response.data, function(drink_or_ingredient){
+              if(and_or == "and" && category == "cocktail"){
+                $scope.drinks_and.push(drink_or_ingredient);
+              } else {
+                $scope.drinks_or.push(drink_or_ingredient);
+              }
             });
           }, function errorCallback(response) {
             // called asynchronously if an error occurs
