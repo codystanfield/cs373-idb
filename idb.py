@@ -219,7 +219,7 @@ def query():
     else:
         ingredient_results = {'and': {}, 'or': {}}
         
-    result = {'cocktails': cocktail_results, 'ingredients': ingredient_results}
+    result = {'cocktail': cocktail_results, 'ingredient': ingredient_results}
     return json.dumps(result)
 
 
