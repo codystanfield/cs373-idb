@@ -31,10 +31,10 @@ script:
     - date
     - ls -al
     - ls -al app 
-    - python3 app/database.py init_db
+    - cd app && python3 database.py init_db && cd ..
     - ls -al
     - ls -al app 
-    - python3 app/database.py load_pickled_data
+    - cd app && python3 database.py load_pickled_data && cd ..
     - ls -al
     - ls -al app 
     - make -C app models.html
