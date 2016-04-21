@@ -39,26 +39,28 @@ angular.module('mixopediaApp.search', ['ngRoute'])
       "query": $scope.query
     }
   }).then(function successCallback(response) {
-    //console.log(response.data);
+    // iteratate through each ingredients or cocktails array
     angular.forEach(response.data, function(key, value){
+      // set the category to ingredients or cocktails
       var category = value;
-      console.log(value);
+
+      // there are two lists OR and AND
       angular.forEach(key, function(list, boolean) {
-        //console.log(boolean);
+        // set the boolean
         var and_or = boolean;
         // iterate through the list of items
         angular.forEach(list, function(item_id) {
-          //console.log(item_id);
-          //console.log('/api/' + category + '/' + item_id);
-          var temp = '/api/' + category + '/' + item_id;
+
+          var apiUrl = '/api/' + category + '/' + item_id;
           $http({
             method: 'GET',
-            url: temp
+            url: apiUrl
           }).then(function successCallback(response) {
+            // iterate through cocktail or ingredient and add items to the list
             angular.forEach(response.data, function(drink_or_ingredient){
-              console.log($scope.numWordsInQuery);
+              // only create 1 array for drinks and 1 for ingredients if it
+              // is a single word query
               if($scope.numWordsInQuery == 1){
-                console.log($scope.countOfQuery);
                 if(and_or == "and" && category == "cocktail"){
                   $scope.drinks_and.push(drink_or_ingredient);
                 } else if(and_or == "and" && category == "ingredient") {
@@ -88,8 +90,8 @@ angular.module('mixopediaApp.search', ['ngRoute'])
     $scope.goToCocktail = function(cur_id){
       $location.path('/cocktails/' + cur_id.cocktail);
     };
+
     $scope.goToIngredient = function(cur_id){
-      // var ingredient = $filter('filter')($scope.ingredients, {id: cur_id.ingredientID});
       $location.path('/ingredients/' + cur_id.itemID);
     };
   }, function errorCallback(response) {
