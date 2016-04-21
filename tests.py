@@ -817,7 +817,8 @@ class TestIdb(TestCase):
 
     def test_query_route_2(self):
         result = json.loads(app.test_client().get('/api/query').data.decode())
-        self.assertEqual(result, {})
+        self.assertEqual(result, {'cocktails': {'and': {}, 'or': {}},
+            'ingredients': {'and': {}, 'or': {}}})
 
     def test_query_route_3(self):
         result = json.loads(app.test_client().get('/api/query').data.decode())
@@ -841,7 +842,7 @@ if __name__ == "__main__":
 # .............................................................................
 #......................................
 # ----------------------------------------------------------------------
-# Ran 115 tests in 0.777s
+# Ran 115 tests in 0.708s
 #
 # OK
 # Name        Stmts   Miss Branch BrPart  Cover   Missing
