@@ -193,7 +193,7 @@ def query():
 
     query = request.headers.get('query')
     if query is None:
-        return json.dumps({})
+        return json.dumps({'cocktails': {'and': {}, 'or': {}}, 'ingredients': {'and': {}, 'or': {}}})
     query = query.split()
 
     cocktail_sets = []
@@ -207,8 +207,8 @@ def query():
             pass
 
     if len(cocktail_sets) == 0 and len(ingredient_sets) == 0:
-        return json.dumps({})
-
+        return json.dumps({'cocktails': {'and': {}, 'or': {}}, 'ingredients': {'and': {}, 'or': {}}})
+        
     if len(cocktail_sets) != 0:
         cocktail_results = {'and': list(reduce(lambda x, y: x & y, cocktail_sets)), 'or': list(reduce(lambda x, y: x | y, cocktail_sets))}
     else:
