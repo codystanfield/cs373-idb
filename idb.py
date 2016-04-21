@@ -206,7 +206,7 @@ def query():
         except KeyError:
             pass
 
-    if len(cocktail_sets) == 0 and len(ingredient_sets == 0):
+    if len(cocktail_sets) == 0 and len(ingredient_sets) == 0:
         return json.dumps({})
         
     if len(cocktail_sets) != 0:
