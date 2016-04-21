@@ -1,5 +1,22 @@
 <div class="container">
+  <style>
+    .highlightedText {
+      font-weight: 700;
+  }
+  </style>
   <h1>AND Search Results for {{query}}</h1>
-  
+  {{ cocktails }}
+  <!-- <ul> -->
+  <!-- <div ng-repeat="drink in drinks |  filter:query | lowercase">
+    <p>{{drink.name.indexOf(query)}} {{drink.name | lowercase}}</p>
+    <li ng-show="drink.name.lowercase.indexOf(query) != -1">{{drink.name}}</li>
+    <li ng-bind-html="highlight(drink.name, query)"></li> -->
+    <!-- <div ng-repeat="ingredient in drink.ingredients">
+      <p ng-bind-html="highlight(ingredient.name, query)"></p>
+    </div> -->
+    <!-- <p ng-bind-html="highlight(drink.recipe, query)"></p> -->
+  <!-- </div> -->
+  <!-- </ul> -->
+
   <h1>OR Search Results for {{query}}</h1>
 </div>
