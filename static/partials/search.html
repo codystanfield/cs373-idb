@@ -5,11 +5,10 @@
     }
   </style>
 
-  <p>{{countOfQuery}}</p>
-
   <h1 ng-show="drinks_and.length == 0 && drinks_or.length == 0 && items_and == 0 && items_or == 0">"{{query}}" was not found</h1>
   <div ng-hide="drinks_and.length == 0">
-    <h1>AND Search Results for "{{query}}" in Cocktails</h1>
+    <h1 ng-hide="numWordsInQuery == 1">AND Search Results for "{{query}}" in Cocktails</h1>
+    <h1 ng-show="numWordsInQuery == 1">Search Results for "{{query}}" in Cocktails</h1>
 
     <table class="table table-bordered">
       <thead>
@@ -79,7 +78,8 @@
   </div>
 
   <div ng-hide="items_and.length == 0">
-    <h1>AND Search Results for "{{query}}" in Ingredients</h1>
+    <h1 ng-hide="numWordsInQuery == 1">AND Search Results for "{{query}}" in Ingredients</h1>
+    <h1 ng-show="numWordsInQuery == 1">Search Results for "{{query}}" in Ingredients</h1>
 
     <table class="table table-bordered">
       <thead>

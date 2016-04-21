@@ -12,9 +12,12 @@ angular.module('mixopediaApp.search', ['ngRoute'])
   $scope.query = $routeParams.query;
 
   $scope.countOfQuery = function() {
-    var s = $scope.query ? $scope.query.split(/\s+/) : 0; // it splits the text on space/tab/enter
+    var text = $scope.query;
+    var s = text ? text.split(/\s+/) : 0; // it splits the text on space/tab/enter
     return s ? s.length : '';
   };
+
+  $scope.numWordsInQuery = $scope.countOfQuery();
 
   $scope.drinks_and = [];
   $scope.items_and = [];
@@ -45,23 +48,32 @@ angular.module('mixopediaApp.search', ['ngRoute'])
         var and_or = boolean;
         // iterate through the list of items
         angular.forEach(list, function(item_id) {
-          console.log(item_id);
-          console.log('/api/' + category + '/' + item_id);
+          //console.log(item_id);
+          //console.log('/api/' + category + '/' + item_id);
           var temp = '/api/' + category + '/' + item_id;
           $http({
             method: 'GET',
             url: temp
           }).then(function successCallback(response) {
-            console.log("**** response " + response.data);
             angular.forEach(response.data, function(drink_or_ingredient){
-              if(and_or == "and" && category == "cocktail"){
-                $scope.drinks_and.push(drink_or_ingredient);
-              } else if(and_or == "or" && category == "cocktail"){
-                $scope.drinks_or.push(drink_or_ingredient);
-              } else if(and_or == "and" && category == "ingredient") {
-                $scope.items_and.push(drink_or_ingredient);
-              } else if(and_or == "or" && category == "ingredient") {
-                $scope.items_or.push(drink_or_ingredient);
+              console.log($scope.numWordsInQuery);
+              if($scope.numWordsInQuery == 1){
+                console.log($scope.countOfQuery);
+                if(and_or == "and" && category == "cocktail"){
+                  $scope.drinks_and.push(drink_or_ingredient);
+                } else if(and_or == "and" && category == "ingredient") {
+                  $scope.items_and.push(drink_or_ingredient);
+                }
+              } else {
+                if(and_or == "and" && category == "cocktail"){
+                  $scope.drinks_and.push(drink_or_ingredient);
+                } else if(and_or == "or" && category == "cocktail"){
+                  $scope.drinks_or.push(drink_or_ingredient);
+                } else if(and_or == "and" && category == "ingredient") {
+                  $scope.items_and.push(drink_or_ingredient);
+                } else if(and_or == "or" && category == "ingredient") {
+                  $scope.items_or.push(drink_or_ingredient);
+                }
               }
             });
           }, function errorCallback(response) {
@@ -85,18 +97,5 @@ angular.module('mixopediaApp.search', ['ngRoute'])
     // or server returns response with an error status.
     console.log(response);
   });
-  //
-  // $scope.goToCocktail = function(cur_id){
-  //   $location.path('/cocktails/' + cur_id.cocktail);
-  // };
-
-  // $scope.highlight = function(haystack, needle) {
-  //   if(!needle) {
-  //     return $sce.trustAsHtml(haystack);
-  //   }
-  //   return $sce.trustAsHtml(haystack.replace(new RegExp(needle, "gi"), function(match) {
-  //     return '<span class="highlightedText">' + match + '</span>';
-  //   }));
-  // };
 
 }]);
