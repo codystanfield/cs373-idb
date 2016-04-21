@@ -23,10 +23,10 @@ logger = logging.getLogger(__name__)
 # database configuration
 SQLALCHEMY_DATABASE_URI = '{engine}://{username}:{password}@{hostname}/{database}'.format(
         engine='mysql+pymysql',
-        username= 'root',
-        password= 'idb_root_pw',
-        hostname= 'localhost',
-        database= 'idb')
+        username=os.getenv('MYSQL_USER'),
+        password=os.getenv('MYSQL_PASSWORD'),
+        hostname=os.getenv('MYSQL_HOST'),
+        database=os.getenv('MYSQL_DATABASE'))
 # logger.debug("The log statement below is for development purposes only. Remove and clean logs before deployment.")
 # logger.debug("SQLALCHEMY_DATABASE_URI: %s", SQLALCHEMY_DATABASE_URI)
 
