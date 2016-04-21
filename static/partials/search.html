@@ -1,21 +1,67 @@
 <div class="container">
-  <style>
-    .highlightedText {
-      font-weight: 700;
-  }
-  </style>
-  <h1>AND Search Results for {{query}}</h1>
-  <ul>
-  <div ng-repeat="drink in drinks_and">
-    <li>{{drink.name}}</li>
-    <!-- <li ng-show="drink.name.lowercase.indexOf(query) != -1">{{drink.name}}</li>
-    <li ng-bind-html="highlight(drink.name, query)"></li>
-    <div ng-repeat="ingredient in drink.ingredients">
-      <p ng-bind-html="highlight(ingredient.name, query)"></p>
-    </div>
-    <p ng-bind-html="highlight(drink.recipe, query)"></p> -->
-  </div>
-  </ul>
+  <h1>AND Search Results for {{query}} in Cocktails</h1>
 
-  <h1>OR Search Results for {{query}}</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Glass</th>
+        <th>Image</th>
+        <th>Ingredients</th>
+        <th>Recipe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-click="goToCocktail({cocktail: drink.id})" pagination-id="drink_and_page" dir-paginate="drink in drinks_and | itemsPerPage: 3">
+        <td>{{ drink.name }}</td>
+        <td>{{ drink.glass }}</td>
+        <td><img ng-src="{{ drink.imageURL }}" style="width: 100%; height: auto"></td>
+        <td>
+          <div ng-repeat="ingredient in drink.ingredients">
+            {{ingredient.quantity}} {{ingredient.name}}
+          </div>
+        </td>
+        <td>{{ drink.recipe }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <dir-pagination-controls
+    max-size="3"
+    direction-links="true"
+    boundary-links="true"
+    pagination-id="drink_and_page">
+  </dir-pagination-controls>
+
+  <h1>OR Search Results for {{query}} in Cocktails</h1>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Glass</th>
+        <th>Image</th>
+        <th>Ingredients</th>
+        <th>Recipe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-click="goToCocktail({cocktail: drink.id})" pagination-id="drink_or_page" dir-paginate="drink in drinks_or | itemsPerPage: 3">
+        <td>{{ drink.name }}</td>
+        <td>{{ drink.glass }}</td>
+        <td><img ng-src="{{ drink.imageURL }}" style="width: 100%; height: auto"></td>
+        <td>
+          <div ng-repeat="ingredient in drink.ingredients">
+            {{ingredient.quantity}} {{ingredient.name}}
+          </div>
+        </td>
+        <td>{{ drink.recipe }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <dir-pagination-controls
+    max-size="3"
+    direction-links="true"
+    boundary-links="true"
+    pagination-id="drink_or_page">
+  </dir-pagination-controls>
 </div>

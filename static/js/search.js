@@ -48,7 +48,7 @@ angular.module('mixopediaApp.search', ['ngRoute'])
             angular.forEach(response.data, function(drink_or_ingredient){
               if(and_or == "and" && category == "cocktail"){
                 $scope.drinks_and.push(drink_or_ingredient);
-              } else {
+              } else if(and_or == "or" && category == "cocktail"){
                 $scope.drinks_or.push(drink_or_ingredient);
               }
             });
