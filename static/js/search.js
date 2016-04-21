@@ -50,6 +50,10 @@ angular.module('mixopediaApp.search', ['ngRoute'])
                 $scope.drinks_and.push(drink_or_ingredient);
               } else if(and_or == "or" && category == "cocktail"){
                 $scope.drinks_or.push(drink_or_ingredient);
+              } else if(and_or == "and" && category == "ingredient") {
+                $scope.items_and.push(drink_or_ingredient);
+              } else if(and_or == "or" && category == "ingredient") {
+                $scope.items_or.push(drink_or_ingredient);
               }
             });
           }, function errorCallback(response) {
@@ -80,6 +84,14 @@ angular.module('mixopediaApp.search', ['ngRoute'])
       //   console.log(response);
       // });
     });
+
+    $scope.goToCocktail = function(cur_id){
+      $location.path('/cocktails/' + cur_id.cocktail);
+    };
+    $scope.goToIngredient = function(cur_id){
+      // var ingredient = $filter('filter')($scope.ingredients, {id: cur_id.ingredientID});
+      $location.path('/ingredients/' + cur_id.itemID);
+    };
   }, function errorCallback(response) {
     // called asynchronously if an error occurs
     // or server returns response with an error status.

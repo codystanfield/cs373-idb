@@ -64,4 +64,66 @@
     boundary-links="true"
     pagination-id="drink_or_page">
   </dir-pagination-controls>
+
+  <h1>AND Search Results for {{query}} in Ingredients</h1>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Cocktials</th>
+        <th>Number of Cocktails</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr dir-paginate="item in items_and | itemsPerPage:3" pagination-id="item_and_page" ng-click="goToIngredient({itemID: item.id})">
+        <td>{{ item.name }}</td>
+        <td><img ng-src="{{ item.imageURL }}" style="width: auto; height: 100px"></td>
+        <td>
+          <div ng-repeat="cocktail in item.cocktails">
+            {{ cocktail.name }}
+          </div>
+        </td>
+        <td>{{ item.numberOfCocktails }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <dir-pagination-controls
+    max-size="3"
+    direction-links="true"
+    boundary-links="true"
+    pagination-id="item_and_page">
+  </dir-pagination-controls>
+
+  <h1>AND Search Results for {{query}} in Ingredients</h1>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Cocktials</th>
+        <th>Number of Cocktails</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr dir-paginate="item in items_or | itemsPerPage:3" pagination-id="item_or_page" ng-click="goToIngredient({itemID: item.id})">
+        <td>{{ item.name }}</td>
+        <td><img ng-src="{{ item.imageURL }}" style="width: auto; height: 100px"></td>
+        <td>
+          <div ng-repeat="cocktail in item.cocktails">
+            {{ cocktail.name }}
+          </div>
+        </td>
+        <td>{{ item.numberOfCocktails }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <dir-pagination-controls
+    max-size="3"
+    direction-links="true"
+    boundary-links="true"
+    pagination-id="item_or_page">
+  </dir-pagination-controls>
 </div>
