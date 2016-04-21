@@ -30,14 +30,20 @@ before_script:
 script:
     - date
     - ls -al
-    - python3 database.py init_db
+    - ls -al app 
+    - python3 app/database.py init_db
     - ls -al
-    - python3 database.py load_pickled_data
+    - ls -al app 
+    - python3 app/database.py load_pickled_data
     - ls -al
-    - make models.html
+    - ls -al app 
+    - make -C app models.html
     - ls -al
-    - make IDB1.log
+    - ls -al app 
+    - make -C app IDB1.log
     - ls -al
-    - make test
+    - ls -al app 
+    - make -C app test
     - ls -al
-    - make check
+    - ls -al app 
+    - make -C app check
