@@ -11,6 +11,11 @@ angular.module('mixopediaApp.search', ['ngRoute'])
 
   $scope.query = $routeParams.query;
 
+  $scope.countOfQuery = function() {
+    var s = $scope.query ? $scope.query.split(/\s+/) : 0; // it splits the text on space/tab/enter
+    return s ? s.length : '';
+  };
+
   $scope.drinks_and = [];
   $scope.items_and = [];
 
@@ -19,11 +24,10 @@ angular.module('mixopediaApp.search', ['ngRoute'])
 
   $scope.highlight = function(text, search) {
     if (!search) {
-      console.log("NO SEARCH")
-        return $sce.trustAsHtml(text);
+      return $sce.trustAsHtml(text);
     }
     return $sce.trustAsHtml(text.toString().replace(new RegExp(search.toString(), 'gi'), '<span class="highlightedText">$&</span>'));
-};
+  };
 
   $http({
     method: 'GET',
@@ -32,16 +36,12 @@ angular.module('mixopediaApp.search', ['ngRoute'])
       "query": $scope.query
     }
   }).then(function successCallback(response) {
-    // this callback will be called asynchronously
-    // when the response is available
     //console.log(response.data);
-    console.log(response.data);
-
     angular.forEach(response.data, function(key, value){
       var category = value;
       console.log(value);
       angular.forEach(key, function(list, boolean) {
-        console.log(boolean);
+        //console.log(boolean);
         var and_or = boolean;
         // iterate through the list of items
         angular.forEach(list, function(item_id) {
@@ -71,26 +71,6 @@ angular.module('mixopediaApp.search', ['ngRoute'])
           });
         });
       });
-      console.log(key + " value: " + value);
-
-      console.log(value + " " + key.and);
-      console.log(value + " " + key.or);
-
-      // angular.forEach(key.and, )
-      // console.log(cocktails);
-      //var cur_id = cocktails;
-      // $http({
-      //   method: 'GET',
-      //   url: '/api/cocktail/' + cur_id
-      // }).then(function successCallback(response) {
-      //   angular.forEach(response.data, function(drink){
-      //     $scope.drinks.push(drink);
-      //   });
-      // }, function errorCallback(response) {
-      //   // called asynchronously if an error occurs
-      //   // or server returns response with an error status.
-      //   console.log(response);
-      // });
     });
 
     $scope.goToCocktail = function(cur_id){
