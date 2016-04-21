@@ -11,7 +11,8 @@ from flask import request, \
 
 # app configuration imports
 from config import app, \
-                   manager
+                   manager, \
+                   db_session
 
 # unit test imports
 import subprocess
@@ -22,8 +23,13 @@ from models import Cocktail, \
 
 # api return format import
 import json
+import pickle
+from functools import reduce
 
 
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -176,6 +182,45 @@ def api_ingredient_image(id_):
 def api_ingredient_numcocktails(id_):
     count = Amount.query.filter(Amount.ingredient == id_).count()
     return json.dumps({'numCocktails': count})
+
+
+@app.route('/api/query')
+def query():
+    with open('cocktail_idx.pkl', 'rb') as f:
+        cocktail_idx = pickle.load(f)
+    with open('ingredient_idx.pkl', 'rb') as f:
+        ingredient_idx = pickle.load(f)
+    
+    query = request.headers.get('query')
+    if query is None:
+        return json.dumps({})
+    query = query.split()
+    
+    cocktail_sets = []
+    ingredient_sets = []
+    
+    for word in query:
+        try:
+            cocktail_sets.append(cocktail_idx[word.lower()])
+            ingredient_sets.append(ingredient_idx[word.lower()])
+        except KeyError:
+            pass
+
+    if len(cocktail_sets) == 0 and len(ingredient_sets == 0):
+        return json.dumps({})
+        
+    if len(cocktail_sets) != 0:
+        cocktail_results = {'and': list(reduce(lambda x, y: x & y, cocktail_sets)), 'or': list(reduce(lambda x, y: x | y, cocktail_sets))}
+    else:
+        cocktail_results = {'and': {}, 'or': {}}
+    
+    if len(ingredient_sets) != 0:
+        ingredient_results = {'and': list(reduce(lambda x, y: x & y, ingredient_sets)), 'or': list(reduce(lambda x, y: x | y, ingredient_sets))}
+    else:
+        ingredient_results = {'and': {}, 'or': {}}
+        
+    result = {'cocktail': cocktail_results, 'ingredient': ingredient_results}
+    return json.dumps(result)
 
 
 @app.route('/tests', methods=['GET'])
