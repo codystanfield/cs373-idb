@@ -17,6 +17,14 @@ angular.module('mixopediaApp.search', ['ngRoute'])
   $scope.drinks_or = [];
   $scope.items_or = [];
 
+  $scope.highlight = function(text, search) {
+    if (!search) {
+      console.log("NO SEARCH")
+        return $sce.trustAsHtml(text);
+    }
+    return $sce.trustAsHtml(text.toString().replace(new RegExp(search.toString(), 'gi'), '<span class="highlightedText">$&</span>'));
+};
+
   $http({
     method: 'GET',
     url: '/api/query',
@@ -102,13 +110,13 @@ angular.module('mixopediaApp.search', ['ngRoute'])
   //   $location.path('/cocktails/' + cur_id.cocktail);
   // };
 
-  $scope.highlight = function(haystack, needle) {
-    if(!needle) {
-      return $sce.trustAsHtml(haystack);
-    }
-    return $sce.trustAsHtml(haystack.replace(new RegExp(needle, "gi"), function(match) {
-      return '<span class="highlightedText">' + match + '</span>';
-    }));
-  };
+  // $scope.highlight = function(haystack, needle) {
+  //   if(!needle) {
+  //     return $sce.trustAsHtml(haystack);
+  //   }
+  //   return $sce.trustAsHtml(haystack.replace(new RegExp(needle, "gi"), function(match) {
+  //     return '<span class="highlightedText">' + match + '</span>';
+  //   }));
+  // };
 
 }]);
