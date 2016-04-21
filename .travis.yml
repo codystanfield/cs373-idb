@@ -43,7 +43,7 @@ script:
     - make IDB1.log
     - ls -al
     - ls -al app 
-    - make test
+    - cd app && make test && cd ..
     - ls -al
     - ls -al app 
     - make check
