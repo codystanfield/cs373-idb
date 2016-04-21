@@ -190,15 +190,15 @@ def query():
         cocktail_idx = pickle.load(f)
     with open('ingredient_idx.pkl', 'rb') as f:
         ingredient_idx = pickle.load(f)
-    
+
     query = request.headers.get('query')
     if query is None:
-        return json.dumps({})
+        return json.dumps({'cocktails': {'and': {}, 'or': {}}, 'ingredients': {'and': {}, 'or': {}}})
     query = query.split()
-    
+
     cocktail_sets = []
     ingredient_sets = []
-    
+
     for word in query:
         try:
             cocktail_sets.append(cocktail_idx[word.lower()])
@@ -206,19 +206,19 @@ def query():
         except KeyError:
             pass
 
-    if len(cocktail_sets) == 0 and len(ingredient_sets == 0):
-        return json.dumps({})
+    if len(cocktail_sets) == 0 and len(ingredient_sets) == 0:
+        return json.dumps({'cocktails': {'and': {}, 'or': {}}, 'ingredients': {'and': {}, 'or': {}}})
         
     if len(cocktail_sets) != 0:
         cocktail_results = {'and': list(reduce(lambda x, y: x & y, cocktail_sets)), 'or': list(reduce(lambda x, y: x | y, cocktail_sets))}
     else:
         cocktail_results = {'and': {}, 'or': {}}
-    
+
     if len(ingredient_sets) != 0:
         ingredient_results = {'and': list(reduce(lambda x, y: x & y, ingredient_sets)), 'or': list(reduce(lambda x, y: x | y, ingredient_sets))}
     else:
         ingredient_results = {'and': {}, 'or': {}}
-        
+
     result = {'cocktail': cocktail_results, 'ingredient': ingredient_results}
     return json.dumps(result)
 
