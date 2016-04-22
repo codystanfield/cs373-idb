@@ -1,0 +1,2109 @@
+commit 228e9a639055207d3c42795474a8fdd419a36818
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 21 19:21:49 2016 -0500
+
+    Updated stats and fixed wonky pictures
+
+commit 1667fb4987eea7c1d649e11b684bfcedc698429d
+Merge: 37e22af c5ba40c
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 21 19:04:23 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit c5ba40c325294c64f52f709491ff41e41be63454
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 18:21:03 2016 -0500
+
+    Updated .travis.yml
+
+commit 7e1abf3250d070676532cd618dffbbfb0cf94393
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 18:17:12 2016 -0500
+
+    Moved new static content into correct location. Added makefile for about page to run
+
+commit 3b332050e729d721ff76ee1265cf7906be894492
+Merge: f49eb02 bd41993
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 17:59:58 2016 -0500
+
+    Merge branch 'master' into dev-cody
+    
+    * master: (23 commits)
+      Cleaned up search.js code
+      Only show AND table if query is one word
+      If there are no results dispaly nothing (pushing before computer explodes)
+      Updated a unit test to match change in api query
+      Updated stats and added unit test
+      fixed error in idb.py
+      BOLDING WORKS ON SEARCH :) life complete
+      search displays ingredients and cocktails highlighting doesn't work yet
+      Several pagination on a page works :)
+      And cocktails works
+      Added another tool to about page
+      merged master to dre search
+      Query results now use singular nouns
+      Once again, forgot to change config
+      Now successfully prevents underage users who don't lie from entering
+      Forgot to fix the config again
+      Now correctly determines if you're 21 or older
+      Fixed config
+      Has all of the dates back to 1930 now
+      Got a rudimentary age checker on the splash page
+      ...
+
+commit f49eb02c411399a89772c12fc4c43aacf823f629
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 17:55:32 2016 -0500
+
+    Moved and updated makefile. Probably wrong right now
+
+commit 0e6ee20fe10b99a276dc1c854312175eba3e5968
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 17:48:00 2016 -0500
+
+    Updated .travis.yml
+
+commit 92a2f705b6153840aa0d8dde2ee1ce8c36887e14
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 17:32:09 2016 -0500
+
+    Took out hardcoded passwords. I'm a moron.
+
+commit 4d729e7461a4c8b835ec3f3a3cfb7319244ccc14
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 17:27:35 2016 -0500
+
+    Updated .travis.yml to reflect file movement
+
+commit 3820295ddcf74555d600861b28cff63f89949c70
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 17:22:19 2016 -0500
+
+    Moved app files to app directory
+
+commit bd4199369c5ae355159976a2b243e33def4587e4
+Author: Dre Coldwell <drec@spiceworks.com>
+Date:   Thu Apr 21 17:20:05 2016 -0500
+
+    Cleaned up search.js code
+
+commit 212d8cb07b6cd59c94fb278bb3d576740f3b3ab5
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Thu Apr 21 16:08:38 2016 -0500
+
+    Only show AND table if query is one word
+
+commit c30b220fa93e1b7fdb7d69a3198a49fdf2b19d63
+Merge: 64efc8d 37e22af
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Thu Apr 21 15:57:42 2016 -0500
+
+    Merge branch 'master' into search
+
+commit 64efc8d2d606220a8225c33361fad0105a6ae2ae
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Thu Apr 21 15:55:05 2016 -0500
+
+    If there are no results dispaly nothing (pushing before computer explodes)
+
+commit 37e22af19982fcd4642b584507c2d3cdbed5feb1
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 21 15:53:08 2016 -0500
+
+    Updated a unit test to match change in api query
+
+commit 0dd55989b868f04aad5d63031bfd9875107b6895
+Merge: 730cb9c af09839
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 21 15:48:39 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit af098396128e8104807c31bfc601e455b2c9da38
+Merge: dd48b57 730cb9c
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 21 15:47:07 2016 -0500
+
+    Merge branch 'dev-sydney'
+
+commit 730cb9cb7efa79262bf8f93c5532ca84607a254e
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 21 15:44:49 2016 -0500
+
+    Updated stats and added unit test
+    
+    close #79, close #86, close #82
+
+commit dd48b57014d4f02972d86f89c05319b9db51a42c
+Merge: 4b9c950 fa62636
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 12:43:27 2016 -0500
+
+    Merge branch 'dev-cody'
+    
+    * dev-cody:
+      Empty queries and bad queries return more than empty object
+    
+    Conflicts:
+    	idb.py
+
+commit fa626361a226b18861877ace2b427bee9c06c265
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 12:42:06 2016 -0500
+
+    Empty queries and bad queries return more than empty object
+
+commit 4b9c950294dafb02d105e654b96a42eb19f9c9b9
+Merge: 66cf633 f7cb273
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 12:33:31 2016 -0500
+
+    Merge branch 'dev-cody'
+    
+    * dev-cody:
+      Fixed my stupid mistake
+
+commit f7cb273e3a9b3c6caccc7f09393ccc8cd13cceac
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 21 12:31:42 2016 -0500
+
+    Fixed my stupid mistake
+
+commit 66cf633997a4ce04ed33a39a42768fb7f8721680
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 20 22:47:04 2016 -0500
+
+    fixed error in idb.py
+
+commit 25178ebf669b15ee056bcf67df453402a33f795a
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 20 22:42:27 2016 -0500
+
+    BOLDING WORKS ON SEARCH :) life complete
+
+commit 9c7b245585c4db45b008f031b5e43eb22e238637
+Merge: dd001ec 46fcbf9
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 20 22:42:00 2016 -0500
+
+    Merge branch 'master' into search
+
+commit dd001ec7c022cce47570db293102727f3f6f8986
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 20 22:04:31 2016 -0500
+
+    search displays ingredients and cocktails highlighting doesn't work yet
+
+commit 19c2e94124e18bb50dfdd25acdd6cb5f23e575b4
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 20 21:51:01 2016 -0500
+
+    Several pagination on a page works :)
+
+commit ed254fe02c5710e6450cf2ee7836d8f23cce58f9
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 20 21:36:37 2016 -0500
+
+    And cocktails works
+
+commit 67dfd1f7442ace8f2a066cd7d08dc90d95de8e01
+Merge: ad4b703 46fcbf9
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 20 21:20:29 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 46fcbf9fc55f2ba27353c0ef33b2b4a7b28c48a0
+Merge: 430af6f ad4b703
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 20 21:19:45 2016 -0500
+
+    Merge branch 'dev-sydney'
+
+commit ad4b70397ad21db3c7a0e1ca50bc6ae92883de77
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 20 21:18:37 2016 -0500
+
+    Added another tool to about page
+
+commit 9efc55f4fb03964768f4d41b40bf6bf75e48c52a
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 20 21:15:05 2016 -0500
+
+    merged master to dre search
+
+commit 87631517e02e21d2aba67b8c1e2a23c71204e3fe
+Merge: ff5765d 430af6f
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 20 21:13:45 2016 -0500
+
+    Merge branch 'master' into search
+
+commit 430af6fce8f276e18dfd1f2b30ae30878bd28fe1
+Merge: e551ae1 cf15121
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Wed Apr 20 21:09:19 2016 -0500
+
+    Merge remote-tracking branch 'origin/master'
+
+commit cf1512127748196803b04064a05d7584f0e3efa0
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 20 21:08:58 2016 -0500
+
+    Query results now use singular nouns
+
+commit ff5765d52c4b7bd7beac0be35039df12439087a5
+Merge: 3d4a9da 0ecb140
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 20 20:36:47 2016 -0500
+
+    Merge branch 'master' into search
+
+commit 0ecb1401c47e3587a45e39f46ec961e9f400986d
+Merge: 57d4c98 ea2f78d
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 20 20:36:01 2016 -0500
+
+    Merge branch 'dev-cody'
+    
+    * dev-cody:
+      Added querying
+      Created inverted index
+
+commit ea2f78d9e0f70aa276392581cfcd445f251df126
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 20 20:35:32 2016 -0500
+
+    Added querying
+
+commit e551ae14192eff7aef25f5295c9cbbb022d8c7c6
+Merge: 57d4c98 ef4d9a0
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Wed Apr 20 20:31:36 2016 -0500
+
+    Merge branch 'age-gate'
+
+commit ef4d9a019c6280c795830b78473c1a08184e38fa
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Wed Apr 20 20:27:22 2016 -0500
+
+    Once again, forgot to change config
+    
+    hue hue hue
+
+commit 05fb9effa2744b13e798b25d4465f838e3d809c2
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Wed Apr 20 20:25:35 2016 -0500
+
+    Now successfully prevents underage users who don't lie from entering
+
+commit 2aad90d2b073f1e7ea6ac4097fdd0efb975b2024
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Wed Apr 20 19:52:37 2016 -0500
+
+    Forgot to fix the config again
+    
+    Padding the commit numbers, too
+    
+    heh heh heh
+
+commit 99e8cc197be3df8d71d54d22bf537ae51e343ccf
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Wed Apr 20 19:50:52 2016 -0500
+
+    Now correctly determines if you're 21 or older
+
+commit 85d4f1c43409e4c642fab319e05d8d0b7b37d7e5
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 20 19:32:58 2016 -0500
+
+    Created inverted index
+
+commit 79919e544ee6e7c3b91c2c72d7069ef4d3f698ff
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Wed Apr 20 19:28:21 2016 -0500
+
+    Fixed config
+
+commit 8001c25823e5b60868836c3932628536d2500a1f
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Wed Apr 20 19:22:53 2016 -0500
+
+    Has all of the dates back to 1930 now
+    
+    Also added the greeting I mistakenly removed from the homeCtrl
+
+commit bf3862ddc01b4e27c086198a15244825e9ad9a69
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Wed Apr 20 18:50:39 2016 -0500
+
+    Got a rudimentary age checker on the splash page
+
+commit 57d4c98b3eb17b915c465aeef4334995955dc3ea
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 20 17:50:44 2016 -0500
+
+    Another tool and link added for Speaker deck in about
+    
+    close #80
+
+commit 3d4a9da0b8bff98eb4abb318995f105c4957c9e6
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 20 17:46:20 2016 -0500
+
+    Search front end look is there, and route working
+
+commit 455327aa72dc194f59464c6b723feb1e311440c2
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 20 17:36:30 2016 -0500
+
+    Added more tools and images to about page
+
+commit 5f7537119492d0b67a7131507917868b1125d920
+Merge: 3a34aa6 c74c04a
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 22:15:54 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit c74c04a1d82d414721e2a75cc0d436f8a0e5e4a5
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 21:53:37 2016 -0500
+
+    Updated IDB2.log, last commit for phase 2
+
+commit b2ec21db67dd9d46a61922a22dff080951439526
+Merge: 2b35d15 3a34aa6
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 21:43:58 2016 -0500
+
+    Merge branch 'master' into dev-cody
+    
+    * master:
+      Tests.py and about.html updated
+      Removed cat command
+      fixing stupid mistake in tests.py
+      Hopefully this is last tests.py update
+      Last push for tests.py
+      Committed log, should be last push for phase 2
+      Updated about page
+      Updated about page
+      Trying to make tests pass
+      Ran pylint on tests.py
+      Front end code cleaned up :)
+      Added get HTTP requests with JSON files in tests.py
+    
+    Conflicts:
+    	tests.py
+
+commit 3a34aa6e635e44c574bf29283858944399a977d4
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 20:54:04 2016 -0500
+
+    Tests.py and about.html updated
+
+commit 2b35d156dbe7228183d111a7c0d82bae2c417218
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:17:11 2016 -0500
+
+    Killed the cat to make Travis happy
+
+commit 26c6e4c2a4fc548fab6ce7ac67840e4242d1369b
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:15:23 2016 -0500
+
+    + to -
+
+commit 6de7c35d57d186e71583dac6a70069fd56829246
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:13:20 2016 -0500
+
+    Fixed tests
+
+commit d931661346cb569403a24a2aea322840fcbbb74f
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:10:58 2016 -0500
+
+    I can't spell
+
+commit 912c8120463232237b07f1bfcfb83866fe55bf16
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:09:14 2016 -0500
+
+    You're killin me Travis
+
+commit a39adc15ceb2a2805ac71864cbde572ddd2a5f7c
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Apr 8 19:07:00 2016 -0500
+
+    Updated /tests route to not break
+
+commit 081f1482f3b6919915ef5704fd874773117fef2e
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:46:33 2016 -0500
+
+    Removed cat command
+
+commit 0cb85c11b6daa55d204af7609939de32c53ae0fe
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:33:05 2016 -0500
+
+    fixing stupid mistake in tests.py
+
+commit 8900189ea0e0812bd24a58ad03368399af916670
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:30:35 2016 -0500
+
+    Hopefully this is last tests.py update
+
+commit cea504b60a21840fb82f525744c8df66c90bc734
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:23:32 2016 -0500
+
+    Last push for tests.py
+
+commit 04dbf8d0e8c520eab599fcd3a9aff16e270406cb
+Merge: 211de23 b871ddb
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:12:24 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+    
+    # Conflicts:
+    #	static/partials/about.html
+
+commit b871ddbab2bebf413a391a51db2ac2210b66c2c1
+Merge: e00ed48 2471ab8
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Fri Apr 8 13:10:17 2016 -0500
+
+    Merge branch 'master' of https://github.com/crakkerjak/cs373-idb
+    
+    trying to merge
+
+commit 2471ab8ed1a5381605e4f9a2d40303abe7849851
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 21:36:41 2016 -0500
+
+    Committed log, should be last push for phase 2
+
+commit 437c278e4f8b0f377dfa42d608301b0bbd8bbe04
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 21:33:34 2016 -0500
+
+    Updated about page
+
+commit 211de23ea828a03a7e027ec08d7fa34f5c79bba9
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 20:59:42 2016 -0500
+
+    Updated about page
+
+commit e29a453f234f8ecf527981c10853db85958b7311
+Merge: 5a016f6 e00ed48
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 20:45:09 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+    
+    # Conflicts:
+    #	.travis.yml
+    #	tests.py
+
+commit 5a016f6809ac9b0a01d33e8b75c2647b3518c6e5
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 20:43:29 2016 -0500
+
+    Trying to make tests pass
+
+commit e00ed4855245a98dbb669a044e27bfefae3d1989
+Merge: f8c6655 be68d00
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:43:17 2016 -0500
+
+    Merge branch 'dev-cody'
+    
+    * dev-cody:
+      why....
+      I dun broked it
+      Updated tests again
+      Updated tests
+      cmon travis, please
+      Updated requirements.txt
+      Updated images
+
+commit be68d00d933b1711b7ad22469eab3d6d3881e9c1
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:40:23 2016 -0500
+
+    why....
+
+commit 3cf7c7dd985839db2301b2cafb3f76d8ca2e0bd9
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:38:08 2016 -0500
+
+    I dun broked it
+
+commit baf22dbc2e69891d289df082c8d3ac58656c365d
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:34:39 2016 -0500
+
+    Updated tests again
+
+commit c6b4bc00918d7ab6dbea88669b29b08328a87a09
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:32:26 2016 -0500
+
+    Updated tests
+
+commit 516855a81546a1ba37c9c034e6ae63b44a2065e5
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 20:32:10 2016 -0500
+
+    Ran pylint on tests.py
+    
+    close #66,  close #67
+
+commit e19bc9d48656a5d90dbe68ff5d44b63a65872cfa
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:28:39 2016 -0500
+
+    cmon travis, please
+
+commit 8810ecb05cda0d419862e92204c6b7e71ba83cea
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:26:09 2016 -0500
+
+    Updated requirements.txt
+
+commit 6aa2649be6e678c8b32e791d69596156ed2c2076
+Merge: c2fad74 e7fa298
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:23:12 2016 -0500
+
+    Merge branch 'master' into dev-cody
+    
+    * master:
+      Run Tests button works
+      Dre added the button for tests
+      Finished tests.py to make all tests pass with JSON
+      Ingredients table paginated
+      Pagination is implemented on cocktails table
+      Added json reading in tests.py, they do not pass
+
+commit c2fad7467cc7c7c303c095f166a671259ee7d4f8
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 20:22:46 2016 -0500
+
+    Updated images
+
+commit f8c66554e28c338640c34eafb13efd916fb71397
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Thu Apr 7 20:21:20 2016 -0500
+
+    Front end code cleaned up :)
+
+commit 87b82009e175e8f409a6fa01b50bb9f651c284e6
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 20:15:28 2016 -0500
+
+    Added get HTTP requests with JSON files in tests.py
+
+commit e7fa29810bde8ef1968da891a0e7f635daf52f28
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Thu Apr 7 20:06:47 2016 -0500
+
+    Run Tests button works
+
+commit 3899fa8ce7125954a9281818f7ab6b657bbe5341
+Merge: 3e30dc0 8969cb5
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Thu Apr 7 19:57:15 2016 -0500
+
+    Merge branch 'master' into pagination-dre
+
+commit 8969cb5b79d318be1dd64e39d07c047f999df31a
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 19:53:46 2016 -0500
+
+    Dre added the button for tests
+
+commit 9f5c3f2459c8667218b96983f66cc6446d649e93
+Merge: dd38dd9 229b78c
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 19:16:52 2016 -0500
+
+    Merge branch 'dev-cody'
+    
+    * dev-cody:
+      Removed cat, Travis should work now
+      Pretty please?
+      Empty string woo
+      Please
+      Put log debug statements back in
+      Added MYSQL to Travis
+      Debugging Travis
+      Stopped running the app in travis
+
+commit 229b78c462f04c9884c8b9fc5827a2dfbff01cc6
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 19:14:19 2016 -0500
+
+    Removed cat, Travis should work now
+
+commit 6ba210eeccc38a4002b8af11e7b2f13d913690d9
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 19:12:06 2016 -0500
+
+    Pretty please?
+
+commit 9b3773a7a93beab7f357dddd433de9805e95a2b7
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 19:08:07 2016 -0500
+
+    Empty string woo
+
+commit 3fb194c49a85fe5fb0f315dcd79cd11f7df1fe45
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 19:06:36 2016 -0500
+
+    Please
+
+commit 56e6aaf609136990d61739625c35bb98d5efca2d
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 19:03:53 2016 -0500
+
+    Put log debug statements back in
+
+commit 4cd2b6587932b36d26d47e6b0c0e807d510f5bb5
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 18:59:48 2016 -0500
+
+    Added MYSQL to Travis
+
+commit 3dcf3368ab30acfe8a96b5f8dbc160457bd38515
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 18:26:41 2016 -0500
+
+    Debugging Travis
+
+commit b049930317adcb31345b2ab6d33e4ec3487208fe
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 18:20:30 2016 -0500
+
+    Stopped running the app in travis
+
+commit dd38dd99a700dcdd0d766dfdddadd8ea36351c20
+Merge: b6e4c9a 947f3b8
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 18:10:11 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit b6e4c9a17ddee15dcc79d9d9886e1eb445d5af0f
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 18:07:22 2016 -0500
+
+    Finished tests.py to make all tests pass with JSON
+
+commit 947f3b808bdc1c01bd5e8d111a9229421ad253d3
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Apr 7 17:48:49 2016 -0500
+
+    Formatted /tests route output, closes #65
+
+commit 3e30dc08b5c0f45f22d9091c5268730bf71903c7
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Thu Apr 7 17:04:19 2016 -0500
+
+    Ingredients table paginated
+    
+    @brettcox
+
+commit 5a1f9fa241cd8576e8fbcdb04e504741fddad70e
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Thu Apr 7 16:55:30 2016 -0500
+
+    Pagination is implemented on cocktails table
+    
+    @brettcox
+
+commit 07beb2a0aa162960979a9a499998d15ef2d22160
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Apr 7 13:17:25 2016 -0500
+
+    Added json reading in tests.py, they do not pass
+    
+    Added the JSON loading for each test to read the JSON files, tests fail
+    for now
+
+commit 0c7390c8438d599cbcad5bf1819f046d3374d356
+Merge: ae6def3 ded9d3e
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 23:48:56 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit ded9d3eb586490cbfb11e25e81e8df9e23706677
+Merge: 8e41f4a 2b5829f
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 22:13:30 2016 -0500
+
+    Merge branch 'master' of https://github.com/crakkerjak/cs373-idb
+
+commit 8e41f4a08b65f8c32551d7a04d6768ed1cc74ef9
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 22:07:22 2016 -0500
+
+    Cocktails and Ingredients linking correctly
+
+commit 1724a8f074c91e9270963ef27a470251d4a99242
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 22:05:53 2016 -0500
+
+    Ingredients on cocktails page links to ingredient
+
+commit 2b5829f290b64bef70f9f88930d79f409e9050b5
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Wed Apr 6 22:02:29 2016 -0500
+
+    Changed test host and commented out logging.
+
+commit 61280fca3d51e561cac05df8382738d75dc54390
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 21:57:52 2016 -0500
+
+    Ingredeints on cocktail page linkes to ingredient page
+
+commit ae6def3ea959e9690db9d85c7240296029b6a7a7
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 21:54:00 2016 -0500
+
+    Fixed tests.py to pass with new API
+
+commit 40abe989d5f2dfd0101623b2c0bea14affdd3e4e
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 21:43:49 2016 -0500
+
+    Click on ingredient in table and goes to ingredient page
+
+commit 726b135064cbc1be6b7d455aedaa019125e1585f
+Merge: 3b31992 60f669a
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 21:32:44 2016 -0500
+
+    Merge branch 'master' into front-end-2
+
+commit 3b31992ce1c5fea8ddde80ab41b623c8881652d2
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 21:32:11 2016 -0500
+
+    Ingredients table displays correctly
+
+commit e177d23a41e4641003865a3b8d2c0f10a9bf0328
+Merge: 0f005bb 60f669a
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 21:23:17 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 60f669a8e3bb5915e9f097fb542c5080d8385f1f
+Merge: 00a3e35 0db6ded
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 21:19:46 2016 -0500
+
+    Merge branch 'dev-cody'
+    
+    * dev-cody:
+      Added id to various api calls
+    
+    Conflicts:
+    	idb.py
+
+commit 0f005bb90d427da67a5ce3de69fa01cbd97e46f2
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 21:19:09 2016 -0500
+
+    Re added uncommented tests in tests.py
+    
+    Realized we deleted wrong tests, so added previously uncommented and
+    deleted API tests, and deleted the API tests left in
+
+commit 0db6ded2194a659a5e5e542f4d7b2674367afee1
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 21:18:33 2016 -0500
+
+    Added id to various api calls
+
+commit 00a3e35efd6e3e155242101d456768fb19198ba4
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Wed Apr 6 21:13:41 2016 -0500
+
+    Fixed /tests route.
+
+commit 9a893609fa3c83735fa0c14edfa2f2704d9459f5
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 21:03:30 2016 -0500
+
+    Ingredients look correct on cocktail page
+
+commit 30f006ce60adf1255c8b519efcad9f08e6b74721
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 21:00:48 2016 -0500
+
+    click on cocktail in table and cocktail page populates
+    
+    @brettcox
+
+commit a07d08f228aad8307adddb3d87c7943e4f4262e1
+Merge: dcdde68 05ca181
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 20:56:50 2016 -0500
+
+    Merge branch 'dev-cody'
+    
+    * dev-cody:
+      Added .jpg extension to image urls
+    
+    Conflicts:
+    	idb.py
+
+commit 04918648de1db12830758e03ed25235ba2fcc23f
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 20:53:04 2016 -0500
+
+    Ingredients displaying correctly on cocktail table
+    
+    @brettcox
+
+commit 05ca1813bc8dba74dbf69f62bce3a0fe4d9ae3ec
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 20:53:01 2016 -0500
+
+    Added .jpg extension to image urls
+
+commit 1fff25391f31be52abc95aa0c58148e348247c7f
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 20:37:36 2016 -0500
+
+    Working on displaying ingredients
+    
+    @brettcox
+
+commit eb0958671b9a242cb41a11f1536b6c85b261edcd
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 20:33:16 2016 -0500
+
+    clicking takes you to cocktail page, but broken
+
+commit b8dc92bc6b7fcf584462f4c76e627d0e7c518486
+Merge: c1ca5cd dcdde68
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 20:25:44 2016 -0500
+
+    Merge branch 'master' into front-end-2
+
+commit c1ca5cded5148b35b4a876aa65aa2dc4dc625a29
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 20:25:00 2016 -0500
+
+    Table populates with data from api
+
+commit 6228d7495d0a5c33667bc676205afcd3efc98c1d
+Merge: fe4c899 dcdde68
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 20:00:56 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit dcdde682657d57677abca2ae97f8a291f9cd8069
+Merge: 81a82f2 945f3ec
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 19:25:58 2016 -0500
+
+    Merge branch 'dev-cody'
+    
+    * dev-cody:
+      Implemented /api/ingredient/<id>/cocktails
+      Implemented /api/ingredient/<id>/numcocktails
+      Implemented /api/ingredient/<id>/image
+      implemented /api/ingredient/<id>/name
+      Implemented /api/ingredient/<id>. Also updated /api/cocktail/<id> to include the '/static/images' portion of the image url.
+      Implemented /api/ingredient
+      Implemented /api/cocktail/<id>/image
+      Implemented /api/cocktail/<id>/recipe
+      Implemented /api/cocktail/<id>/glass
+      Implemented /api/cocktail/<id>/ingredients
+    
+    Conflicts:
+    	idb.py
+
+commit 945f3ec666bc9c6d57adc8357945e1f2333e5cd6
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 19:24:30 2016 -0500
+
+    Implemented /api/ingredient/<id>/cocktails
+
+commit ed81bee31b1d1b251c0a73d613f7201943ea0eea
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 19:16:26 2016 -0500
+
+    Implemented /api/ingredient/<id>/numcocktails
+
+commit 84d67cb6d0aa85d22e00c68ed9b5b4600c01d41a
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 19:13:27 2016 -0500
+
+    Implemented /api/ingredient/<id>/image
+
+commit b1addb70a7fffdf286485f141705eff238664ae0
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 19:10:26 2016 -0500
+
+    implemented /api/ingredient/<id>/name
+
+commit 052f73c3f2eb995dddff4b17da52fd49031f7bc9
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 19:08:30 2016 -0500
+
+    Implemented /api/ingredient/<id>. Also updated /api/cocktail/<id> to include the '/static/images' portion of the image url.
+
+commit 0f8b56e822dfe8b5d4996848f9ed54c0f5e69479
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 18:57:59 2016 -0500
+
+    Implemented /api/ingredient
+
+commit 56ec8c8872d1bf80bc1de90e262d615e27b38931
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 18:42:45 2016 -0500
+
+    Implemented /api/cocktail/<id>/image
+
+commit 72ae6ea7bb10aeeb45ce1f3f7ffdb8cdb2adedac
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 18:40:14 2016 -0500
+
+    Implemented /api/cocktail/<id>/recipe
+
+commit 9cab75a037279c59abf5458b1fb5cadb867be2ef
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 18:34:53 2016 -0500
+
+    Implemented /api/cocktail/<id>/glass
+
+commit 4dfbd98bf80d37694761c3a8f6546cd0c51e2267
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 18:32:15 2016 -0500
+
+    Implemented /api/cocktail/<id>/ingredients
+
+commit fe4c8990d7846a1007e0a24aa1bac975ffb21939
+Merge: b35cfd9 81a82f2
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 18:31:00 2016 -0500
+
+    Merge branch 'dev-sydney'
+    
+    # Conflicts:
+    #	idb.py
+
+commit 81a82f27da8c1ace15724f89df430afd5c3399f2
+Merge: f6a1753 7eaf803
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 18:29:56 2016 -0500
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #	idb.py
+
+commit f6a175396a77c6e1519bc84218d95d182ab57b23
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 18:29:11 2016 -0500
+
+    Took slash off host
+
+commit ef1f637e446f18f7e10a6be770080da7dc1e9cb0
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 18:26:53 2016 -0500
+
+    Fixing merge conflict
+
+commit 7eaf80352b54ca02c448babed63512d4c426be0f
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 18:26:27 2016 -0500
+
+    Implemented /api/cocktail/<id>/name
+
+commit b35cfd9bbaa763efe3b3b89957603123925308f2
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 18:22:56 2016 -0500
+
+    Updated tests.py
+    
+    Deleted the commented out tests and then updated one test since API for
+    it was implemented
+
+commit b2497643f3aafeab77c6e0580c23ad0be9dcccec
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 18:22:24 2016 -0500
+
+    Updated /api/cocktail/<int> to make more sense
+
+commit 53aff570e6150e2e1865d19ac2f63ad6b80e2c15
+Merge: cccb5aa 217880f
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 18:13:15 2016 -0500
+
+    Merge branch 'master' into front-end-2
+
+commit 217880f6ec755110b4ee1f11f0bac28a9331bcc9
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 18:11:35 2016 -0500
+
+    Implemented /api/cocktail/<id>
+
+commit bf23ba42cdeae4833dc3590da53f310f6415217c
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 18:02:35 2016 -0500
+
+    Tried to fix Dre's photo
+    
+    Blurry but there.
+
+commit 0259add6f683b8ab1e287b3b45fa382ae43fe2c3
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 17:54:12 2016 -0500
+
+    Fixed my stupid mistake that broke everything
+
+commit cccb5aaa2e007c0334780bb88265e318dc356df5
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 17:40:07 2016 -0500
+
+    All cocktails are displayed on cocktails page
+
+commit a1d49357d3935b5cb32579c83b0a2cac69d4027d
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 17:37:04 2016 -0500
+
+    Cocktails are pulled from api :)
+
+commit 13b1736d42d4581ad4e60803ebb9a9c11c891706
+Merge: 8f4c72e aef58e0
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 17:22:31 2016 -0500
+
+    Merge branch 'master' into front-end-2
+
+commit aef58e0d9a8e8084596401f78f76f3fccb24becd
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Apr 6 17:19:49 2016 -0500
+
+    Implemented /api/cocktail
+
+commit 8f4c72ed241154458a7695a5a806bb3f0fba8331
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 17:11:25 2016 -0500
+
+    Tests run but output is not pretty
+
+commit 348ecd21f52c85e6bd557d8a011d9206a8b37409
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Apr 6 16:39:42 2016 -0500
+
+    Test output is working
+
+commit e5101f5cf8c23046411d83f2dccdb68302069c86
+Merge: 45c8619 8e6d954
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Apr 6 16:35:14 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 8e6d954a46e034bc37c8a43641f7bfb6a6135dfc
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Wed Apr 6 14:15:15 2016 -0500
+
+    Added the simplest possible tests.html template such that the "/tests" route renders successfully.
+
+commit 0708f66a0987498d35e1685d8534870db1386aeb
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Wed Apr 6 13:43:31 2016 -0500
+
+    Added route-n-such to run unit tests. Commented out tests that rely on import of idb.
+
+commit e8a8f21efc878decdb5fb86a2bca9256bbe4f74e
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Tue Apr 5 13:19:33 2016 -0500
+
+    Fixed db stuff. Implemented load_pickled_data manager command.
+
+commit 5eef9e1884c413d1d1aa06ceff7df8c68b46e134
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Mon Apr 4 16:13:03 2016 -0500
+
+    fixed make test by removing the "runserver" i added... i think.
+
+commit 2adf4c8ce4946cc009ef8730612c04ded317ec66
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Mon Apr 4 15:38:53 2016 -0500
+
+    hello travis! run this thing!
+
+commit d07b7bec435c91c27aefc37cc86cff780a5cf3f4
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Mon Apr 4 15:37:21 2016 -0500
+
+    updated host in tests.py and "make test" in makefile
+
+commit 80983c124e9bbc7a205e6e01bc6bc972fc3b7e6b
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Mon Apr 4 15:28:31 2016 -0500
+
+    db working with root login
+
+commit 6427d9bc218bb3381438ff93296bdf973103cc5a
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Thu Mar 31 09:26:00 2016 -0500
+
+    Refactored configuration to remove growing problems with circular dependencies.
+
+commit 94f4fb78746aff0f2b8adc4dd48a7301f53b08e8
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Wed Mar 30 17:43:14 2016 -0500
+
+    Replaced local host with cluster ip in tests.py & moved it to top level definition.
+
+commit e3ff413f8148b09a8f01b69c1d7b07d7c6eac61b
+Merge: 3370753 c6e0abd
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Wed Mar 30 17:29:47 2016 -0500
+
+    Attempting to merge Docker/Carina setup with Project 3.
+
+commit c6e0abda996dec790d8eefffdec982665bf2a8a8
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Wed Mar 30 17:23:28 2016 -0500
+
+    Final commit before merging with master.
+
+commit 45c8619d80496e68eac3269921c2598ba4131644
+Merge: cfa2c8d 3370753
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Mar 30 15:01:47 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 3370753f4510532408f15c4c1c959f2bc0874ab5
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Mar 30 15:00:30 2016 -0500
+
+    Updated travis to change to models
+
+commit cfa2c8d332ba29f9dadebc9d2b51fa3256c52be1
+Merge: c222b40 d10ca8e
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Mar 30 14:47:23 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit c222b408438270bbecfefaa44ce599d8331c7dcf
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Mar 30 14:47:08 2016 -0500
+
+    About.html fixed
+    
+    Added the missing images and made links open up a new tab instead of in
+    the same window
+
+commit d10ca8e2b99d2fde2c377ce5ff39dbdf4004b725
+Merge: 48d8e01 e1b2579
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Mar 30 14:41:14 2016 -0500
+
+    Merge branch 'master' of https://github.com/crakkerjak/cs373-idb
+
+commit 48d8e019d2c0ba1d790b83ec1ac0b47beb1b96f4
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Mar 30 14:33:23 2016 -0500
+
+    The models.html was named wrong in the makefile
+
+commit e143038178b133e2a03252a7ecc78800e0f4c245
+Author: Dre Coldwell <andrea_coldwell@sbcglobal.net>
+Date:   Wed Mar 30 14:30:45 2016 -0500
+
+    Removed model.html
+
+commit 22ff3283585863ed964fd22f7802abdc64547da7
+Author: drecoldwell <Andrea@wireless-10-147-171-36.public.utexas.edu>
+Date:   Wed Mar 30 14:03:33 2016 -0500
+
+    Ran make model.html
+
+commit dc4a1ac16a8f63394d270211a9e02f12ae6eaad7
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Wed Mar 30 00:58:06 2016 -0500
+
+    Working with Docker/Carina and MySQL.
+
+commit e1b25796324b68048765235594a5ba85370c0d5f
+Merge: 8c29beb 8ffc2bb
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Mar 24 21:59:19 2016 -0500
+
+    Merge branch 'master' of https://github.com/crakkerjak/cs373-idb
+
+commit 8c29bebc18f8abf8411e392f9768434e67e0f68a
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Mar 24 21:59:09 2016 -0500
+
+    models
+
+commit 8ffc2bb463c11ed0a730cafe04a4c672ba933ecd
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 21:58:50 2016 -0500
+
+    Update tests.py
+
+commit 30c278c68e52c68ff95eef61171f845f66bc2f16
+Merge: 42bcde3 5c9c505
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Mar 24 21:58:07 2016 -0500
+
+    Merge branch 'master' of https://github.com/crakkerjak/cs373-idb
+    don't care
+
+commit 42bcde336c86c248f516c050d10bfa634f06aa15
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Mar 24 21:57:53 2016 -0500
+
+    Added log
+
+commit 5c9c505f69965035529d11390606b1d455903d4d
+Merge: 252f1f3 9cc9b6a
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 21:57:40 2016 -0500
+
+    Merge pull request #52 from crakkerjak/dev-sydney
+    
+    coverage
+
+commit 9cc9b6a95298daec97893a00fb2f7911db8e0a95
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 21:57:25 2016 -0500
+
+    coverage
+
+commit 252f1f31f99cceda389995d82cfd5db3d2d343f1
+Merge: d3d3bf5 502cd4c
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 21:56:09 2016 -0500
+
+    Merge pull request #51 from crakkerjak/dev-sydney
+    
+    Dev sydney
+
+commit 502cd4c069a7711f329f1c5537308ebe301ca1fe
+Merge: 5d75790 d3d3bf5
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 21:51:44 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 5d75790215cbe7c565bccb69311bef17ed3117d3
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 21:50:55 2016 -0500
+
+    About page done, fixed other stuff
+    
+    close #15, close #34, close #35
+
+commit d3d3bf50a9c2abbbcb4e9d4abd9a10e60aae24c4
+Author: Cody Stanfield <cody.stanfield2@gmail.com>
+Date:   Thu Mar 24 21:46:55 2016 -0500
+
+    Delete model.html
+    
+    Don't need
+
+commit acef091513505c2f262ac7080ecd77ffe7922f33
+Merge: 10f676e 24df32d
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 20:05:09 2016 -0500
+
+    Merge pull request #50 from crakkerjak/dev-sydney
+    
+    Dev sydney
+
+commit 9eacc7645d93414ea59a1664e01b8827c85fa7da
+Merge: 24df32d 10f676e
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 20:03:58 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 24df32d201cf3161de1491a50240e1a9c1a4abda
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 20:03:04 2016 -0500
+
+    Finished writing unit tests
+    
+    Wrote total of 125 unit tests, adding on to tests written for models.py
+    and then added all unit tests for idb.py
+
+commit 10f676e218c26a7db2f76a1bb83cf1003ef48f19
+Author: crakkerjak <timaeus@utexas.edu>
+Date:   Thu Mar 24 19:47:03 2016 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit 2a7c837cc383ff6c0c85de72e763042ebf4b5df6
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 19:03:05 2016 -0500
+
+    Changed intro on about page
+    
+    @brettcox @seshutter
+
+commit 3770cfe209c87d21151ef1b303b695656ef41047
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 18:55:13 2016 -0500
+
+    Changed about formating for information
+    
+    @brettcox
+
+commit c0f54c56fbd294a239ee1f55aa840b9538e0d3ec
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 18:39:26 2016 -0500
+
+    Cleaned up front-end code
+
+commit dec0fd1ef0bb5cef62c74f9f98ec0883f87864c9
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 18:35:07 2016 -0500
+
+    Twitter embeded on cocktail and ingredient
+
+commit b163b51671f172481939550f2308fc2d5fbcc341
+Merge: 9d0f28b 19af78b
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 18:18:08 2016 -0500
+
+    Merge branch 'master' of https://github.com/crakkerjak/cs373-idb
+
+commit 9d0f28be7e943cbb6515f54f774799ea5c555959
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 18:17:39 2016 -0500
+
+    Table row turn grey on hover
+    
+    @brettcox
+
+commit 19af78bc1f112922f691d6cd8a7bd434d4a5198d
+Merge: d6ba1fd 8a3ad5a
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Thu Mar 24 17:55:48 2016 -0500
+
+    Merge branch 'dev-twitter'
+
+commit 8a3ad5aae1a441a080e0818cce0218461f460298
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Thu Mar 24 17:53:58 2016 -0500
+
+    Got rid of the cool stuff around the pictures
+    
+    At Andrea’s behest
+
+commit d6ba1fd32d48a40c18bf781fa22ce4dca192a37a
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 17:50:36 2016 -0500
+
+    Cocktails on ingredient detail page look linkable and ingredients on cocktail page looks linkable
+
+commit 2dd78e3d605ff4d51728d1ea6d24e797c675b89d
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 17:45:40 2016 -0500
+
+    Changed true/false to Alcoholic/Non-Alcoholic
+    
+    close #44
+
+commit 01cc6e43fc52f32ea2a6f74bcfbef70d4820b409
+Merge: 4af4533 85f42d0
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 17:32:19 2016 -0500
+
+    Merge branch 'dev-footer'
+
+commit c8473431a06ed0e8e2c9602d6e014d6df34f5c91
+Merge: 6aeed42 4af4533
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 17:31:42 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 85f42d079632b70f069ca83f1c1dd9df23bf4567
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 17:31:33 2016 -0500
+
+    Updated footer
+    
+    close #45
+
+commit 6aeed429b52f8087bd19d66924ec766bef137bc1
+Merge: 8f7f16f 1da7799
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 17:30:25 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 4af45339e364e5f97fc8f1afa8a2126ceb984b8c
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Mar 24 17:30:11 2016 -0500
+
+    Added headshot
+
+commit f064d9fde0aa798c7908a0794ad4c5f9c7a0fba0
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Thu Mar 24 17:22:13 2016 -0500
+
+    Modified the embedded twitter stuff
+    
+    Each cocktail and ingredient page shows the @mixopedia feed, and the
+    cocktails page shows the feed for the hashtag #alcohol (we couldn’t
+    come up with a better one on the spot)
+
+commit 1da7799f51214cc84edbadba017bec846c729c8d
+Author: drecoldwell <Andrea@wireless-10-146-226-14.public.utexas.edu>
+Date:   Thu Mar 24 17:20:43 2016 -0500
+
+    About tab highlights on click and added Dre's picture
+
+commit 8f7f16f3eff2560ac33e1b396883c454be2eef0d
+Merge: 356535e 07a0aec
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 17:09:23 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 36fe7669bb30ec24e48bcc8da77fc0ca196f4695
+Merge: 07a0aec 356535e
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 17:09:14 2016 -0500
+
+    Merge pull request #48 from crakkerjak/dev-sydney
+    
+    Dev sydney
+
+commit 356535e415962f06706c8014d0281908f13a45e7
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Thu Mar 24 17:04:43 2016 -0500
+
+    About page update
+
+commit 07a0aecb32db79770740c7f620d91c732e16736b
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Mar 24 16:45:20 2016 -0500
+
+    Added UML.pdf
+
+commit 89659b041fe5971efce48f65f4fb4151ac90d952
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Thu Mar 24 14:37:36 2016 -0500
+
+    Cocktail images in cocktails.html now indicate that they're clickable
+    
+    They have an inset border, and the cursor changes to a pointer and
+    makes the image slightly move on hovering.
+
+commit 9edd33c050125020aea04dc58b450ac4c2bbfb65
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Thu Mar 24 13:55:37 2016 -0500
+
+    Been a while since I committed (since never)
+    
+    Added embedded twitter for the website’s handle, and for strictly
+    Moscow Mules. Still trying to figure out how to get the embedded
+    timeline to change based on what page is loaded.
+
+commit 3802214ed9f1b5f9aec7c49324c5fd6126db347a
+Merge: e2cbc97 4007838
+Author: Brett Cox <brettcoxemail@yahoo.com>
+Date:   Wed Mar 23 22:37:39 2016 -0500
+
+    Merge branch 'master' into dev-twitter
+
+commit 47438c99932e236af0410a42f370f2022cf268aa
+Merge: 52095a5 4007838
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Mar 23 20:53:10 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 40078385417854b275e03a290ac71e874f5a62bb
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Mar 23 19:52:42 2016 -0500
+
+    Added the conceptual and relational UML files
+
+commit 07cb2fbd36251a66315b5f0fb1c8ced7ebd8b836
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Mar 23 18:37:32 2016 -0500
+
+    Updated travis to run server in background
+
+commit 0134e624abec5becd02155eac06e0c2c4827e10e
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Mar 23 18:34:56 2016 -0500
+
+    Testing travis, running server
+
+commit 52095a57b047129ce4d3d3d30fc7720e8238c87b
+Merge: 0d2df2d 70f07b0
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Mar 23 18:31:17 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 70f07b0ebd6e60a416e0edd53d1ee15ad52d1496
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Mar 23 18:29:21 2016 -0500
+
+    Added requests module to requirements.txt
+
+commit 0d2df2d34cabf71a12ea30d9396da9eb9bd757df
+Merge: e9dcf56 0c00f62
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Mar 23 18:28:36 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit e9dcf56d0403df537e1bda472ce10c6d59eb05b9
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Mar 23 18:28:26 2016 -0500
+
+    Updated about.html to a template
+
+commit fbe4924ea667bf68fb7019e13ee281199a590aa5
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Mar 23 18:26:47 2016 -0500
+
+    Added initial API tests for a template for others to use.
+
+commit 0c00f62b75c62ab75dde31790b912c9bbd01d97d
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Mar 23 18:10:35 2016 -0500
+
+    Added API endpoints to idb.py
+
+commit d85e086622e577fc92734b8e9eb8b00fe9e6367b
+Merge: 39fff1f eb187f9
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Mar 23 16:12:02 2016 -0500
+
+    Merge branch 'dev-cody'
+    
+    * dev-cody:
+      Updated scraper and pkl file
+
+commit eb187f913707e519ab11b238877d7e2b622626d4
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Wed Mar 23 16:11:33 2016 -0500
+
+    Updated scraper and pkl file
+
+commit d141a1690a69bbe3c332e679652dff403489855e
+Merge: 79484fa 39fff1f
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Mar 23 15:48:07 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 39fff1fe2af05e78b913726df9126e9cc668d3b8
+Author: drecoldwell <Andrea@wireless-10-146-183-201.public.utexas.edu>
+Date:   Wed Mar 23 15:44:00 2016 -0500
+
+    Beautiful template for about page :)
+    
+    @seshutter
+
+commit 7c707da5810fcd16dc2f9a181fe6b3e0df361375
+Author: drecoldwell <Andrea@wireless-10-146-183-201.public.utexas.edu>
+Date:   Wed Mar 23 15:37:18 2016 -0500
+
+    Moved About but Twitter currently broken
+    
+    @seshutter
+
+commit 79484fa93328ab5a1dea18ab8c8c55d7cfdd420a
+Merge: 724e570 8ccf748
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Wed Mar 23 15:32:43 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 8ccf748d3850eb589239217bb3bee05e3e04d4e8
+Author: drecoldwell <Andrea@wireless-10-146-183-201.public.utexas.edu>
+Date:   Wed Mar 23 15:15:02 2016 -0500
+
+    Undid html change for front end
+
+commit 5da2db18d796f3d2706f07045cb76ba169a16250
+Author: drecoldwell <Andrea@wireless-10-146-183-201.public.utexas.edu>
+Date:   Wed Mar 23 14:43:33 2016 -0500
+
+    Change table link to be html instead of javascript
+    
+    @codystanfield
+
+commit fb54f20c22e7ff655348eac2138ef0bc4ecbf140
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Wed Mar 23 11:49:42 2016 -0500
+
+    Cleaned up front_end code
+
+commit 02ffd6ee33829156fba500af0115a1f034f54f7b
+Merge: c668e09 723a743
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Wed Mar 23 11:40:00 2016 -0500
+
+    Merge branch 'trying_angular'
+
+commit 723a74382f15c410253639e6f5ea28b03b8cf094
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Wed Mar 23 11:39:05 2016 -0500
+
+    Cocktails' ingredients link to ingredients details page
+
+commit 9a9e7eb5b4f1aa681956bcc97ec201f7bc491efd
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Wed Mar 23 11:31:50 2016 -0500
+
+    Ingredients' cocktail lists links to cocktail page
+
+commit 724e570808acf0edab2088ae9610964609e0819e
+Merge: 187efc5 c668e09
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Tue Mar 22 21:35:27 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit c668e093948df2f21784b71dd12f03a8563cb7cc
+Merge: e2cbc97 187efc5
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Tue Mar 22 21:34:09 2016 -0500
+
+    Merge pull request #42 from crakkerjak/dev-sydney
+    
+    Dev sydney
+
+commit 187efc599ba9b4c16c765488726cccd873e88b97
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Tue Mar 22 21:32:26 2016 -0500
+
+    Cleaned up unit tests
+    
+    Added some different corner cases for each Class and functions in
+    models.py. Then cleaned up Python code using pylint command. All tests
+    pass
+
+commit 349bc67aaa6ebd260f932db3920d57d8c09cfac9
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Tue Mar 22 20:40:02 2016 -0500
+
+    Ingredient page completed (does not link to cocktail page yet)
+
+commit 747d06a3e39d799dc67c429099b66266e9ff6252
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Tue Mar 22 20:07:54 2016 -0500
+
+    Cocktails table is functioning
+
+commit b0161ded8a973e036d7773001a5812b5addae839
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Tue Mar 22 19:12:09 2016 -0500
+
+    cleaned up cocktail page
+
+commit aff841a3034e5c34c03dc51cfaeff489d7ce140b
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Tue Mar 22 19:07:38 2016 -0500
+
+    Cocktail pages done (do not link to ingredients yet)
+    
+    close #36
+
+commit d916a0ced5e71661f9cd6ca925c72c4f581c9be5
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Tue Mar 22 18:55:12 2016 -0500
+
+    Correct cocktail page formating
+
+commit 937daffd44e009cf2f0be732d1eab66967d325d6
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Tue Mar 22 18:40:46 2016 -0500
+
+    Refreshing a page works
+
+commit 1c0263c6ec9feeeb9aa6bdf3ae92d2997d6a65bf
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Tue Mar 22 17:40:49 2016 -0500
+
+    Passing data correctly to cocktail details page
+
+commit ddab9992c3ca504fa7ad8889ec15ac0980b732a6
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Tue Mar 22 17:04:53 2016 -0500
+
+    Created a service for global drink array
+
+commit 8addd8c23d907a12d34635af2580ed009175fe59
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Tue Mar 22 14:14:19 2016 -0500
+
+    Updated tests.py and models.py
+    
+    Added unit tests for new class Amount in models.py
+
+commit da55991908cb8c7101fb9efcd9b477d6a416d34f
+Merge: 82cfe36 e2cbc97
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Tue Mar 22 12:36:21 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 7671cbf61e0887da5e95bd84da2a0c44fb53694e
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Mon Mar 21 19:17:54 2016 -0500
+
+    moved cocktailCtrl to cocktails.js #itworks
+
+commit cf6f3cf463ae06c344bc9595de8a8241a913155d
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Mon Mar 21 19:13:36 2016 -0500
+
+    Click on cocktail goes to cocktail details page, but it is broken, but the linking works!!
+
+commit eb05ff9c9ba27928d7f0c607de3769fb2f455a67
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Mon Mar 21 16:53:19 2016 -0500
+
+    Table for cocktails working except ingredients
+
+commit 1f10abc45cbf1fa837ca7fd74529b55d81e458c8
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Mon Mar 21 16:45:44 2016 -0500
+
+    Sorting table works, except for ingredients
+
+commit d21066417d4addf2b4c53a9762cf98ff506f32b2
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Mon Mar 21 15:53:02 2016 -0500
+
+    Cocktail table displays cocktail info, sorts ingredients alphabetically
+
+commit c6d97bbf4bdef50d56c48eadf166ab0927e5f528
+Author: drecoldwell <Andrea@wireless-10-147-37-37.public.utexas.edu>
+Date:   Mon Mar 21 12:50:46 2016 -0500
+
+    Iterating through drinks correctly in cocktails
+
+commit 57fdea40c6434f07c074957619846353986f6761
+Author: drecoldwell <Andrea@wireless-10-147-37-37.public.utexas.edu>
+Date:   Mon Mar 21 12:39:18 2016 -0500
+
+    Can now find drinks!! MAJOR KEY
+
+commit 55f65f91266a8578c6edc81d12e4f81e59961007
+Author: drecoldwell <Andrea@wireless-10-147-37-37.public.utexas.edu>
+Date:   Mon Mar 21 12:25:50 2016 -0500
+
+    Cocktails works on refresh now, still can't find drinks
+
+commit c8d16bb472dc3da5517eb818288d6edf5d8a8d82
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Mon Mar 21 11:02:05 2016 -0500
+
+    angularjs working for cocktails #miracle
+    
+    @brettcox
+
+commit 05706de362162439affa74853133951cefc4f8d4
+Author: drecoldwell <Andrea@Andreas-MacBook-Pro.local>
+Date:   Sun Mar 20 22:25:15 2016 -0500
+
+    AngularJS working for home page :)
+    
+    @brettcox
+
+commit e2cbc97c9a2f13842a6a7338404d0309b5d1d9be
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Sun Mar 20 21:20:42 2016 -0500
+
+    Fixed relationship definitions in models.py. Removed references to "amount" in tests.py. Resolves #38.
+
+commit 5b8533e042d141419120a08243440a3efcde2427
+Merge: 2755653 56b43f9
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Sun Mar 20 20:52:40 2016 -0500
+
+    Pulled master and merged updated models.py
+
+commit 27556539e0e4b294dafc7f13cafe921730405cbf
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Sun Mar 20 20:50:04 2016 -0500
+
+    Normalized data model. ...wait, what was normalization again?
+
+commit 56b43f9a0193b9c35ed8f94caaa0b9eb60d1de0b
+Merge: fa16b42 82cfe36
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 18:35:44 2016 -0500
+
+    Merge pull request #39 from crakkerjak/dev-sydney
+    
+    Dev sydney
+
+commit 82cfe36d240ef2f8eab3abe8d72a0b8e4f9ea57d
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 18:31:32 2016 -0500
+
+    Added content to about.html
+
+commit 60af61fa7edaa34616590ac6ea3156140496fbc8
+Merge: 0ed2ba4 fa16b42
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 17:51:37 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit fa16b4233508288ff9b68c1285747bb064274d2b
+Merge: 080212f 0ed2ba4
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 17:48:42 2016 -0500
+
+    Merge branch 'dev-sydney'
+
+commit 0ed2ba486a5828dfcba5c57505b04e22c443b6ab
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 17:46:54 2016 -0500
+
+    Unit Tests pass on models.py!!!
+    
+    Close #33, close #12
+
+commit e7c31255a4425a6fb5cad694ae229ea48d5f025f
+Merge: e3cd4fc 080212f
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 17:17:33 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit 080212ffd3ff8334af0112f5218caab00b64810b
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Sun Mar 20 17:16:11 2016 -0500
+
+    Corrected tablename in ForeignKey relationship.
+
+commit e3cd4fcf35ddfcdd838ec70112e9face46854dae
+Merge: f234c31 c242616
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 16:59:25 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit c242616b9eb5207dbf83784980b09183528c266f
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Sun Mar 20 16:58:50 2016 -0500
+
+    Added foreign key for Ingredient.
+
+commit f234c314e22fe08285e014e4d4b4a56efd752760
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 16:48:22 2016 -0500
+
+    Bug with unit tests
+    
+    Changed how I was calling the init method for Cocktail and Ingredient
+    in tests.py and produced another bug with SQLAlchemy
+
+commit b92a31ea792c75ad0b01af22822a91e60b5f01dd
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 16:39:32 2016 -0500
+
+    Updated sqlalchemy to SQLAlchemy
+
+commit a0f5e8709a63ba250eeb8e0502e232dce45033d4
+Merge: 03d7385 e4a7b76
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 16:38:08 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit e4a7b764ecf4eaee8c569b596607e3cf492408c7
+Merge: 1644407 afd7523
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Sun Mar 20 16:36:20 2016 -0500
+
+    Merge branch 'master' of https://github.com/crakkerjak/cs373-idb
+    
+    Added SQLAlchemy db to models.py
+
+commit 16444071e0310d43b28ec6d3c407fd4bd06039dd
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Sun Mar 20 16:30:02 2016 -0500
+
+    Added SQLAlchemy db to mydels.py
+
+commit 03d738562678db968e4c014ecb933e2eb3e4ea4e
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 16:14:13 2016 -0500
+
+    changed this to self
+
+commit 7d27a75d6a6a2ff9779a8b2aa01aef51cdf17f04
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 16:13:31 2016 -0500
+
+    Added code to each unit test
+
+commit b6cb9ddc12c03bb9e46c838f30be74b6043b890e
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 15:52:44 2016 -0500
+
+    Added the tests.py outline
+    
+    Only added unit test headers for the models.py file, will add unit
+    tests later for the API once it is finished
+
+commit 4615762b741cebb51e9cca88bc4b6e3a3baeab7a
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Sun Mar 20 15:34:28 2016 -0500
+
+    Changed "this" to "self." (oops)
+
+commit 2d81d831063e1a833195c94d0c14bb04c350f06b
+Merge: b608087 afd7523
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 15:25:55 2016 -0500
+
+    Merge branch 'master' into dev-sydney
+
+commit afd75237a2c967c8e2fe1d4ce476af4c19220507
+Merge: a68b192 b608087
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 15:18:24 2016 -0500
+
+    Merge pull request #29 from crakkerjak/dev-sydney
+    
+    Dev sydney
+
+commit b60808780ecc8490dc4d872b272bf6f5e9fab89c
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 15:16:21 2016 -0500
+
+    Outline of about.html
+
+commit a68b1923051db9b24f5dfbefebd79739f2cb0882
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Sun Mar 20 15:08:46 2016 -0500
+
+    Corrected errors in models.py
+
+commit 20c9521db08b9bfd5ee0790191f5a41847bf1b3b
+Author: Sydney Shutter <seshutter@mac.com>
+Date:   Sun Mar 20 14:31:52 2016 -0500
+
+    Adding file for about.html
+    
+    Added about.html into the templates folder
+
+commit 26792be57899e5439611479fb4dba09a0c5cd159
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Sun Mar 20 13:03:33 2016 -0500
+
+    Added code to download images for cocktails and ingredients. Added images. Closes #6, closes #18.
+
+commit d78e6bb8a08fdd16027f073b3f96b2dc905ddfb8
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Sat Mar 19 20:46:56 2016 -0500
+
+    #6 and #18: added code to get images from Google image search. Currently only gets thumbnails. Some images are incorrect, need to manually go through and find them.
+
+commit ea9c44ad51545de263f2d77603fa53f039ddc43f
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Sat Mar 19 18:55:28 2016 -0500
+
+    #6: Added usage information, split code into different functions to make it easier to add functionality in the future.
+
+commit ba7bc3ba85576202712f73af3f44382692d361d1
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Fri Mar 11 15:43:18 2016 -0600
+
+    Added check for None in ingredients, since the API sometimes uses empty strings and sometimes uses None. Also updated pickle file. For issue #6.
+
+commit 5490bd89b6310817f0a7c5cb3bb3757b6a9b538c
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Mar 10 17:59:38 2016 -0600
+
+    Throttled DBScraper, saved output to pickle file. Progress for #6.
+
+commit d25ced045622b25cdabec76444a063c3b1db57d3
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Mar 10 17:41:59 2016 -0600
+
+    Updated DBScraper to build the Cocktail objects
+
+commit acea3d1a41cacbd87e4feec34a27e6cebb08d12c
+Author: codystanfield <cody.stanfield2@gmail.com>
+Date:   Thu Mar 10 16:53:18 2016 -0600
+
+    Added scraper, currently gets the list of cocktails
+
+commit 338abcbd39071cb645ee608bbd9c9ce5dd19b2c3
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Tue Mar 8 18:17:33 2016 -0600
+
+    Added shell files for common custom css and js.
+
+commit 27aa9329a534be8579d650f9d3a438f6979fbdcd
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Tue Mar 8 17:45:01 2016 -0600
+
+    Runs and renders index.html for a hello world! yay.
+
+commit 5d700a29e3bfcd70ee1fe81f8aaa18bbfc39270e
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Tue Mar 8 16:35:37 2016 -0600
+
+    Updated .travis.yml and makefile. touched UML.pdf
+
+commit c5b616b55b84bb57428f8b56691ee418e5e8dd16
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Tue Mar 8 15:58:38 2016 -0600
+
+    Basic db setup complete. Added shell files for the rest of the project phase.
+
+commit bd8a5cfa4a28dfe4ea7d5a5427446e1ccbe60d33
+Author: crakkerjak <timaeus@utexas.edu>
+Date:   Tue Mar 8 15:17:29 2016 -0600
+
+    Transferring API Description file from Apiary.io
+
+commit adecaa8a971ee1c2635310bd6540eca5c2278b35
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Mon Mar 7 19:49:54 2016 -0600
+
+    Prep work for database.
+
+commit 6592060148a2246619a7866261ef14bf60565302
+Author: crakkerjak <chris.timaeus@gmail.com>
+Date:   Mon Mar 7 14:51:52 2016 -0600
+
+    Added Bootstrap, shell index.html, and requirements.txt (for Rackspace, later)
