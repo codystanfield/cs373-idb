@@ -4,7 +4,8 @@ angular.module('mixopediaApp.beers', ['ngRoute'])
 
 .controller('beersCtrl', ['$scope', '$filter', '$location', '$http', function($scope, $filter, $location, $http){
 
-  $scope.beers = [];
+  $scope.beers = [{"name": "cool"}];
+
   $http({
     method: 'GET',
     url: '/api/beer'
