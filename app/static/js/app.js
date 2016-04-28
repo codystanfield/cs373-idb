@@ -8,7 +8,8 @@ angular.module('mixopediaApp', [
     'mixopediaApp.ingredients',
     'angularUtils.directives.dirPagination',
     'mixopediaApp.about',
-    'mixopediaApp.search'
+    'mixopediaApp.search',
+    'mixopediaApp.beers'
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
@@ -55,6 +56,12 @@ angular.module('mixopediaApp', [
           templateUrl:'/static/partials/search.html',
           controller: "searchCtrl",
           controllerAs: 'search',
+          activeTab: ""
+        })
+        .when('/beers', {
+          templateUrl:'/static/partials/beers.html',
+          controller: "beersCtrl",
+          controllerAs: 'beers',
           activeTab: ""
         })
         .otherwise({redirectTo: '/'});
