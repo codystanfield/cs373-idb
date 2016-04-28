@@ -9,6 +9,7 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
   $scope.sortReverse  = false;  // set the default sort order
 
   $scope.drinks = [];
+  
   $http({
     method: 'GET',
     url: '/api/cocktail'
@@ -22,6 +23,7 @@ angular.module('mixopediaApp.cocktails', ['ngRoute'])
         url: '/api/cocktail/' + cur_id
       }).then(function successCallback(response) {
         angular.forEach(response.data, function(drink){
+          console.log(drink);
           $scope.drinks.push(drink);
         });
       }, function errorCallback(response) {

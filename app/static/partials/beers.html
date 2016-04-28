@@ -11,12 +11,12 @@
   <!-- /.row -->
   <!-- Projects Row -->
   <div class="row">
-    <div class="col-md-4 portfolio-item" dir-paginate="beer in beers | itemsPerPage: 9">
+    <div class="col-md-4 portfolio-item" dir-paginate="beer in beers_list | itemsPerPage: 9">
       <a href="#">
-      <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+      <img class="img-responsive" src="{{beer.image}}" alt="{{beer.name}}">
       </a>
-      <h3>{{ beer }}</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+      <h3>{{beer.name}}</h3>
+      <p>Brewery Name: {{beer.brewery_name}}</p>
     </div>
   </div>
 

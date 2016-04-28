@@ -212,7 +212,7 @@ def query():
 
     if len(cocktail_sets) == 0 and len(ingredient_sets) == 0:
         return json.dumps({'cocktails': {'and': {}, 'or': {}}, 'ingredients': {'and': {}, 'or': {}}})
-        
+
     if len(cocktail_sets) != 0:
         cocktail_results = {'and': list(reduce(lambda x, y: x & y, cocktail_sets)), 'or': list(reduce(lambda x, y: x | y, cocktail_sets))}
     else:
@@ -225,8 +225,8 @@ def query():
 
     result = {'cocktail': cocktail_results, 'ingredient': ingredient_results}
     return json.dumps(result)
-    
-    
+
+
 @app.route('/api/beer')
 def beer():
     global beers
