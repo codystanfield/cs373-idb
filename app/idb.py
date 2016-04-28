@@ -24,8 +24,12 @@ from models import Cocktail, \
 # api return format import
 import json
 import pickle
-from functools import reduce
 
+from functools import reduce
+import requests
+
+
+beers = None
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
@@ -221,6 +225,16 @@ def query():
 
     result = {'cocktail': cocktail_results, 'ingredient': ingredient_results}
     return json.dumps(result)
+    
+    
+@app.route('/api/beer')
+def beer():
+    global beers
+    if beers is None:
+        r = requests.get('http://tipsyturkey.me/api/beers')
+        beers = json.dumps(r.json())
+    return beers
+
 
 
 @app.route('/tests', methods=['GET'])
